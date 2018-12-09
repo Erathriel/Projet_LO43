@@ -1,26 +1,148 @@
 @startuml
-
-abstract class AbstractList
-abstract AbstractCollection
-interface List
-interface Collection
-
-List <|-- AbstractList
-Collection <|-- AbstractCollection
-
-Collection <|- List
-AbstractCollection <|- AbstractList
-AbstractList <|-- ArrayList
-
-class ArrayList {
-Object[] elementData
-size()
+'Classe
+class Plateau {
+- nbTuile : int
++ getPlateau() : Plateau
++ setPlateau() : void
 }
-
-enum TimeUnit {
-DAYS
-HOURS
-MINUTES
+class Tuile {
+- nbCase : int
+- id : int
+- tuileAccessible : Tuile []
++ getTuile() : Tuile
++ setTuile() : void
++ getId() : int
++ setId() : int
++ getTuileAccessible() : Tuile []
++ setTuileAccessible() : void
 }
+class Case{
+- idTuile : int
+- passable : boolean
+- coordX : int
+- coordY : int
++ isPassable() : boolean
++ getCoordX() : int
++ getCoordY() : int
++ getIdTuile() : int
++ setIdTuile() : int
+}
+abstract class ElemCase {
+- image : Image
+- MaCase : Case
++ getImage() : Image
++ setImage() : void
++ getMaCase() : Case
++setMaCase() : void
+}
+class Mur
+class Porte {
+- verrouiller : boolean
++ getVerrouiller() : boolean
++ setVerrouiller() : void
+}
+class Objectif {
+- activer : boolean
+- expRapporte : int
++ setActiver() : void
++ getActiver() : boolean
++ getExpRapporte() : int
+}
+class MachineCafe
+abstract class Personnage {
+- pv : int
+- pa :int
+- nom : String
+- jouable : boolean
++ getPv() : int
++ setPv() : void
++ getPa() : int
++ setPa() : void
++ getName() : String
++ getJouable() : boolean
++ setJouable() : void
+'Attaque'
++ valider() : void
++ deplacement() : void
++ reinitPa () : void
++ passer() : void
+}
+class Prof {
+ - exp : int
+ + fouiller() : void
+ + ouvrirPorte() : void
+ + modifInventaire() : void
+ + activerObjectif() : void
+}
+class Etudiant {
+- nbDemandeValidation : int
+- typeUV : String []
+- expRapporte : int
+}
+interface Specialite
+class Inventaire {
+- capacite : int
+- nbObjetActuel : int
++ getnbObjetActuel() : int
++ setObjetActuel() : void
++ suppressionInventaire() : void
+}
+class Objet {
+- nom : String
+- emplacement : int
++ getNom() : String
++ setEmplacement() : void
++ getEmplacement() : int
+}
+class Cle
+class OutilValidation {
+- portee : int
+- nbUVVal : int
+- nbActivation : int
+- nbTentative : int
+- typeUV : String []
++ setNbActivation() : void
++ getNbActivation() : int
 
+}
+abstract class Carte {
+- Intitule : String
++ getIntitule() : String
+}
+class CarteEtudiante {
+- malchance : int
++ apparition() : void
+}
+class PileCarte {
++ remplir() : void
++ pioche() : Carte
+}
+class Partie {
+- tourActuel : int
++ getTourActuel() : int
++ setTourActuel() : void
+}
+' Relation
+Plateau "1" *-- "1-*" Tuile
+Tuile "1" *-- "1-*" Case
+Case "1" o-- "0-*" ElemCase
+ElemCase <|-- Mur
+ElemCase <|-- Objectif
+ElemCase <|-- MachineCafe
+ElemCase <|-- Personnage
+Mur <|-- Porte
+Personnage <|-- Etudiant
+Personnage <|-- Prof
+Prof "1" -- "1" Inventaire
+Inventaire o-- Objet
+Objet <|-- Cle
+Objet <|-- OutilValidation
+Carte <|-- Objet
+Carte <|-- CarteEtudiante
+PileCarte "1" *-- "0-*" Carte
+Partie "1" o-- "1-*" Personnage
+Partie "1" -- "1" Plateau
+Prof "1" -- "1" Specialite
+Partie "1" -- "1" PileCarte
+Partie "1" o-- "0-*" Objectif
 @enduml
