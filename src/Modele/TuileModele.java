@@ -3,7 +3,13 @@ package Modele;
 public class TuileModele {
     private int id;
     private int nbCase;
-    //private Tuile tuileAccessible;
+    private TuileModele[] tuileAccessible;
+
+    public TuileModele(int id, int nbCase, TuileModele[] tuileAccessible) {
+        this.id = id;
+        this.nbCase = nbCase;
+        this.tuileAccessible = tuileAccessible;
+    }
 
 
     public int getNbCase() {
