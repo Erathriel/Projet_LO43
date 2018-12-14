@@ -1,128 +1,159 @@
 @startuml
 'Classe
-class Plateau {
-- nbTuile : int
-+ getPlateau() : Plateau
-+ setPlateau() : void
-}
-class Tuile {
-- nbCase : int
-- id : int
-- tuileAccessible : Tuile []
-+ getTuile() : Tuile
-+ setTuile() : void
-+ getId() : int
-+ setId() : int
-+ getTuileAccessible() : Tuile []
-+ setTuileAccessible() : void
-}
-class Case{
-- idTuile : int
-- passable : boolean
-- coordX : int
-- coordY : int
-+ isPassable() : boolean
-+ getCoordX() : int
-+ getCoordY() : int
-+ getIdTuile() : int
-+ setIdTuile() : int
-}
-abstract class ElemCase {
-- image : Image
-- MaCase : Case
-+ getImage() : Image
-+ setImage() : void
-+ getMaCase() : Case
-+setMaCase() : void
-}
-class Mur
-class Porte {
-- verrouiller : boolean
-+ getVerrouiller() : boolean
-+ setVerrouiller() : void
-}
-class Objectif {
-- activer : boolean
-- expRapporte : int
-+ setActiver() : void
-+ getActiver() : boolean
-+ getExpRapporte() : int
-}
-class MachineCafe
-abstract class Personnage {
-- pv : int
-- pa :int
-- nom : String
-- jouable : boolean
-+ getPv() : int
-+ setPv() : void
-+ getPa() : int
-+ setPa() : void
-+ getName() : String
-+ getJouable() : boolean
-+ setJouable() : void
-'Attaque'
-+ valider() : void
-+ deplacement() : void
-+ reinitPa () : void
-+ passer() : void
-}
-class Prof {
- - exp : int
- + fouiller() : void
- + ouvrirPorte() : void
- + modifInventaire() : void
- + activerObjectif() : void
-}
-class Etudiant {
-- nbDemandeValidation : int
-- typeUV : String []
-- expRapporte : int
-}
-interface Specialite
-class Inventaire {
-- capacite : int
-- nbObjetActuel : int
-+ getnbObjetActuel() : int
-+ setObjetActuel() : void
-+ suppressionInventaire() : void
-}
-class Objet {
-- nom : String
-- emplacement : int
-+ getNom() : String
-+ setEmplacement() : void
-+ getEmplacement() : int
-}
-class Cle
-class OutilValidation {
-- portee : int
-- nbUVVal : int
-- nbActivation : int
-- nbTentative : int
-- typeUV : String []
-+ setNbActivation() : void
-+ getNbActivation() : int
 
+Package  "Modele" <<Frame>> #A4A4A4 {
+    class Plateau {
+    - nbTuile : int
+    + getPlateau() : Plateau
+    + setPlateau() : void
+    }
+    class Tuile {
+    - nbCase : int
+    - id : int
+    - tuileAccessible : Tuile []
+    + getTuile() : Tuile
+    + setTuile() : void
+    + getId() : int
+    + setId() : int
+    + getTuileAccessible() : Tuile []
+    + setTuileAccessible() : void
+    }
+    class Case{
+    - idTuile : int
+    - passable : boolean
+    - coordX : int
+    - coordY : int
+    + isPassable() : boolean
+    + getCoordX() : int
+    + getCoordY() : int
+    + getIdTuile() : int
+    + setIdTuile() : int
+    }
+    abstract class ElemCase {
+    - image : Image
+    - MaCase : Case
+    + getImage() : Image
+    + setImage() : void
+    + getMaCase() : Case
+    +setMaCase() : void
+    }
+    class Mur
+    class Porte {
+    - verrouiller : boolean
+    + getVerrouiller() : boolean
+    + setVerrouiller() : void
+    }
+    class Objectif {
+    - activer : boolean
+    - expRapporte : int
+    + setActiver() : void
+    + getActiver() : boolean
+    + getExpRapporte() : int
+    }
+    class MachineCafe
+    abstract class Personnage {
+    - pv : int
+    - pa :int
+    - nom : String
+    - jouable : boolean
+    + getPv() : int
+    + setPv() : void
+    + getPa() : int
+    + setPa() : void
+    + getName() : String
+    + getJouable() : boolean
+    + setJouable() : void
+    'Attaque'
+    + valider() : void
+    + deplacement() : void
+    + reinitPa () : void
+    + passer() : void
+    }
+    class Prof {
+     - exp : int
+     + fouiller() : void
+     + ouvrirPorte() : void
+     + modifInventaire() : void
+     + activerObjectif() : void
+    }
+    class Etudiant {
+    - nbDemandeValidation : int
+    - typeUV : String []
+    - expRapporte : int
+    }
+    interface Specialite
+    class Inventaire {
+    - capacite : int
+    - nbObjetActuel : int
+    + getnbObjetActuel() : int
+    + setObjetActuel() : void
+    + suppressionInventaire() : void
+    }
+    class Objet {
+    - nom : String
+    - emplacement : int
+    + getNom() : String
+    + setEmplacement() : void
+    + getEmplacement() : int
+    }
+    class Cle
+    class OutilValidation {
+    - portee : int
+    - nbUVVal : int
+    - nbActivation : int
+    - nbTentative : int
+    - typeUV : String []
+    + setNbActivation() : void
+    + getNbActivation() : int
+
+    }
+    abstract class Carte {
+    - Intitule : String
+    + getIntitule() : String
+    }
+    class CarteEtudiante {
+    - malchance : int
+    + apparition() : void
+    }
+    class PileCarte {
+    + remplir() : void
+    + pioche() : Carte
+    }
 }
-abstract class Carte {
-- Intitule : String
-+ getIntitule() : String
+Package "Controleur" <<Frame>> #6E6E6E {
+    class Partie {
+    - tourActuel : int
+    + getTourActuel() : int
+    + setTourActuel() : void
+    }
+    class MenuCon {
+
+    }
 }
-class CarteEtudiante {
-- malchance : int
-+ apparition() : void
-}
-class PileCarte {
-+ remplir() : void
-+ pioche() : Carte
-}
-class Partie {
-- tourActuel : int
-+ getTourActuel() : int
-+ setTourActuel() : void
+Package "Vue" <<Frame>> #D8D8D8 {
+    class MenuFen
+    class MenuPane
+    class MenuJButton
+    class InstructionFen
+    class InstructionPane
+    class InstructionJRadioButton
+    class GameFen
+    class GamePaneJoueur
+    class GamePaneAction
+    class GamePaneInfo
+    class GameGridBorderLayout
 }
 ' Relation
+MenuFen "1" -- "1" MenuPane
+MenuPane "1" -- "3" MenuJButton
+InstructionFen "1" -- "1" InstructionPane
+InstructionPane "1" -- "1" InstructionJRadioButton
+GameFen "1" -- "1" GamePaneJoueur
+GameFen "1" -- "1" GamePaneAction
+GameFen "1" -- "1" GamePaneInfo
+GameFen "1" -- "1" GameGridBorderLayout
+MenuCon "1" -- "1" MenuFen
+GameFen "1" -- "1" Partie
 Plateau "1" *-- "1-*" Tuile
 Tuile "1" *-- "1-*" Case
 Case "1" o-- "0-*" ElemCase
