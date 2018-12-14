@@ -6,6 +6,7 @@ public class CaseModele {
     private int coordY;
     private boolean passable;
 
+    // Contructeur
     public CaseModele(int idTuile, int coordX, int coordY, boolean passable) {
         this.idTuile = idTuile;
         this.coordX = coordX;
@@ -13,6 +14,7 @@ public class CaseModele {
         this.passable = passable;
     }
 
+    // Getters et Setters
     public int getIdTuile() {
         return idTuile;
     }

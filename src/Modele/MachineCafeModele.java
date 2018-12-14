@@ -1,4 +1,10 @@
 package Modele;
 
-public class MachineCafeModele {
+import java.awt.*;
+
+public class MachineCafeModele extends ElemCaseModele{
+
+    public MachineCafeModele(Image image, CaseModele maCase) {
+        super(image, maCase);
+    }
 }
