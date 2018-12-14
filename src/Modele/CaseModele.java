@@ -1,10 +1,13 @@
 package Modele;
 
+import java.util.ArrayList;
+
 public class CaseModele {
     private int idTuile;
     private int coordX;
     private int coordY;
     private boolean passable;
+    private ArrayList<ElemCaseModele> compElemCase;
 
     // Contructeur
     public CaseModele(int idTuile, int coordX, int coordY, boolean passable) {
@@ -37,4 +40,13 @@ public class CaseModele {
     public void setPassable(boolean passable) {
         this.passable = passable;
     }
+
+    public ArrayList<ElemCaseModele> getCompElemCase() {
+        return compElemCase;
+    }
+
+    public void setCompElemCase(ArrayList<ElemCaseModele> compElemCase) {
+        this.compElemCase = compElemCase;
+    }
+
 }

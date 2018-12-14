@@ -1,8 +1,10 @@
 package Modele;
 
+import java.util.ArrayList;
+
 public class PileCarteModele {
     private int nbCarte;
-    private CarteModele[] cartes;
+    private ArrayList<CarteModele> listeCarte;
 
     // Constructeur
     public PileCarteModele() {
@@ -17,12 +19,11 @@ public class PileCarteModele {
         this.nbCarte = nbCarte;
     }
 
-    public CarteModele[] getCartes() {
-        return cartes;
+    public ArrayList<CarteModele> getListeCarte() {
+        return listeCarte;
     }
 
-    public void setCartes(CarteModele[] cartes) {
-        this.cartes = cartes;
+    public void setListeCarte(ArrayList<CarteModele> listeCarte) {
+        this.listeCarte = listeCarte;
     }
-
 }

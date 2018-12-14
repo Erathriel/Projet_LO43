@@ -1,9 +1,12 @@
 package Modele;
 
+import java.util.ArrayList;
+
 public class TuileModele {
     private int id;
     private int nbCase;
     private TuileModele[] tuileAccessible;
+    private ArrayList<CaseModele> compCase;
 
     // Contructeur
     public TuileModele(int id, int nbCase, TuileModele[] tuileAccessible) {
@@ -35,5 +38,14 @@ public class TuileModele {
     public void setTuileAccessible(TuileModele[] tuileAccessible) {
         this.tuileAccessible = tuileAccessible;
     }
+
+    public ArrayList<CaseModele> getCompCase() {
+        return compCase;
+    }
+
+    public void setCompCase(ArrayList<CaseModele> compCase) {
+        this.compCase = compCase;
+    }
+
 
 }
