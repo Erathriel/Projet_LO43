@@ -26,4 +26,5 @@ public class PileCarteModele {
     public void setListeCarte(ArrayList<CarteModele> listeCarte) {
         this.listeCarte = listeCarte;
     }
+
 }

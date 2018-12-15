@@ -1,6 +1,7 @@
 package Modele;
 
 import java.awt.*;
+import java.util.ArrayList;
 
 public class EtudiantModele extends PersonnageModele {
     private int nbDemandeValidation;
@@ -14,15 +15,34 @@ public class EtudiantModele extends PersonnageModele {
         this.typeUV=typeUV;
         this.expRapporte=expRapporte;
     }
-    public boolean isValider(){
-        if(this.getPv()<=0)
+    public void valider(ArrayList<PersonnageModele> per)
+    {
+        int parcours=0;
+        while(parcours<per.size())
         {
-            return true;
+            if(per.get(parcours) instanceof ProfModele) {
+                System.out.println("dégat Prof");
+                   per.get(parcours).setPv(per.get(parcours).getPv() - this.getNbDemandeValidation());
+                   parcours++ ;
+
+
+                }
+            else{
+                parcours++;
+            }
         }
-        else {
-            return false;
+        for (int i=0;i<per.size();i++) {
+            if(per.get(i) instanceof ProfModele)
+            {
+                if( per.get(i).isValider())
+                {
+                    per.remove(i);
+                }
+            }
         }
     }
+
+
 
     public int getNbDemandeValidation() {
         return nbDemandeValidation;

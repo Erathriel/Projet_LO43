@@ -22,6 +22,15 @@ public abstract class PersonnageModele extends ElemCaseModele {
     public void valider(){
 
     }
+    public boolean isValider(){
+        if(this.getPv()<=0)
+        {
+            return true;
+        }
+        else {
+            return false;
+        }
+    }
 
     public void deplacement(){
 

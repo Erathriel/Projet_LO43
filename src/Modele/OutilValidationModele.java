@@ -5,16 +5,18 @@ public class OutilValidationModele extends ObjetModele {
     private int nbUVVal;
     private int nbActivation;
     private int nbTentative;
+    private int tauxDeReussite;
     private String[] typeUV;
 
     // Constructeur
-    public OutilValidationModele(String intitule, String nom, int emplacement, int portee, int nbUVVal, int nbActivation, int nbTentative,String [] typeUV) {
+    public OutilValidationModele(String intitule, String nom, int emplacement, int portee, int nbUVVal, int nbActivation, int nbTentative,String [] typeUV,int tauxDeReussite) {
         super(intitule, nom, emplacement);
         this.portee=portee;
         this.nbUVVal=nbUVVal;
         this.nbActivation=nbActivation;
         this.nbTentative=nbTentative;
         this.typeUV=typeUV;
+        this.tauxDeReussite=tauxDeReussite;
     }
 
     // Getters et Setters
@@ -44,5 +46,6 @@ public class OutilValidationModele extends ObjetModele {
     public String[] getTypeUV() {
         return typeUV;
     }
+    public int getTauxDeReussite(){return this.tauxDeReussite;}
 
 }
