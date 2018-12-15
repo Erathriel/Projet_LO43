@@ -8,12 +8,13 @@ public class OutilValidationModele extends ObjetModele {
     private String[] typeUV;
 
     // Constructeur
-    public OutilValidationModele(String intitule, String nom, int emplacement, int portee, int nbUVVal, int nbActivation, int nbTentative) {
+    public OutilValidationModele(String intitule, String nom, int emplacement, int portee, int nbUVVal, int nbActivation, int nbTentative,String [] typeUV) {
         super(intitule, nom, emplacement);
         this.portee=portee;
         this.nbUVVal=nbUVVal;
         this.nbActivation=nbActivation;
         this.nbTentative=nbTentative;
+        this.typeUV=typeUV;
     }
 
     // Getters et Setters

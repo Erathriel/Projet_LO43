@@ -14,6 +14,15 @@ public class EtudiantModele extends PersonnageModele {
         this.typeUV=typeUV;
         this.expRapporte=expRapporte;
     }
+    public boolean isValider(){
+        if(this.getPv()<=0)
+        {
+            return true;
+        }
+        else {
+            return false;
+        }
+    }
 
     public int getNbDemandeValidation() {
         return nbDemandeValidation;

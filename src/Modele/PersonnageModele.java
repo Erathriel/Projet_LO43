@@ -28,11 +28,11 @@ public abstract class PersonnageModele extends ElemCaseModele {
     }
 
     public void reinitPa(){
-
+        this.setPa(3);
     }
 
     public void passer(){
-
+        this.setPa(0);
     }
 
     // Getters et Setters
