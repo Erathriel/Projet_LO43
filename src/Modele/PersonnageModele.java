@@ -42,7 +42,7 @@ public abstract class PersonnageModele extends ElemCaseModele {
 
     public void passer(){
         this.setPa(0);
-    }
+    } // A modifier plus tard avec un bouton je pense
 
     // Getters et Setters
     public int getPv() {

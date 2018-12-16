@@ -95,8 +95,20 @@ public class ProfModele extends PersonnageModele implements SpecialiteModele{
         p.setNbCarte(p.getNbCarte()-1);
     }
 
-    public void ouvriPorte(){
-
+    public void ouvriPorte(PorteModele porte){
+        // Teste si l'un des 2 premiers elements de l'inventaire est une clé si c'est le cas on deverrouille la porte et supprime la cle
+        if (inventaire.getContenuInventaire().get(1) instanceof CleModele || inventaire.getContenuInventaire().get(2) instanceof CleModele){
+            porte.setVerrouiller(false);
+            if (inventaire.getContenuInventaire().get(1) instanceof CleModele){
+                this.inventaire.suppressionObjet(1);
+            }
+            else {
+                this.inventaire.suppressionObjet(2);
+            }
+        }
+        else {
+            System.out.println("Action impossible");
+        }
     }
 
     public void modifInventaire(int indexDépart,int indexArriv){
