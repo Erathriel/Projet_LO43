@@ -15,6 +15,7 @@ public class CaseModele {
         this.coordX = coordX;
         this.coordY = coordY;
         this.passable = passable;
+        this.compElemCase=new ArrayList<ElemCaseModele>();
     }
 
     // Getters et Setters

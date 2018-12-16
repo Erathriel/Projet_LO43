@@ -16,45 +16,45 @@ public class ProfModele extends PersonnageModele implements SpecialiteModele{
 
 
     // Methodes
-    public void valider(ArrayList<PersonnageModele> per,int indexObjet){
+    public void valider(ArrayList<ElemCaseModele> per,int indexObjet){
         System.out.println("Nbr tentatives : "+((OutilValidationModele)this.inventaire.getContenuInventaire().get(indexObjet)).getNbTentative());
         int nbValidation=1,parcours=0,lancerDé;
         boolean validationPossible=false;
         while(nbValidation <= ((OutilValidationModele)this.inventaire.getContenuInventaire().get(indexObjet)).getNbTentative() && parcours<per.size())
         {
-            if(per.get(parcours) instanceof EtudiantModele) {
-                for (String type : ((OutilValidationModele)this.inventaire.getContenuInventaire().get(indexObjet)).getTypeUV()){
-                    for (String typeE: ((EtudiantModele)per.get(parcours)).getTypeUV()
-                         ) {
-                        if (typeE.compareTo(type)==0) {
-                            validationPossible = true;
+            if(per.get(parcours) instanceof PersonnageModele) {
+                if (per.get(parcours) instanceof EtudiantModele) {
+                    for (String type : ((OutilValidationModele) this.inventaire.getContenuInventaire().get(indexObjet)).getTypeUV()) {
+                        for (String typeE : ((EtudiantModele) per.get(parcours)).getTypeUV()
+                        ) {
+                            if (typeE.compareTo(type) == 0) {
+                                validationPossible = true;
+                            }
                         }
                     }
-                }
 
-                if(validationPossible) {
-                    lancerDé=(int)(Math.random()*(7));
-                    System.out.print(lancerDé+" Lancer numéro : "+nbValidation+"  " );
-                    if(lancerDé>=((OutilValidationModele)this.inventaire.getContenuInventaire().get(indexObjet)).getTauxDeReussite()) {
-                        per.get(parcours).setPv(per.get(parcours).getPv() - ((OutilValidationModele) this.inventaire.getContenuInventaire().get(indexObjet)).getNbUVVal());
-                        nbValidation ++;
-                        if (((EtudiantModele) per.get(parcours)).isValider()) {
-                            this.setExp(this.getExp() + ((EtudiantModele) per.get(parcours)).getExpRapporte());
-                            parcours++ ;
+                    if (validationPossible) {
+                        lancerDé = (int) (Math.random() * (7));
+                        System.out.print(lancerDé + " Lancer numéro : " + nbValidation + "  ");
+                        if (lancerDé >= ((OutilValidationModele) this.inventaire.getContenuInventaire().get(indexObjet)).getTauxDeReussite()) {
+                            ((PersonnageModele)per.get(parcours)).setPv(((PersonnageModele)per.get(parcours)).getPv() - ((OutilValidationModele) this.inventaire.getContenuInventaire().get(indexObjet)).getNbUVVal());
+                            nbValidation++;
+                            if (((EtudiantModele) per.get(parcours)).isValider()) {
+                                this.setExp(this.getExp() + ((EtudiantModele) per.get(parcours)).getExpRapporte());
+                                parcours++;
+                            }
+                        } else {
+                            nbValidation++;
                         }
+                    } else {
+                        parcours++;
                     }
-                    else
-                    {
-                        nbValidation++;
-                    }
-                }
-                else
-                {
+                } else {
                     parcours++;
                 }
             }
-            else{
-              parcours++;
+                else{
+                    parcours++;
             }
         }
         for (int i=0;i<per.size();i++) {
@@ -89,7 +89,8 @@ public class ProfModele extends PersonnageModele implements SpecialiteModele{
         }
         else
         {
-
+            System.out.println(c.getIntitule());
+            ((CarteEtudianteModele)c).apparition(this.getMaCase(),this.getExp());
         }
         p.setNbCarte(p.getNbCarte()-1);
     }
@@ -130,7 +131,7 @@ public class ProfModele extends PersonnageModele implements SpecialiteModele{
         PileCarteModele pile= new PileCarteModele();
         String tab[]={"CS","HUMA"};
         String tab3[]={"TM"};
-        ProfModele p = new ProfModele(null,null,10,1,"Jean",true,0);
+        ProfModele p = new ProfModele(null,null,10,1,"Jean",true,1);
         EtudiantModele e= new EtudiantModele(null,null,5,2,"etu1",true,2,tab,2);
         OutilValidationModele o= new OutilValidationModele("Tampon","Tampon Ultime 1",0,0,2,3,2,tab3,3);
         p.getInventaire().getContenuInventaire().add(o);
@@ -147,31 +148,48 @@ public class ProfModele extends PersonnageModele implements SpecialiteModele{
         pile.getListeCarte().add(o6);
         OutilValidationModele o7= new OutilValidationModele("Tampon","Tampon Ultime 7",0,0,2,3,3,tab,3);
         pile.getListeCarte().add(o7);
+        pile.getListeCarte().add(new CarteEtudianteModele("Carte moyenne",2));
+        pile.getListeCarte().add(new CarteEtudianteModele("Carte moyenne",2));
+        CaseModele case1=new CaseModele(0,0,0,true);
         for (String s:o.getTypeUV()
              ) {
                 System.out.println(s);
 
         }
-        ArrayList<PersonnageModele> tab2=new ArrayList<PersonnageModele>();
+        ArrayList<ElemCaseModele> tab2=new ArrayList<ElemCaseModele>();
         tab2.add(p);
         tab2.add(e);
         tab2.add(e2);
+        case1.setCompElemCase(tab2);
         p.valider(tab2,0);
         for (int i = 0; i < tab2.size(); i++) {
             if(tab2.get(i) instanceof EtudiantModele){
                 ((EtudiantModele)tab2.get(i)).valider(tab2);
             }
-            System.out.println(tab2.get(i).getPv()+" "+tab2.get(i).getNom());
+            if(tab2.get(i) instanceof  PersonnageModele) {System.out.println(((PersonnageModele)tab2.get(i)).getPv()+" "+((PersonnageModele)tab2.get(i)).getNom());}
+
         }
         p.modifInventaire(0,1);
         p.valider(tab2,0);
         System.out.println("2nd attaque");
-        for (PersonnageModele a: tab2
+        for (ElemCaseModele a: tab2
         ) {
-            System.out.println(a.getPv()+" "+a.getNom());
+
+            if(a instanceof  PersonnageModele) {System.out.println(((PersonnageModele)a).getPv()+" "+((PersonnageModele)a).getNom());}
 
         }
+        System.out.println(pile.getListeCarte().size());
+        p.setMaCase(case1);
         p.fouiller(pile);
         p.fouiller(pile);
+        p.fouiller(pile);
+        p.setExp(50);
+        System.out.println("3eme attaque : "+p.getExp()/25);
+        for (ElemCaseModele a: tab2
+        ) {
+
+               if(a instanceof  PersonnageModele) {System.out.println(((PersonnageModele)a).getPv()+" "+((PersonnageModele)a).getNom());}
+
+        }
     }
 }
