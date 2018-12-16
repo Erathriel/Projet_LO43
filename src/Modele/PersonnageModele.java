@@ -76,4 +76,14 @@ public abstract class PersonnageModele extends ElemCaseModele {
     public void setJouable(boolean jouable) {
         this.jouable = jouable;
     }
+
+    @Override
+    public String toString() {
+        return "PersonnageModele{" +
+                "pv=" + pv +
+                ", pa=" + pa +
+                ", nom='" + nom + '\'' +
+                ", jouable=" + jouable +
+                '}';
+    }
 }

@@ -28,4 +28,12 @@ public abstract class ElemCaseModele {
     public void setMaCase(CaseModele maCase) {
         MaCase = maCase;
     }
+
+    @Override
+    public String toString() {
+        return "ElemCaseModele{" +
+                "image=" + image +
+                ", MaCase=" + MaCase +
+                '}';
+    }
 }

@@ -13,4 +13,10 @@ public abstract class CarteModele {
         return intitule;
     }
 
+    @Override
+    public String toString() {
+        return "CarteModele{" +
+                "intitule='" + intitule + '\'' +
+                '}';
+    }
 }

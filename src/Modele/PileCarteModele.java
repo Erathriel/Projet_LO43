@@ -28,4 +28,11 @@ public class PileCarteModele {
         this.listeCarte = listeCarte;
     }
 
+    @Override
+    public String toString() {
+        return "PileCarteModele{" +
+                "nbCarte=" + nbCarte +
+                ", listeCarte=" + listeCarte +
+                '}';
+    }
 }

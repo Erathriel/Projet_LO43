@@ -1,6 +1,7 @@
 package Modele;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 
 public class TuileModele {
     private int id;
@@ -48,4 +49,13 @@ public class TuileModele {
     }
 
 
+    @Override
+    public String toString() {
+        return "TuileModele{" +
+                "id=" + id +
+                ", nbCase=" + nbCase +
+                ", tuileAccessible=" + Arrays.toString(tuileAccessible) +
+                ", compCase=" + compCase +
+                '}';
+    }
 }

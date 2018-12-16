@@ -50,4 +50,14 @@ public class CaseModele {
         this.compElemCase = compElemCase;
     }
 
+    @Override
+    public String toString() {
+        return "CaseModele{" +
+                "idTuile=" + idTuile +
+                ", coordX=" + coordX +
+                ", coordY=" + coordY +
+                ", passable=" + passable +
+                ", compElemCase=" + compElemCase +
+                '}';
+    }
 }

@@ -29,4 +29,11 @@ public class PlateauModele {
         this.compTuile = compTuile;
     }
 
+    @Override
+    public String toString() {
+        return "PlateauModele{" +
+                "nbTuile=" + nbTuile +
+                ", compTuile=" + compTuile +
+                '}';
+    }
 }

@@ -19,4 +19,11 @@ public class PorteModele extends MurModele {
     public void setVerrouiller(boolean verrouiller) {
         this.verrouiller = verrouiller;
     }
+
+    @Override
+    public String toString() {
+        return "PorteModele{" +
+                "verrouiller=" + verrouiller +
+                '}';
+    }
 }

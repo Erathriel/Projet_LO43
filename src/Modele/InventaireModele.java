@@ -37,4 +37,12 @@ public class InventaireModele {
         return this.contenuInventaire;
     }
 
+    @Override
+    public String toString() {
+        return "InventaireModele{" +
+                "capacite=" + capacite +
+                ", nbObjetActuel=" + nbObjetActuel +
+                ", contenuInventaire=" + contenuInventaire +
+                '}';
+    }
 }

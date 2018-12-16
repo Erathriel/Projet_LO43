@@ -204,4 +204,12 @@ public class ProfModele extends PersonnageModele implements SpecialiteModele{
 
         }
     }
+
+    @Override
+    public String toString() {
+        return "ProfModele{" +
+                "exp=" + exp +
+                ", inventaire=" + inventaire +
+                '}';
+    }
 }

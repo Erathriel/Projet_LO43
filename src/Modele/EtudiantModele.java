@@ -2,6 +2,7 @@ package Modele;
 
 import java.awt.*;
 import java.util.ArrayList;
+import java.util.Arrays;
 
 public class EtudiantModele extends PersonnageModele {
     private int nbDemandeValidation;
@@ -70,5 +71,14 @@ public class EtudiantModele extends PersonnageModele {
 
     public void setExpRapporte(int expRapporte) {
         this.expRapporte = expRapporte;
+    }
+
+    @Override
+    public String toString() {
+        return "EtudiantModele{" +
+                "nbDemandeValidation=" + nbDemandeValidation +
+                ", typeUV=" + Arrays.toString(typeUV) +
+                ", expRapporte=" + expRapporte +
+                '}';
     }
 }

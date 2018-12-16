@@ -1,5 +1,7 @@
 package Modele;
 
+import java.util.Arrays;
+
 public class OutilValidationModele extends ObjetModele {
     private int portee;
     private int nbUVVal;
@@ -48,4 +50,15 @@ public class OutilValidationModele extends ObjetModele {
     }
     public int getTauxDeReussite(){return this.tauxDeReussite;}
 
+    @Override
+    public String toString() {
+        return "OutilValidationModele{" +
+                "portee=" + portee +
+                ", nbUVVal=" + nbUVVal +
+                ", nbActivation=" + nbActivation +
+                ", nbTentative=" + nbTentative +
+                ", tauxDeReussite=" + tauxDeReussite +
+                ", typeUV=" + Arrays.toString(typeUV) +
+                '}';
+    }
 }

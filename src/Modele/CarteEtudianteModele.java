@@ -99,4 +99,11 @@ public class CarteEtudianteModele extends CarteModele {
 
         }
     }
+
+    @Override
+    public String toString() {
+        return "CarteEtudianteModele{" +
+                "malchance=" + malchance +
+                '}';
+    }
 }

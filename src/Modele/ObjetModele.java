@@ -24,4 +24,11 @@ public class ObjetModele extends CarteModele{
         return nom;
     }
 
+    @Override
+    public String toString() {
+        return "ObjetModele{" +
+                "nom='" + nom + '\'' +
+                ", emplacement=" + emplacement +
+                '}';
+    }
 }

@@ -53,4 +53,12 @@ public class PartieModele {
         this.listeObjectif = listeObjectif;
     }
 
+    @Override
+    public String toString() {
+        return "PartieModele{" +
+                "tourActuel=" + tourActuel +
+                ", listePerso=" + listePerso +
+                ", listeObjectif=" + listeObjectif +
+                '}';
+    }
 }
