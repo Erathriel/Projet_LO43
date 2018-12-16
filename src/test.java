@@ -3,41 +3,12 @@ import java.util.Arrays;
 
 
 public class test {
-    public static void main(String[] args) {
-        // Prints "Hello, World" to the terminal window.
-        //System.out.println("Hello, World");
-        /*try{
-            int c;
-            char car;
-            String map = "C:\\Users\\Geoffrey\\Desktop\\Cours\\Projet_LO43\\maps\\mapTest.txt";
-            File ips = new File(map);
-            FileReader ipsr = new FileReader(ips);
-            BufferedReader br = new BufferedReader(ipsr);
-            StringBuffer ligne = new StringBuffer();
-            while ((c = br.read()) != -1) {
-                car = (char) br.read();
-                c = c + 1;
-                System.out.println("Le caractère est : " + c);
-                ligne.append(car);
-                if (car == '\n') {
-                    System.out.println(ligne);
-                    ligne.delete(0, ligne.length());
-                }
-            }
-            if (ligne.length() != 0)
-                System.out.println(ligne);
-
-
-            br.close();
-        }
-        catch (Exception e){
-            System.out.println(e.toString());
-        }*/
+    public static void affichageMapConsole(String name){
         FileInputStream fis = null;
         BufferedInputStream bis = null;
-        String map = "maps\\mapTest.txt";
-        System.out.println(map);
-        File file = new File(map);
+        //String map = "maps\\mapTest.txt";
+        //System.out.println(map);
+        File file = new File(name);
         System.out.println(file.getAbsoluteFile());
         try {
             fis = new FileInputStream(file.getAbsoluteFile());
@@ -56,5 +27,8 @@ public class test {
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+    public static void main(String[] args) {
+        affichageMapConsole("maps\\mapTest.txt");
     }
 }
