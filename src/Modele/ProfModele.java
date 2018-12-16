@@ -1,5 +1,6 @@
 package Modele;
 
+import javax.swing.*;
 import java.awt.*;
 import java.util.ArrayList;
 
@@ -70,6 +71,7 @@ public class ProfModele extends PersonnageModele implements SpecialiteModele{
 
     public void fouiller(PileCarteModele p){
         int card = (int) Math.random()*(p.getListeCarte().size());
+        System.out.println(card);
        CarteModele c =p.getListeCarte().get(card);
        p.getListeCarte().remove(card);
         if(c instanceof ObjetModele) {
@@ -77,13 +79,19 @@ public class ProfModele extends PersonnageModele implements SpecialiteModele{
                 this.inventaire.getContenuInventaire().add(((ObjetModele)c));
             }
             else{
-
+                String tab[]={this.inventaire.getContenuInventaire().get(0).getNom(),this.inventaire.getContenuInventaire().get(1).getNom(),this.inventaire.getContenuInventaire().get(2).getNom(),this.inventaire.getContenuInventaire().get(3).getNom(),this.inventaire.getContenuInventaire().get(4).getNom
+                        (),"Aucun"};
+                    int rang = JOptionPane.showOptionDialog(null, "Choix de l'objet à remplacer", "Objet piocher : " + ((ObjetModele) c).getNom(), JOptionPane.DEFAULT_OPTION, 0, null,tab,tab[0]);
+                      if(rang<5){
+                        this.inventaire.getContenuInventaire().set(rang,(ObjetModele)c);
+                      }
             }
         }
         else
         {
 
         }
+        p.setNbCarte(p.getNbCarte()-1);
     }
 
     public void ouvriPorte(){
@@ -119,14 +127,26 @@ public class ProfModele extends PersonnageModele implements SpecialiteModele{
         return this.inventaire;
     }
     public static void main(String args[]){
+        PileCarteModele pile= new PileCarteModele();
         String tab[]={"CS","HUMA"};
+        String tab3[]={"TM"};
         ProfModele p = new ProfModele(null,null,10,1,"Jean",true,0);
         EtudiantModele e= new EtudiantModele(null,null,5,2,"etu1",true,2,tab,2);
-        OutilValidationModele o= new OutilValidationModele("Tampon","Tampon Ultime",0,0,2,3,2,tab,3);
+        OutilValidationModele o= new OutilValidationModele("Tampon","Tampon Ultime 1",0,0,2,3,2,tab3,3);
         p.getInventaire().getContenuInventaire().add(o);
         EtudiantModele e2= new EtudiantModele(null,null,5,2,"etu2",true,2,tab,2);
-        OutilValidationModele o2= new OutilValidationModele("Tampon","Tampon Ultime",0,0,2,3,3,tab,3);
+        OutilValidationModele o2= new OutilValidationModele("Tampon","Tampon Ultime 2",0,0,2,3,3,tab,3);
         p.getInventaire().getContenuInventaire().add(o2);
+        OutilValidationModele o3= new OutilValidationModele("Tampon","Tampon Ultime 3",0,0,2,3,3,tab,3);
+        p.getInventaire().getContenuInventaire().add(o3);
+        OutilValidationModele o4= new OutilValidationModele("Tampon","Tampon Ultime 4",0,0,2,3,3,tab,3);
+        p.getInventaire().getContenuInventaire().add(o4);
+        OutilValidationModele o5= new OutilValidationModele("Tampon","Tampon Ultime 5",0,0,2,3,3,tab,3);
+        p.getInventaire().getContenuInventaire().add(o5);
+        OutilValidationModele o6= new OutilValidationModele("Tampon","Tampon Ultime 6",0,0,2,3,3,tab,3);
+        pile.getListeCarte().add(o6);
+        OutilValidationModele o7= new OutilValidationModele("Tampon","Tampon Ultime 7",0,0,2,3,3,tab,3);
+        pile.getListeCarte().add(o7);
         for (String s:o.getTypeUV()
              ) {
                 System.out.println(s);
@@ -151,5 +171,7 @@ public class ProfModele extends PersonnageModele implements SpecialiteModele{
             System.out.println(a.getPv()+" "+a.getNom());
 
         }
+        p.fouiller(pile);
+        p.fouiller(pile);
     }
 }

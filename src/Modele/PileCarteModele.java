@@ -8,6 +8,7 @@ public class PileCarteModele {
 
     // Constructeur
     public PileCarteModele() {
+        this.listeCarte=new ArrayList<CarteModele>();
     }
 
     // Getters et Setters
