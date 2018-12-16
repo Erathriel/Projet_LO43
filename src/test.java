@@ -1,3 +1,5 @@
+import Modele.PartieModele;
+
 import java.io.*;
 import java.util.Arrays;
 
@@ -29,6 +31,9 @@ public class test {
         }
     }
     public static void main(String[] args) {
+        PartieModele partie;
+        partie = new PartieModele();
+        //partie.init();
         affichageMapConsole("maps\\mapTest.txt");
     }
 }

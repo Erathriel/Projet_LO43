@@ -97,13 +97,13 @@ public class ProfModele extends PersonnageModele implements SpecialiteModele{
 
     public void ouvriPorte(PorteModele porte){
         // Teste si l'un des 2 premiers elements de l'inventaire est une clé si c'est le cas on deverrouille la porte et supprime la cle
-        if (inventaire.getContenuInventaire().get(1) instanceof CleModele || inventaire.getContenuInventaire().get(2) instanceof CleModele){
+        if (inventaire.getContenuInventaire().get(0) instanceof CleModele || inventaire.getContenuInventaire().get(1) instanceof CleModele){
             porte.setVerrouiller(false);
             if (inventaire.getContenuInventaire().get(1) instanceof CleModele){
-                this.inventaire.suppressionObjet(1);
+                this.inventaire.suppressionObjet(0);
             }
             else {
-                this.inventaire.suppressionObjet(2);
+                this.inventaire.suppressionObjet(1);
             }
         }
         else {

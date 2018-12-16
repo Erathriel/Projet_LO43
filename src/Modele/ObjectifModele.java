@@ -28,4 +28,12 @@ public class ObjectifModele extends ElemCaseModele {
     public int getExpRapporte() {
         return expRapporte;
     }
+
+    @Override
+    public String toString() {
+        return "ObjectifModele{" +
+                "activer=" + activer +
+                ", expRapporte=" + expRapporte +
+                '}';
+    }
 }
