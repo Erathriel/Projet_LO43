@@ -1,6 +1,8 @@
-import Modele.PartieModele;
+import Modele.*;
 
+import java.awt.*;
 import java.io.*;
+import java.util.ArrayList;
 import java.util.Arrays;
 
 
@@ -33,7 +35,8 @@ public class test {
     public static void main(String[] args) {
         PartieModele partie;
         partie = new PartieModele();
-        //partie.init();
-        affichageMapConsole("maps\\mapTest.txt");
+        System.out.println(partie.toString());
+        //affichageMapConsole("maps\\mapTest.txt"); // windows
+        affichageMapConsole("maps/mapTest.txt"); // linux
     }
 }
