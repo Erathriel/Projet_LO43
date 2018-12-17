@@ -7,12 +7,14 @@ public class PartieModele {
     private int tourActuel;
     private ArrayList<PersonnageModele> listePerso;
     private ArrayList<ObjectifModele> listeObjectif;
+    private PileCarteModele pileCarte;
 
     // Contructeur
     public PartieModele() {
         this.tourActuel = 0;
         this.listeObjectif= null;
         this.listePerso=null;
+        this.pileCarte=null;
     }
 
     // Getters et Setters
@@ -38,6 +40,14 @@ public class PartieModele {
 
     public void setListeObjectif(ArrayList<ObjectifModele> listeObjectif) {
         this.listeObjectif = listeObjectif;
+    }
+
+    public PileCarteModele getPileCarte() {
+        return pileCarte;
+    }
+
+    public void setPileCarte(PileCarteModele pileCarte) {
+        this.pileCarte = pileCarte;
     }
 
     @Override

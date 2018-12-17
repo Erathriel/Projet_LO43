@@ -1,15 +1,19 @@
-import Controleur.PartieControlleur;
+package Vue;
+
 import Modele.*;
-import Vue.PartieVue;
 
-import java.awt.*;
 import java.io.*;
-import java.util.ArrayList;
-import java.util.Arrays;
 
+public class PartieVue {
+    private PartieModele mpartie;
 
-public class test {
-    public static void affichageMapConsole(String name){
+    // Constructeur
+    public PartieVue(PartieModele partie) {
+        this.mpartie = partie;
+    }
+
+    // Methodes
+    public void affichageMapConsole(String name){
         FileInputStream fis = null;
         BufferedInputStream bis = null;
         //String map = "maps\\mapTest.txt";
@@ -34,11 +38,15 @@ public class test {
             e.printStackTrace();
         }
     }
-    public static void main(String[] args) {
-        PartieModele mPartie = new PartieModele();
-        PartieVue vPartie = new PartieVue(mPartie);
-        PartieControlleur cPartie = new PartieControlleur(mPartie,vPartie);
-        //affichageMapConsole("maps\\mapTest.txt"); // windows
-        vPartie.affichageMapConsole("maps/mapTest.txt"); // linux
+
+    // Getters et Setters
+    public PartieModele getPartie() {
+        return mpartie;
     }
+
+    public void setPartie(PartieModele partie) {
+        this.mpartie = partie;
+    }
+
+
 }
