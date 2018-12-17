@@ -12,11 +12,8 @@ public class MenuFen extends JFrame {
         this.setExtendedState(JFrame.MAXIMIZED_BOTH);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         MenuPanel menuPanel = new MenuPanel();
-        menuPanel.add(new MenuJButton(new ImageIcon("C:/Users/cleme/OneDrive/Images/overlay1.png"),new ImageIcon("C:/Users/cleme/OneDrive/Images/overlay2.png")),0);
-        menuPanel.add(new MenuJButton(new ImageIcon("C:/Users/cleme/OneDrive/Images/overlay2.png"),new ImageIcon("C:/Users/cleme/OneDrive/Images/overlay1.png")),1);
-        menuPanel.add(new MenuJButton(new ImageIcon("C:/Users/cleme/OneDrive/Images/overlay1.png"),new ImageIcon("C:/Users/cleme/OneDrive/Images/overlay2.png")),2);
-        this.add(menuPanel);
         this.setVisible(true);
+        this.add(menuPanel);
     }
     public static void main(String args[]){
         MenuFen fen = new MenuFen();
