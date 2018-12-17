@@ -21,36 +21,31 @@ public class MenuPanel extends JPanel {
         gbc.gridy = 1;
         MenuJButton b1=new MenuJButton(new ImageIcon("C:/Users/cleme/OneDrive/Images/overlay1.png"),new ImageIcon("C:/Users/cleme/OneDrive/Images/overlay2.png"));
         this.add(b1,gbc);
-        gbc.gridx = 3;
         gbc.gridy = 2;
         JPanel J =new JPanel();
         J.setOpaque(false);
         J.setSize(100,100);
         this.add(J,gbc);
-        gbc.gridx = 3;
         gbc.gridy = 3;
         JPanel J2 =new JPanel();
         J2.setOpaque(false);
         J2.setSize(100,100);
         this.add(J2,gbc);
         MenuJButton b2=new MenuJButton(new ImageIcon("C:/Users/cleme/OneDrive/Images/overlay2.png"),new ImageIcon("C:/Users/cleme/OneDrive/Images/overlay1.png"));
-        gbc.gridx = 3;
         gbc.gridy = 4;
         this.add(b2,gbc);
-        gbc.gridx = 3;
         gbc.gridy = 5;
         JPanel J3 =new JPanel();
         J3.setOpaque(false);
         J3.setSize(100,100);
         this.add(J3,gbc);gbc.gridx = 3;
-        gbc.gridx = 3;
+
         gbc.gridy = 6;
         JPanel J4 =new JPanel();
         J4.setOpaque(false);
         J4.setSize(100,100);
         this.add(J4,gbc);
         MenuJButton b3=new MenuJButton(new ImageIcon("C:/Users/cleme/OneDrive/Images/overlay1.png"),new ImageIcon("C:/Users/cleme/OneDrive/Images/overlay2.png"));
-        gbc.gridx = 3;
         gbc.gridy = 7;
         this.add(b3,gbc);
          }
