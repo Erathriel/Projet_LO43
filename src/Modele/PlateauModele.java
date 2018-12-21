@@ -9,7 +9,7 @@ public class PlateauModele {
     // Contructeur
     public PlateauModele(int nbTuile) {
         this.nbTuile = nbTuile;
-        this.compTuile=null;
+        this.compTuile = new ArrayList<TuileModele>();
     }
 
     // Getters et Setters

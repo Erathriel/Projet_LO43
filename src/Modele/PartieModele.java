@@ -8,13 +8,15 @@ public class PartieModele {
     private ArrayList<PersonnageModele> listePerso;
     private ArrayList<ObjectifModele> listeObjectif;
     private PileCarteModele pileCarte;
+    private PlateauModele plateau;
 
     // Contructeur
     public PartieModele() {
         this.tourActuel = 0;
-        this.listeObjectif= null;
-        this.listePerso=null;
-        this.pileCarte=null;
+        this.listePerso = new ArrayList<PersonnageModele>();
+        this.listeObjectif= new ArrayList<ObjectifModele>();
+        this.pileCarte = new PileCarteModele();
+        this.plateau = new PlateauModele(16);
     }
 
     // Getters et Setters
@@ -48,6 +50,14 @@ public class PartieModele {
 
     public void setPileCarte(PileCarteModele pileCarte) {
         this.pileCarte = pileCarte;
+    }
+
+    public PlateauModele getPlateau() {
+        return plateau;
+    }
+
+    public void setPlateau(PlateauModele plateau) {
+        this.plateau = plateau;
     }
 
     @Override
