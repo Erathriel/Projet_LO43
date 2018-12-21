@@ -1,7 +1,23 @@
 @startuml
-Alice -> Bob: Authentication Request
-Bob --> Alice: Authentication Response
+actor Prof #blue
+entity Inventaire
+entity Plateau
+actor Etudiant #red
 
-Alice -> Bob: Another authentication Request
-Alice <-- Bob: another authentication Response
+== Deroulement d'un tour de jeu ==
+
+Prof --[#blue]> Plateau : Mouvement
+alt si carte étudiante
+    Prof --[#blue]> Etudiant : Fouiller
+    Etudiant -[#red]> plateau : Apparait
+else sinon
+    Prof --[#blue]> Inventaire : Fouiller
+alt si cle equipe
+    Prof --[#blue]> Plateau : Ouvrir porte
+Prof --[#blue]> Inventaire : Modifier inventaire
+Prof --[#blue]> Plateau : Activer objectif
+Prof --[#blue]> Etudiant : ValiderUV
+Etudiant -[#red]> Plateau : Mouvement
+Etudiant -[#red]> Prof : Harcelement
+Etudiant -[#red]> Plateau : Apparait
 @enduml
