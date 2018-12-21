@@ -12,8 +12,10 @@ alt si carte étudiante
     Etudiant -[#red]> plateau : Apparait
 else sinon
     Prof --[#blue]> Inventaire : Fouiller
+end
 alt si cle equipe
     Prof --[#blue]> Plateau : Ouvrir porte
+end
 Prof --[#blue]> Inventaire : Modifier inventaire
 Prof --[#blue]> Plateau : Activer objectif
 Prof --[#blue]> Etudiant : ValiderUV
