@@ -11,8 +11,8 @@ Prof -> (Valider)
 (A distance) <|-- (aucun obstacle dans la direction) :include
 (A distance) <|-- (Etudiants présent dans la zone viser) :include
 Prof --> (Fouiller)
-(Fouiller) -right-|> (Nouvel Objet)
-(Fouiller) --|> (Nouveaux étudiants apparaissent)
+(Fouiller) -right-|> (Nouvel Objet) : extends
+(Fouiller) --|> (Nouveaux étudiants apparaissent) :extends
 Prof -up-> (Ouvrir Porte)
 (Ouvrir Porte) <|-up- (Clé equipé) :include
 Prof -up-> (Modification inventaire)
