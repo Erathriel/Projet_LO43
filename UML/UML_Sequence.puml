@@ -6,7 +6,9 @@ actor Etudiant #red
 
 == Deroulement d'un tour de jeu ==
 
-Prof --[#blue]> Plateau : Mouvement
+alt si pas d'etudiant sur tuile
+    Prof --[#blue]> Plateau : Mouvement
+end
 alt si carte étudiante
     Prof --[#blue]> Etudiant : Fouiller
     Etudiant -[#red]> Plateau : Apparait
@@ -17,9 +19,17 @@ alt si cle equipe
     Prof --[#blue]> Plateau : Ouvrir porte
 end
 Prof --[#blue]> Inventaire : Modifier inventaire
-Prof --[#blue]> Plateau : Activer objectif
-Prof --[#blue]> Etudiant : ValiderUV
-Etudiant -[#red]> Plateau : Mouvement
-Etudiant -[#red]> Prof : Harcelement
+alt si objectif sur tuile
+    Prof --[#blue]> Plateau : Activer objectif
+end
+alt si etudiant sur tuile a portee
+    Prof --[#blue]> Etudiant : ValiderUV
+end
+alt si pas de prof sur tuile
+    Etudiant -[#red]> Plateau : Mouvement
+end
+alt si prof sur tuile
+    Etudiant -[#red]> Prof : DemandeValidationUV
+end
 Etudiant -[#red]> Plateau : Apparait
 @enduml
