@@ -3,15 +3,15 @@ package Modele;
 import java.util.ArrayList;
 
 public class CaseModele {
-    private int idTuile;
+    private TuileModele maTuile;
     private int coordX;
     private int coordY;
     private boolean passable;
     private ArrayList<ElemCaseModele> compElemCase;
 
     // Contructeur
-    public CaseModele(int idTuile, int coordX, int coordY, boolean passable) {
-        this.idTuile = idTuile;
+    public CaseModele(TuileModele maTuile, int coordX, int coordY, boolean passable) {
+        this.maTuile = maTuile;
         this.coordX = coordX;
         this.coordY = coordY;
         this.passable = passable;
@@ -19,8 +19,8 @@ public class CaseModele {
     }
 
     // Getters et Setters
-    public int getIdTuile() {
-        return idTuile;
+    public TuileModele getMaTuile() {
+        return maTuile;
     }
 
 
@@ -53,7 +53,7 @@ public class CaseModele {
     @Override
     public String toString() {
         return "CaseModele{" +
-                "idTuile=" + idTuile +
+                "maTuile=" + maTuile.toString() +
                 ", coordX=" + coordX +
                 ", coordY=" + coordY +
                 ", passable=" + passable +

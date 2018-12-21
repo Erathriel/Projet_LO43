@@ -119,6 +119,14 @@ Package  "Modele" <<Frame>> #A4A4A4 {
     + remplir() : void
     + pioche() : Carte
     }
+    class ProfPhysique{
+    }
+    class ProfHuma{
+    }
+    class ProfMath {
+    }
+    class ProfInfo{
+    }
 }
 Package "Controleur" <<Frame>> #6E6E6E {
     class Partie {
@@ -157,7 +165,6 @@ GameFen "1" -- "1" GamePaneInfo
 GameFen "1" -- "1" GameGridBorderLayout
 MenuCon "1" -- "1" MenuFen
 MenuCon "1" -- "1" InstructionFen
-GameFen "1" -- "1" Partie
 Plateau "1" *-- "1-*" Tuile
 Tuile "1" *-- "1-*" Case
 Case "1" o-- "0-*" ElemCase
@@ -169,6 +176,14 @@ Mur <|-- Porte
 Personnage <|-- Etudiant
 Personnage <|-- Prof
 Prof "1" -- "1" Inventaire
+ProfPhysique --|> Prof
+ProfPhysique --|> Specialite
+ProfHuma --|> Prof
+ProfHuma --|> Specialite
+ProfInfo --|> Prof
+ProfInfo --|> Specialite
+ProfMath --|> Prof
+ProfMath --|> Specialite
 Inventaire o-- Objet
 Objet <|-- Cle
 Objet <|-- OutilValidation
@@ -177,7 +192,7 @@ Carte <|-- CarteEtudiante
 PileCarte "1" *-- "0-*" Carte
 Partie "1" o-- "1-*" Personnage
 Partie "1" -- "1" Plateau
-Prof "1" -- "1" Specialite
 Partie "1" -- "1" PileCarte
 Partie "1" o-- "0-*" Objectif
+GameFen "1" -- "1" Partie
 @enduml

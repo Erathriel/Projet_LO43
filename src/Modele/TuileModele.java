@@ -1,5 +1,6 @@
 package Modele;
 
+import java.security.PrivateKey;
 import java.util.ArrayList;
 import java.util.Arrays;
 
@@ -7,15 +8,47 @@ public class TuileModele {
     private int id;
     private int nbCase;
     private TuileModele[] tuileAccessible;
+    private ArrayList<PersonnageModele> persOnTuile;
     private ArrayList<CaseModele> compCase;
+
 
     // Contructeur
     public TuileModele(int id, int nbCase, TuileModele[] tuileAccessible) {
         this.id = id;
         this.nbCase = nbCase;
         this.tuileAccessible = tuileAccessible;
+        this.compCase=new ArrayList<CaseModele>();
     }
-
+    // Methode
+    public void setPersOnTuile(){
+        this.persOnTuile=new ArrayList<PersonnageModele>();
+        for (CaseModele c:this.compCase) {
+            for (ElemCaseModele e: c.getCompElemCase() ) {
+                if (e instanceof PersonnageModele)
+                {
+                    this.persOnTuile.add(((PersonnageModele)e));
+                }
+            }
+        }
+    }
+    public boolean tuileContainProf(){
+        for (PersonnageModele p: this.persOnTuile) {
+            if(p instanceof ProfModele)
+            {
+                return true;
+            }
+        }
+        return false;
+    }
+    public boolean tuileContainEtu(){
+        for (PersonnageModele p: this.persOnTuile) {
+            if(p instanceof EtudiantModele)
+            {
+                return true;
+            }
+        }
+        return false;
+    }
     // Getters et Setters
     public int getNbCase() {
         return nbCase;
