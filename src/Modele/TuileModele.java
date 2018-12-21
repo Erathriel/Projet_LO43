@@ -9,7 +9,7 @@ public class TuileModele {
     private int nbCase;
     private TuileModele[] tuileAccessible;
     private ArrayList<PersonnageModele> persOnTuile;
-    private ArrayList<CaseModele> compCase;
+    private CaseModele[][] compCase;
 
 
     // Contructeur
@@ -17,7 +17,7 @@ public class TuileModele {
         this.id = id;
         this.nbCase = nbCase;
         this.tuileAccessible = tuileAccessible;
-        this.compCase=new ArrayList<CaseModele>();
+        this.compCase=null;
     }
     // Methode
     public void setPersOnTuile(){
@@ -73,11 +73,11 @@ public class TuileModele {
         this.tuileAccessible = tuileAccessible;
     }
 
-    public ArrayList<CaseModele> getCompCase() {
+    public CaseModele[][] getCompCase() {
         return compCase;
     }
 
-    public void setCompCase(ArrayList<CaseModele> compCase) {
+    public void setCompCase(CaseModele[][] compCase) {
         this.compCase = compCase;
     }
 

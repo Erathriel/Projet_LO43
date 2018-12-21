@@ -25,7 +25,7 @@ public class PartieVue extends JFrame {
 
     // Init des attribut de la fenetre
     public void initAttribut(){
-        this.labelTest = new JLabel("Test");
+        this.labelTest = new JLabel();
         labelTest.setBorder(null);
         labelTest.setOpaque(false);
     }
@@ -38,7 +38,7 @@ public class PartieVue extends JFrame {
         this.setContentPane(panTest);
     }
 
-    /*public void affichageMapConsole(String name){
+    public void affichageMapConsole(String name){
         FileInputStream fis = null;
         BufferedInputStream bis = null;
         //String map = "maps\\mapTest.txt";
@@ -62,10 +62,10 @@ public class PartieVue extends JFrame {
         } catch (IOException e) {
             e.printStackTrace();
         }
-    }*/
+    }
 
     // Methode d'affichage renvoie String
-    public String affichageMapConsole(String name){
+    /*public String affichageMapConsole(String name){
         String ligne="";
         FileInputStream fis = null;
         BufferedInputStream bis = null;
@@ -90,6 +90,32 @@ public class PartieVue extends JFrame {
             e.printStackTrace();
         }
         return ligne;
+    }*/
+
+    public void affichageMapGraphique(String name){
+        FileInputStream fis = null;
+        BufferedInputStream bis = null;
+        //String map = "maps\\mapTest.txt";
+        //System.out.println(map);
+        File file = new File(name);
+        System.out.println(file.getAbsoluteFile());
+        try {
+            fis = new FileInputStream(file.getAbsoluteFile());
+            bis = new BufferedInputStream(new FileInputStream(file.getAbsoluteFile()));
+            //byte[] buffer = new byte[8];
+            int buffer;
+            String ligne = null;
+            while((buffer = fis.read()) != -1){
+                //System.out.println((char) buffer);
+                ligne= ligne + (char) buffer;
+            }
+            System.out.println(ligne);
+            bis.close();
+            fis.close();
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     // Getters et Setters
