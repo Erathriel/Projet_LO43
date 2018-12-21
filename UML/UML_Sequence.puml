@@ -9,7 +9,7 @@ actor Etudiant #red
 Prof --[#blue]> Plateau : Mouvement
 alt si carte étudiante
     Prof --[#blue]> Etudiant : Fouiller
-    Etudiant -[#red]> plateau : Apparait
+    Etudiant -[#red]> Plateau : Apparait
 else sinon
     Prof --[#blue]> Inventaire : Fouiller
 end
