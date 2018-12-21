@@ -24,11 +24,13 @@ public class TuileModele {
         this.persOnTuile=new ArrayList<PersonnageModele>();
         for (CaseModele[] c:this.compCase) {
             for (CaseModele cp : c){
-                for (ElemCaseModele e : cp.getCompElemCase()) {
-                    if (e instanceof PersonnageModele) {
-                        this.persOnTuile.add(((PersonnageModele) e));
-                    }
-                }
+               if(cp!=null) {
+                   for (ElemCaseModele e : cp.getCompElemCase()) {
+                       if (e instanceof PersonnageModele) {
+                           this.persOnTuile.add(((PersonnageModele) e));
+                       }
+                   }
+               }
             }
         }
     }
@@ -49,6 +51,9 @@ public class TuileModele {
             }
         }
         return false;
+    }
+    public CaseModele getCase(int x,int y){
+        return this.getCompCase()[x][y];
     }
     // Getters et Setters
     public int getNbCase() {

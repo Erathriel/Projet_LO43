@@ -154,7 +154,8 @@ public class ProfModele extends PersonnageModele implements SpecialiteModele{
         return this.inventaire;
     }
     public static void main(String args[]){
-        TuileModele t=new TuileModele(0,1,null);
+        CaseModele tab6[][]=new CaseModele[5][5];
+        TuileModele t=new TuileModele(0,1,null,tab6);
         PileCarteModele pile= new PileCarteModele();
         String tab[]={"CS","HUMA"};
         String tab3[]={"TM"};
@@ -185,8 +186,8 @@ public class ProfModele extends PersonnageModele implements SpecialiteModele{
         }
         ArrayList<ElemCaseModele> tab2=new ArrayList<ElemCaseModele>();
         tab2.add(p);
-        //tab2.add(e);
-        //tab2.add(e2);
+        tab2.add(e);
+        tab2.add(e2);
         case1.setCompElemCase(tab2);
         p.valider(tab2,0);
         for (int i = 0; i < tab2.size(); i++) {
@@ -207,9 +208,9 @@ public class ProfModele extends PersonnageModele implements SpecialiteModele{
         }
         System.out.println(pile.getListeCarte().size());
         p.setMaCase(case1);
-        //p.fouiller(pile);
-        //p.fouiller(pile);
-        //p.fouiller(pile);
+        p.fouiller(pile);
+        p.fouiller(pile);
+        p.fouiller(pile);
         p.setExp(50);
         System.out.println("3eme attaque : "+p.getExp()/25);
         for (ElemCaseModele a: tab2
@@ -218,9 +219,9 @@ public class ProfModele extends PersonnageModele implements SpecialiteModele{
                if(a instanceof  PersonnageModele) {System.out.println(((PersonnageModele)a).getPv()+" "+((PersonnageModele)a).getNom());}
 
         }
-        t.getCompCase().add(case1);
+        t.getCompCase()[0][0]=case1;
         t.setPersOnTuile();
-        TuileModele t2=new TuileModele(0,1,null);
+        TuileModele t2=new TuileModele(0,1,null,null);
         TuileModele tab10[]={t2};
         t.setTuileAccessible(tab10);
         p.deplacement();
