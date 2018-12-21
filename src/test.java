@@ -15,6 +15,7 @@ public class test {
         PartieVue vPartie = new PartieVue(mPartie);
         PartieControlleur cPartie = new PartieControlleur(mPartie,vPartie);
         //affichageMapConsole("maps\\mapTest.txt"); // windows
-        vPartie.affichageMapConsole("maps/mapTest.txt"); // linux
+        //vPartie.affichageMapConsole("maps/mapTest.txt"); // linux
+        vPartie.parcoursMap("maps/mapTest.txt");
     }
 }
