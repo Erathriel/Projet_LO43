@@ -11,6 +11,7 @@ Package  "Modele" <<Frame>> #A4A4A4 {
     - nbCase : int
     - id : int
     - tuileAccessible : Tuile []
+    +
     + getTuile() : Tuile
     + setTuile() : void
     + getId() : int
@@ -19,15 +20,15 @@ Package  "Modele" <<Frame>> #A4A4A4 {
     + setTuileAccessible() : void
     }
     class Case{
-    - idTuile : int
+    - maTuile : Tuile
     - passable : boolean
     - coordX : int
     - coordY : int
     + isPassable() : boolean
     + getCoordX() : int
     + getCoordY() : int
-    + getIdTuile() : int
-    + setIdTuile() : int
+    + getMaTuile() : Tuile
+    + setMaTuile() : void
     }
     abstract class ElemCase {
     - image : Image
@@ -81,7 +82,10 @@ Package  "Modele" <<Frame>> #A4A4A4 {
     - typeUV : String []
     - expRapporte : int
     }
-    interface Specialite
+    interface Specialite {
+        + capaciteActive : void
+        + capacitePassive : void
+    }
     class Inventaire {
     - capacite : int
     - nbObjetActuel : int
@@ -172,6 +176,7 @@ ElemCase <|-- Mur
 ElemCase <|-- Objectif
 ElemCase <|-- MachineCafe
 ElemCase <|-- Personnage
+Tuile "1" o-- "0-*" Prof
 Mur <|-- Porte
 Personnage <|-- Etudiant
 Personnage <|-- Prof
