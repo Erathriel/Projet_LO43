@@ -133,7 +133,10 @@ Package "Controleur" <<Frame>> #6E6E6E {
 Package "Vue" <<Frame>> #D8D8D8 {
     class MenuFen
     class MenuPane
-    class MenuJButton
+    class MenuJButton{
+      - imageNonSelect : Image
+      - imageSelect  : Image
+    }
     class InstructionFen
     class InstructionPane
     class InstructionJRadioButton
