@@ -9,24 +9,25 @@ public class TuileModele {
     private int nbCase;
     private TuileModele[] tuileAccessible;
     private ArrayList<PersonnageModele> persOnTuile;
-    private ArrayList<CaseModele> compCase;
+    private CaseModele[][] compCase;
 
 
     // Contructeur
-    public TuileModele(int id, int nbCase, TuileModele[] tuileAccessible) {
+    public TuileModele(int id, int nbCase, TuileModele[] tuileAccessible,CaseModele[][] compCase) {
         this.id = id;
         this.nbCase = nbCase;
         this.tuileAccessible = tuileAccessible;
-        this.compCase=new ArrayList<CaseModele>();
+        this.compCase=compCase;
     }
     // Methode
     public void setPersOnTuile(){
         this.persOnTuile=new ArrayList<PersonnageModele>();
-        for (CaseModele c:this.compCase) {
-            for (ElemCaseModele e: c.getCompElemCase() ) {
-                if (e instanceof PersonnageModele)
-                {
-                    this.persOnTuile.add(((PersonnageModele)e));
+        for (CaseModele[] c:this.compCase) {
+            for (CaseModele cp : c){
+                for (ElemCaseModele e : cp.getCompElemCase()) {
+                    if (e instanceof PersonnageModele) {
+                        this.persOnTuile.add(((PersonnageModele) e));
+                    }
                 }
             }
         }
@@ -73,11 +74,11 @@ public class TuileModele {
         this.tuileAccessible = tuileAccessible;
     }
 
-    public ArrayList<CaseModele> getCompCase() {
+    public CaseModele[][] getCompCase() {
         return compCase;
     }
 
-    public void setCompCase(ArrayList<CaseModele> compCase) {
+    public void setCompCase(CaseModele[][] compCase) {
         this.compCase = compCase;
     }
 
