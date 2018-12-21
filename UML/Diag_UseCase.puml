@@ -1,0 +1,27 @@
+ @startuml
+:Professeur: as Prof
+:Etudiant: as Etu
+Prof -up-> (Passer)
+Prof -left-> (Déplacement)
+(Déplacement)<- (Aucun étudiants sur la même tuile) :include
+Prof -> (Valider)
+(Valider) -up-|> (Autour de lui) : extends
+(Autour de lui) <|-right- (Etudiants présent sur la même tuile) : include
+(Valider) -right-|> (A distance) :extends
+(A distance) <|-- (aucun obstacle dans la direction) :include
+(A distance) <|-- (Etudiants présent dans la zone viser) :include
+Prof --> (Fouiller)
+(Fouiller) -right-|> (Nouvel Objet)
+(Fouiller) --|> (Nouveaux étudiants apparaissent)
+Prof -up-> (Ouvrir Porte)
+(Ouvrir Porte) <|-up- (Clé equipé) :include
+Prof -up-> (Modification inventaire)
+Prof -left-> (Activer disjoncteur)
+(Activer disjoncteur) <|-- (Disjoncteur présent sur la tuile) :include
+Etu ->(Nouveaux étudiants apparaissent)
+Etu -down-> (Demande validation UV)
+(Demande validation UV) <|-- (Professeur présent sur la même tuile) :include
+Etu -left-> (Déplacement étudiants)
+(Déplacement étudiants) <|-- (Aucun professeur sur la tuile actuel) :include
+
+@enduml

@@ -1,0 +1,9 @@
+@startuml
+ :Joueur: as Joueur
+ Joueur->(Quitter)
+ Joueur -> (Lancer une partie)
+ (Lancer une partie)--|>(Nouvelle partie) : extends
+ (Lancer une partie)--|>(Charger une partie) :extends
+ (Charger une partie) <|--(Sauvegarde existante):include
+ Joueur -> (mofidier Option)
+@enduml
