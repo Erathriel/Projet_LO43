@@ -70,34 +70,6 @@ public class PartieVue extends JFrame {
         }
     }
 
-    // Methode d'affichage renvoie String
-    /*public String affichageMapConsole(String name){
-        String ligne="";
-        FileInputStream fis = null;
-        BufferedInputStream bis = null;
-        //String map = "maps\\mapTest.txt";
-        //System.out.println(map);
-        File file = new File(name);
-        System.out.println(file.getAbsoluteFile());
-        try {
-            fis = new FileInputStream(file.getAbsoluteFile());
-            bis = new BufferedInputStream(new FileInputStream(file.getAbsoluteFile()));
-            //byte[] buffer = new byte[8];
-            int buffer;
-            while((buffer = fis.read()) != -1){
-                //System.out.println((char) buffer);
-                ligne= ligne + (char) buffer;
-            }
-            System.out.println(ligne);
-            bis.close();
-            fis.close();
-
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        return ligne;
-    }*/
-
     public char[][] parcoursMap(String name){
         char[][] map = new char[10][10];
         int i=0;
@@ -112,8 +84,6 @@ public class PartieVue extends JFrame {
             int buffer;
             String ligne="";
             while((buffer = fis.read()) != -1){
-                //System.out.println((char) buffer);
-                //ligne= ligne + (char) buffer;
                 if (buffer != 32 && i<10){
                     if (j == 10){
                         i++;
@@ -126,12 +96,11 @@ public class PartieVue extends JFrame {
                     }
                 }
             }
-            for (int k=0; k<10; k++){
+            /*for (int k=0; k<10; k++){
                 for (int l = 0; l<10; l++){
                     System.out.println(map[k][l]);
                 }
-            }
-            //System.out.println(ligne);
+            }*/
             bis.close();
             fis.close();
 
