@@ -46,7 +46,37 @@ public class EtudiantModele extends PersonnageModele {
             }
         }
     }
-
+    public void deplacement()
+    {
+        if(!this.getMaCase().getMaTuile().tuileContainProf())
+        {
+            CaseModele anciennePosition=this.getMaCase();
+            ArrayList<TuileModele> containProf=new ArrayList<TuileModele>();
+            for (TuileModele t:this.getMaCase().getMaTuile().getTuileAccessible()) {
+                if(t.tuileContainProf()){
+                    containProf.add(t);
+                }
+                else{
+                }
+            }
+            System.out.print(containProf.size());
+            if(containProf.size()>0){
+                int  destination= (int) (Math.random()*(containProf.size()));
+                this.setMaCase(containProf.get(destination).getCompCase()[this.getMaCase().getCoordX()][this.getMaCase().getCoordY()]);
+                this.getMaCase().getCompElemCase().add(this);
+                anciennePosition.getCompElemCase().remove(this);
+                anciennePosition.getMaTuile().setPersOnTuile();
+                this.getMaCase().getMaTuile().setPersOnTuile();
+            }
+            else{
+                int  destination= (int) (Math.random()*(containProf.size()));
+                this.setMaCase(this.getMaCase().getMaTuile().getTuileAccessible().get(destination).getCompCase()[this.getMaCase().getCoordX()][this.getMaCase().getCoordY()]);
+                anciennePosition.getCompElemCase().remove(this);
+                anciennePosition.getMaTuile().setPersOnTuile();
+                this.getMaCase().getMaTuile().setPersOnTuile();
+            }
+        }
+    }
 
 
     public int getNbDemandeValidation() {

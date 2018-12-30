@@ -168,7 +168,7 @@ public class test {
         plateau.getCompTuile().get(4).setCompCase(caseTuile5);
         caseTuile6[0][0]= new CaseModele(plateau.getCompTuile().get(5),0,0,false);
         caseTuile6[1][0]= new CaseModele(plateau.getCompTuile().get(5),1,0,false);
-        caseTuile6[2][0]= new CaseModele(plateau.getCompTuile().get(5),2,0,false);
+        caseTuile6[2][0]= new CaseModele(plateau.getCompTuile().get(5),2,0,true);
         caseTuile6[3][0]= new CaseModele(plateau.getCompTuile().get(5),3,0,false);
         caseTuile6[4][0]= new CaseModele(plateau.getCompTuile().get(5),4,0,false);
         caseTuile6[0][1]= new CaseModele(plateau.getCompTuile().get(5),0,1,false);
@@ -271,12 +271,27 @@ public class test {
         caseTuile9[3][3]= new CaseModele(plateau.getCompTuile().get(8),3,3,true);
         plateau.getCompTuile().get(8).setCompCase(caseTuile9);
         plateau.getCompTuile().get(8).setTuileAccessible(plateau.getCompTuile());
+        ProfModele p=new ProfModele(null,caseTuile8[2][2],10,3,"Jean Pierre",true,0);
+        caseTuile8[2][2].getCompElemCase().add(p);
+        /*p.deplacement();
+        p.deplacement();*/
+        EtudiantModele e = new EtudiantModele(null,caseTuile9[2][2],10,2,"etudiant simple",true,5,null,2);
+        caseTuile9[2][2].getCompElemCase().add(e);
         for (TuileModele t : plateau.getCompTuile()) {
             t.setPersOnTuile();
+            System.out.println(t.tuileContainProf());
+            System.out.println(t.tuileContainEtu());
+            System.out.println(t.getId());
+            t.setTuileAccessible(plateau.getCompTuile());
         }
-        System.out.println( plateau.getCompTuile().get(8).getTuileAccessible().size());
-        ProfModele p=new ProfModele(null,caseTuile9[2][2],10,3,"Jean Pierre",true,0);
-        p.deplacement();
-        System.out.println(p.getMaCase().getMaTuile().getId());
+        e.deplacement();
+        for (TuileModele t : plateau.getCompTuile()) {
+            t.setPersOnTuile();
+            System.out.println(t.tuileContainProf());
+            System.out.println(t.tuileContainEtu());
+            System.out.println(t.getId());
+            t.setTuileAccessible(plateau.getCompTuile());
+        }
+        System.out.println(e.getMaCase().getMaTuile().getId());
     }
 }

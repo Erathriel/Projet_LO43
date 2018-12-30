@@ -83,22 +83,20 @@ public class TuileModele {
         this.tuileAccessible=new ArrayList<TuileModele>();
         if(compCase[2][0].getPassable())
         {
-            System.out.println(this.id-4);
             this.tuileAccessible.add(tuile.get(this.id-4));
         }
         if(compCase[0][2].getPassable())
         {
-            System.out.println(this.id-2);
+
             this.tuileAccessible.add(tuile.get(this.id-2));
         }
         if(compCase[2][4].getPassable())
         {
-            System.out.println(this.id+3);
+
             this.tuileAccessible.add(tuile.get(this.id+3));
         }
         if(compCase[4][2].getPassable())
         {
-            System.out.println(this.id);
             this.tuileAccessible.add(tuile.get(this.id));
         }
     }

@@ -131,38 +131,40 @@ public class ProfModele extends PersonnageModele implements SpecialiteModele{
     @Override
     public void deplacement() {
         JOptionPane d = new JOptionPane();
-        CaseModele anciennePosition=this.getMaCase();
-        String tab[]=new String[this.getMaCase().getMaTuile().getTuileAccessible().size()];
-        int positionTab=0;
-        for(int i=0;i<this.getMaCase().getMaTuile().getTuileAccessible().size();i++)
-        {
-            if(this.getMaCase().getMaTuile().getTuileAccessible().get(i).getId()==this.getMaCase().getMaTuile().getId()-3)
-            {
-                tab[positionTab]="Nord";
-                positionTab++;
-            }
-            else if(this.getMaCase().getMaTuile().getTuileAccessible().get(i).getId()==this.getMaCase().getMaTuile().getId()-1)
-            {
-                tab[positionTab]="Ouest";
-                positionTab++;
-            }
-            else if(this.getMaCase().getMaTuile().getTuileAccessible().get(i).getId()==this.getMaCase().getMaTuile().getId()+1)
-            {
-                tab[positionTab]="Est";
-                positionTab++;
-            }
-            else if(this.getMaCase().getMaTuile().getTuileAccessible().get(i).getId()==this.getMaCase().getMaTuile().getId()+3)
-            {
-                tab[positionTab]="Sud";
-                positionTab++;
-            }
-        }
         if(!this.getMaCase().getMaTuile().tuileContainEtu())
         {
+            CaseModele anciennePosition=this.getMaCase();
+            String tab[]=new String[this.getMaCase().getMaTuile().getTuileAccessible().size()];
+            int positionTab=0;
+            for(int i=0;i<this.getMaCase().getMaTuile().getTuileAccessible().size();i++)
+            {
+                if(this.getMaCase().getMaTuile().getTuileAccessible().get(i).getId()==this.getMaCase().getMaTuile().getId()-3)
+                {
+                    tab[positionTab]="Nord";
+                    positionTab++;
+                }
+                else if(this.getMaCase().getMaTuile().getTuileAccessible().get(i).getId()==this.getMaCase().getMaTuile().getId()-1)
+                {
+                    tab[positionTab]="Ouest";
+                    positionTab++;
+                }
+                else if(this.getMaCase().getMaTuile().getTuileAccessible().get(i).getId()==this.getMaCase().getMaTuile().getId()+1)
+                {
+                    tab[positionTab]="Est";
+                    positionTab++;
+                }
+                else if(this.getMaCase().getMaTuile().getTuileAccessible().get(i).getId()==this.getMaCase().getMaTuile().getId()+3)
+                {
+                    tab[positionTab]="Sud";
+                    positionTab++;
+                }
+            }
 
             int deplacement=JOptionPane.showOptionDialog(null, "Choix du déplacement", "Déplacement Possible", JOptionPane.DEFAULT_OPTION, 0, null,tab,tab[0]);
             this.setMaCase(this.getMaCase().getMaTuile().getTuileAccessible().get(deplacement).getCompCase()[this.getMaCase().getCoordX()][this.getMaCase().getCoordY()]);
+            this.getMaCase().getCompElemCase().add(this);
             anciennePosition.getCompElemCase().remove(this);
+            anciennePosition.getMaTuile().setPersOnTuile();
             this.getMaCase().getMaTuile().setPersOnTuile();
         }
         else
