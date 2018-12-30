@@ -271,6 +271,12 @@ public class test {
         caseTuile9[3][3]= new CaseModele(plateau.getCompTuile().get(8),3,3,true);
         plateau.getCompTuile().get(8).setCompCase(caseTuile9);
         plateau.getCompTuile().get(8).setTuileAccessible(plateau.getCompTuile());
+        for (TuileModele t : plateau.getCompTuile()) {
+            t.setPersOnTuile();
+        }
         System.out.println( plateau.getCompTuile().get(8).getTuileAccessible().size());
+        ProfModele p=new ProfModele(null,caseTuile9[2][2],10,3,"Jean Pierre",true,0);
+        p.deplacement();
+        System.out.println(p.getMaCase().getMaTuile().getId());
     }
 }
