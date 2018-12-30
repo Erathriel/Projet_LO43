@@ -134,7 +134,7 @@ public class ProfModele extends PersonnageModele implements SpecialiteModele{
         if(!this.getMaCase().getMaTuile().tuileContainEtu())
         {
 
-            JOptionPane.showOptionDialog(null, "Choix du déplacement", "Déplacement Possible", JOptionPane.DEFAULT_OPTION, 0, null,this.getMaCase().getMaTuile().getTuileAccessible(),this.getMaCase().getMaTuile().getTuileAccessible());
+            //JOptionPane.showOptionDialog(null, "Choix du déplacement", "Déplacement Possible", JOptionPane.DEFAULT_OPTION, 0, null,this.getMaCase().getMaTuile().getTuileAccessible(),this.getMaCase().getMaTuile().getTuileAccessible());
         }
         else
         {
@@ -223,8 +223,8 @@ public class ProfModele extends PersonnageModele implements SpecialiteModele{
         t.setPersOnTuile();
         TuileModele t2=new TuileModele(0,1,null,null);
         TuileModele tab10[]={t2};
-        t.setTuileAccessible(tab10);
-        p.deplacement();
+       // t.setTuileAccessible(tab10);
+        //p.deplacement();
     }
 
     @Override

@@ -32,7 +32,9 @@ public class CaseModele {
     public int getCoordY() {
         return coordY;
     }
-
+    public boolean getPassable(){
+        return passable;
+    }
 
     public boolean isPassable() {
         return passable;

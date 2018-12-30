@@ -7,13 +7,13 @@ import java.util.Arrays;
 public class TuileModele {
     private int id;
     private int nbCase;
-    private TuileModele[] tuileAccessible;
+    private ArrayList<TuileModele> tuileAccessible;
     private ArrayList<PersonnageModele> persOnTuile;
     private CaseModele[][] compCase;
 
 
     // Contructeur
-    public TuileModele(int id, int nbCase, TuileModele[] tuileAccessible,CaseModele[][] compCase) {
+    public TuileModele(int id, int nbCase, ArrayList<TuileModele>  tuileAccessible,CaseModele[][] compCase) {
         this.id = id;
         this.nbCase = nbCase;
         this.tuileAccessible = tuileAccessible;
@@ -71,18 +71,37 @@ public class TuileModele {
         this.id = id;
     }
 
-    public TuileModele[] getTuileAccessible() {
+    public ArrayList<TuileModele>  getTuileAccessible() {
         return tuileAccessible;
     }
 
-    public void setTuileAccessible(TuileModele[] tuileAccessible) {
-        this.tuileAccessible = tuileAccessible;
-    }
 
     public CaseModele[][] getCompCase() {
         return compCase;
     }
-
+    public void setTuileAccessible(ArrayList<TuileModele> tuile){
+        this.tuileAccessible=new ArrayList<TuileModele>();
+        if(compCase[2][0].getPassable())
+        {
+            System.out.println(this.id-4);
+            this.tuileAccessible.add(tuile.get(this.id-4));
+        }
+        if(compCase[0][2].getPassable())
+        {
+            System.out.println(this.id-2);
+            this.tuileAccessible.add(tuile.get(this.id-2));
+        }
+        if(compCase[2][4].getPassable())
+        {
+            System.out.println(this.id+3);
+            this.tuileAccessible.add(tuile.get(this.id+3));
+        }
+        if(compCase[4][2].getPassable())
+        {
+            System.out.println(this.id);
+            this.tuileAccessible.add(tuile.get(this.id));
+        }
+    }
     public void setCompCase(CaseModele[][] compCase) {
         this.compCase = compCase;
     }
@@ -93,7 +112,6 @@ public class TuileModele {
         return "TuileModele{" +
                 "id=" + id +
                 ", nbCase=" + nbCase +
-                ", tuileAccessible=" + Arrays.toString(tuileAccessible) +
                 ", compCase=" + compCase +
                 '}';
     }
