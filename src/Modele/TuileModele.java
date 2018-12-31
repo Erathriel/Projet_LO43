@@ -52,6 +52,9 @@ public class TuileModele {
         }
         return false;
     }
+    public ArrayList<PersonnageModele> getPersOnTuile(){
+        return this.persOnTuile;
+    }
     public CaseModele getCase(int x,int y){
         return this.getCompCase()[x][y];
     }

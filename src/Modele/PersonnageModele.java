@@ -3,6 +3,7 @@ package Modele;
 import java.awt.*;
 
 public abstract class PersonnageModele extends ElemCaseModele {
+    private int nbPa;
     private int pv;
     private int pa;
     private String nom;
@@ -13,6 +14,7 @@ public abstract class PersonnageModele extends ElemCaseModele {
         super(image, maCase);
         this.pv = pv;
         this.pa = pa;
+        this.nbPa=pa;
         this.nom = nom;
         this.jouable = jouable;
     }
@@ -35,7 +37,9 @@ public abstract class PersonnageModele extends ElemCaseModele {
     public void deplacement(){
 
     }
+    public void tourDeJeu(){
 
+    }
     public void reinitPa(){
         this.setPa(3);
     }
@@ -60,6 +64,8 @@ public abstract class PersonnageModele extends ElemCaseModele {
     public void setPa(int pa) {
         this.pa = pa;
     }
+    public int getNbPa(){return  this.nbPa;}
+    public void setNbPa(int nbPa){this.nbPa=nbPa;}
 
     public String getNom() {
         return nom;

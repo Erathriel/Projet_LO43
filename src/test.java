@@ -271,7 +271,7 @@ public class test {
         caseTuile9[3][3]= new CaseModele(plateau.getCompTuile().get(8),3,3,true);
         plateau.getCompTuile().get(8).setCompCase(caseTuile9);
         plateau.getCompTuile().get(8).setTuileAccessible(plateau.getCompTuile());
-        ProfModele p=new ProfModele(null,caseTuile8[2][2],10,3,"Jean Pierre",true,0);
+        ProfModele p=new ProfModele(null,caseTuile8[2][2],100,3,"Jean Pierre",true,0);
         caseTuile8[2][2].getCompElemCase().add(p);
         /*p.deplacement();
         p.deplacement();*/
@@ -284,7 +284,9 @@ public class test {
             System.out.println(t.getId());
             t.setTuileAccessible(plateau.getCompTuile());
         }
-        e.deplacement();
+        System.out.println(p.getPv());
+        e.tourDeJeu();
+        System.out.println(p.getPv());
         for (TuileModele t : plateau.getCompTuile()) {
             t.setPersOnTuile();
             System.out.println(t.tuileContainProf());

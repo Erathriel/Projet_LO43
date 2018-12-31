@@ -16,35 +16,34 @@ public class EtudiantModele extends PersonnageModele {
         this.typeUV=typeUV;
         this.expRapporte=expRapporte;
     }
-    public void valider(ArrayList<ElemCaseModele> per)
+    public void valider(ArrayList<PersonnageModele> per)
     {
-        int parcours=0;
-        while(parcours<per.size())
-        {
-            if(per.get(parcours) instanceof PersonnageModele) {
-                if (per.get(parcours) instanceof PersonnageModele) {
-                    if (per.get(parcours) instanceof ProfModele) {
-                        System.out.println("dégat Prof");
-                        ((PersonnageModele)per.get(parcours)).setPv(((PersonnageModele)per.get(parcours)).getPv() - this.getNbDemandeValidation());
-                        parcours++;
+           int parcours = 0;
+           while (parcours < per.size()) {
+                   if (per.get(parcours) instanceof PersonnageModele) {
+                       if (per.get(parcours) instanceof ProfModele) {
+                           System.out.println("dégat Prof");
+                           (per.get(parcours)).setPv((per.get(parcours)).getPv() - this.getNbDemandeValidation());
+                           parcours++;
 
 
-                    } else {
-                        parcours++;
-                    }
+                       } else {
+                           parcours++;
+                       }
+
+                       for (int i = 0; i < per.size(); i++) {
+                           if (per.get(i) instanceof ProfModele) {
+                               if ((per.get(i)).isValider()) {
+                                   per.remove(i);
+                               }
+                           }
+                       }
+                   }
+                else {
+                   parcours++;
                 }
-                for (int i = 0; i < per.size(); i++) {
-                    if (per.get(i) instanceof ProfModele) {
-                        if (((PersonnageModele)per.get(i)).isValider()) {
-                            per.remove(i);
-                        }
-                    }
-                }
-            }
-             else{
-                parcours++;
-            }
-        }
+           }
+           this.setPa(0);
     }
     public void deplacement()
     {
@@ -75,7 +74,23 @@ public class EtudiantModele extends PersonnageModele {
                 anciennePosition.getMaTuile().setPersOnTuile();
                 this.getMaCase().getMaTuile().setPersOnTuile();
             }
+            this.setPa(this.getPa()-1);
         }
+    }
+    public void tourDeJeu(){
+        while(this.getPa()>0)
+        {
+            if (this.getMaCase().getMaTuile().tuileContainProf())
+            {
+                this.valider(this.getMaCase().getMaTuile().getPersOnTuile());
+            }
+            else
+            {
+                this.deplacement();
+            }
+        }
+        this.setJouable(false);
+        this.setPa(this.getNbPa());
     }
 
 

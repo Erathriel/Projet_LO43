@@ -16,43 +16,39 @@ public class ProfModele extends PersonnageModele implements SpecialiteModele{
 
 
     // Methodes
-    public void valider(ArrayList<ElemCaseModele> per,int indexObjet){
+    public void valider(ArrayList<PersonnageModele> per,int indexObjet){
         System.out.println("Nbr tentatives : "+((OutilValidationModele)this.inventaire.getContenuInventaire().get(indexObjet)).getNbTentative());
         int nbValidation=1,parcours=0,lancerDé;
         boolean validationPossible=false;
         while(nbValidation <= ((OutilValidationModele)this.inventaire.getContenuInventaire().get(indexObjet)).getNbTentative() && parcours<per.size())
         {
-            if(per.get(parcours) instanceof PersonnageModele) {
-                if (per.get(parcours) instanceof EtudiantModele) {
-                    for (String type : ((OutilValidationModele) this.inventaire.getContenuInventaire().get(indexObjet)).getTypeUV()) {
-                        for (String typeE : ((EtudiantModele) per.get(parcours)).getTypeUV()
-                        ) {
-                            if (typeE.compareTo(type) == 0) {
-                                validationPossible = true;
-                            }
+            if (per.get(parcours) instanceof EtudiantModele) {
+                for (String type : ((OutilValidationModele) this.inventaire.getContenuInventaire().get(indexObjet)).getTypeUV()) {
+                    for (String typeE : ((EtudiantModele) per.get(parcours)).getTypeUV()
+                    ) {
+                        if (typeE.compareTo(type) == 0) {
+                            validationPossible = true;
                         }
                     }
+                }
 
-                    if (validationPossible) {
-                        lancerDé = (int) (Math.random() * (7));
-                        System.out.print(lancerDé + " Lancer numéro : " + nbValidation + "  ");
-                        if (lancerDé >= ((OutilValidationModele) this.inventaire.getContenuInventaire().get(indexObjet)).getTauxDeReussite()) {
-                            ((PersonnageModele)per.get(parcours)).setPv(((PersonnageModele)per.get(parcours)).getPv() - ((OutilValidationModele) this.inventaire.getContenuInventaire().get(indexObjet)).getNbUVVal());
-                            nbValidation++;
-                            if (((EtudiantModele) per.get(parcours)).isValider()) {
-                                this.setExp(this.getExp() + ((EtudiantModele) per.get(parcours)).getExpRapporte());
-                                parcours++;
-                            }
-                        } else {
-                            nbValidation++;
+                if (validationPossible) {
+                    lancerDé = (int) (Math.random() * (7));
+                    System.out.print(lancerDé + " Lancer numéro : " + nbValidation + "  ");
+                    if (lancerDé >= ((OutilValidationModele) this.inventaire.getContenuInventaire().get(indexObjet)).getTauxDeReussite()) {
+                        (per.get(parcours)).setPv((per.get(parcours)).getPv() - ((OutilValidationModele) this.inventaire.getContenuInventaire().get(indexObjet)).getNbUVVal());
+                        nbValidation++;
+                        if (per.get(parcours).isValider()) {
+                            this.setExp(this.getExp() + ((EtudiantModele) per.get(parcours)).getExpRapporte());
+                            parcours++;
                         }
                     } else {
-                        parcours++;
+                        nbValidation++;
                     }
                 } else {
                     parcours++;
                 }
-            }
+        }
                 else{
                     parcours++;
             }
@@ -60,7 +56,7 @@ public class ProfModele extends PersonnageModele implements SpecialiteModele{
         for (int i=0;i<per.size();i++) {
             if(per.get(i) instanceof EtudiantModele)
             {
-                if(((EtudiantModele) per.get(i)).isValider())
+                if( per.get(i).isValider())
                 {
                     per.remove(i);
                 }
@@ -185,7 +181,7 @@ public class ProfModele extends PersonnageModele implements SpecialiteModele{
         return this.inventaire;
     }
     public static void main(String args[]){
-        CaseModele tab6[][]=new CaseModele[5][5];
+        /*CaseModele tab6[][]=new CaseModele[5][5];
         TuileModele t=new TuileModele(0,1,null,tab6);
         PileCarteModele pile= new PileCarteModele();
         String tab[]={"CS","HUMA"};
@@ -215,7 +211,7 @@ public class ProfModele extends PersonnageModele implements SpecialiteModele{
                 System.out.println(s);
 
         }
-        ArrayList<ElemCaseModele> tab2=new ArrayList<ElemCaseModele>();
+        ArrayList<PersonnageModele> tab2=new ArrayList<PersonnageModele>();
         tab2.add(p);
         tab2.add(e);
         tab2.add(e2);
@@ -255,7 +251,7 @@ public class ProfModele extends PersonnageModele implements SpecialiteModele{
         TuileModele t2=new TuileModele(0,1,null,null);
         TuileModele tab10[]={t2};
        // t.setTuileAccessible(tab10);
-        //p.deplacement();
+        //p.deplacement();*/
     }
 
     @Override
