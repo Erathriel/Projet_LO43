@@ -16,8 +16,8 @@ public class test {
         PartieControlleur cPartie = new PartieControlleur(mPartie,vPartie);
         //affichageMapConsole("maps\\mapTest.txt"); // windows
         //vPartie.affichageMapConsole("maps/mapTest.txt"); // linux
-        vPartie.parcoursMap("maps/mapTest.txt");
-        vPartie.setVisible(true);
+        //vPartie.parcoursMap("maps/mapTest.txt");
+        vPartie.repaint();
 
         // Test clement
         /*PlateauModele plateau = new PlateauModele(9); // A decomenter
