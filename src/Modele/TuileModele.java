@@ -7,6 +7,7 @@ import java.util.Arrays;
 public class TuileModele {
     private int id;
     private int nbCase;
+    private PlateauModele plateau;
     private ArrayList<TuileModele> tuileAccessible;
     private ArrayList<PersonnageModele> persOnTuile;
     private ArrayList<CaseModele> porteFermer;
@@ -14,11 +15,12 @@ public class TuileModele {
 
 
     // Contructeur
-    public TuileModele(int id, int nbCase, ArrayList<TuileModele>  tuileAccessible,CaseModele[][] compCase) {
+    public TuileModele(int id, int nbCase, ArrayList<TuileModele>  tuileAccessible,CaseModele[][] compCase,PlateauModele plateau) {
         this.id = id;
         this.nbCase = nbCase;
         this.tuileAccessible = tuileAccessible;
         this.compCase=compCase;
+        this.plateau=plateau;
     }
     // Methode
     public void porteSurTuile(){
@@ -93,25 +95,25 @@ public class TuileModele {
     public CaseModele[][] getCompCase() {
         return compCase;
     }
-    public void setTuileAccessible(ArrayList<TuileModele> tuile){
+    public void setTuileAccessible(){
         this.tuileAccessible=new ArrayList<TuileModele>();
         if(compCase[2][0].getPassable())
         {
-            this.tuileAccessible.add(tuile.get(this.id-4));
+            this.tuileAccessible.add(plateau.getCompTuile().get(this.id-4));
         }
         if(compCase[0][2].getPassable())
         {
 
-            this.tuileAccessible.add(tuile.get(this.id-2));
+            this.tuileAccessible.add(plateau.getCompTuile().get(this.id-2));
         }
         if(compCase[2][4].getPassable())
         {
 
-            this.tuileAccessible.add(tuile.get(this.id+3));
+            this.tuileAccessible.add(plateau.getCompTuile().get(this.id+3));
         }
         if(compCase[4][2].getPassable())
         {
-            this.tuileAccessible.add(tuile.get(this.id));
+            this.tuileAccessible.add(plateau.getCompTuile().get(this.id));
         }
     }
     public void setCompCase(CaseModele[][] compCase) {

@@ -196,6 +196,41 @@ public class ProfModele extends PersonnageModele implements SpecialiteModele{
 
                     if(this.ouvriPorte(((PorteModele)e))){
                         this.getMaCase().getMaTuile().getCompCase()[c.getCoordX()][c.getCoordY()].setPassable(true);
+                        ArrayList<TuileModele> comparePassage=c.getMaTuile().getTuileAccessible();
+                        c.getMaTuile().setTuileAccessible();
+                        for (TuileModele t:c.getMaTuile().getTuileAccessible()) {
+                            if(!comparePassage.contains(t))
+                            {
+                                if(t.getId()==c.getMaTuile().getId()-1){
+                                    for (ElemCaseModele cp:t.getCompCase()[4][2].getCompElemCase()) {
+                                        if(cp instanceof PorteModele){
+                                            ((PorteModele) cp).setVerrouiller();
+                                        }
+                                    }
+                                }
+                                else if(t.getId()==c.getMaTuile().getId()+1){
+                                    for (ElemCaseModele cp:t.getCompCase()[0][2].getCompElemCase()) {
+                                        if(cp instanceof PorteModele){
+                                            ((PorteModele) cp).setVerrouiller();
+                                        }
+                                    }
+                                }
+                                else if(t.getId()==c.getMaTuile().getId()-3){
+                                    for (ElemCaseModele cp:t.getCompCase()[2][0].getCompElemCase()) {
+                                        if(cp instanceof PorteModele){
+                                            ((PorteModele) cp).setVerrouiller();
+                                        }
+                                    }
+                                }
+                                else if(t.getId()==c.getMaTuile().getId()+3){
+                                    for (ElemCaseModele cp:t.getCompCase()[2][4].getCompElemCase()) {
+                                        if(cp instanceof PorteModele){
+                                            ((PorteModele) cp).setVerrouiller();
+                                        }
+                                    }
+                                }
+                            }
+                        }
                     }
                 }
             }
