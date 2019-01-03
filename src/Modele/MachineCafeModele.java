@@ -17,6 +17,7 @@ public class MachineCafeModele extends ElemCaseModele{
           {
               pioche=true;
               ((CarteEtudianteModele) pile.getListeCarte().get(card)).apparition(this.getMaCase(),exptot);
+              this.getMaCase().getMaTuile().rangementEtudiants();
           }
       }
     }

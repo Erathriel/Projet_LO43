@@ -166,6 +166,7 @@ public class ProfModele extends PersonnageModele implements SpecialiteModele{
         {
             System.out.println(c.getIntitule());
             ((CarteEtudianteModele)c).apparition(this.getMaCase(),this.getExp());
+            this.getMaCase().getMaTuile().rangementEtudiants();
         }
         p.setNbCarte(p.getNbCarte()-1);
         this.setPa(this.getPa()-1);
@@ -338,10 +339,10 @@ public class ProfModele extends PersonnageModele implements SpecialiteModele{
     }
 
     @Override
-    public void capaciteActive() {
+    public void capaciteActive(){ //Acton avec effet sur les autres prof présent au même endroit ou alors les sur les etudiants present au même endroit//
 
     }
-    public void capacitePassive(){
+    public void capacitePassive(){//Modification sur les objets de validations
 
     }
 

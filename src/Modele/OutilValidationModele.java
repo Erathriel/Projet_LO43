@@ -44,6 +44,7 @@ public class OutilValidationModele extends ObjetModele {
     public int getPortee() {
         return portee;
     }
+    public void setPortee(int portee){this.portee=portee;}
 
     public int getNbUVVal() {
         return nbUVVal;
@@ -53,7 +54,7 @@ public class OutilValidationModele extends ObjetModele {
         return typeUV;
     }
     public int getTauxDeReussite(){return this.tauxDeReussite;}
-
+    public void setTauxDeReussite(int taux){this.tauxDeReussite=taux;}
     @Override
     public String toString() {
         return "OutilValidationModele{" +
