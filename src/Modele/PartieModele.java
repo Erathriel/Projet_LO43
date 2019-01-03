@@ -16,7 +16,7 @@ public class PartieModele {
         this.listePerso = new ArrayList<PersonnageModele>();
         this.listeObjectif= new ArrayList<ObjectifModele>();
         this.pileCarte = new PileCarteModele();
-        this.plateau = new PlateauModele(16);
+        this.plateau = new PlateauModele(4); // nb tuile de 16 normalement 4 pour les test
     }
 
     // Getters et Setters

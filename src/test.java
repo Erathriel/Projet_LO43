@@ -11,13 +11,16 @@ import java.util.Arrays;
 public class test {
 
     public static void main(String[] args) {
-        /*PartieModele mPartie = new PartieModele();
+        PartieModele mPartie = new PartieModele();
         PartieVue vPartie = new PartieVue(mPartie);
         PartieControlleur cPartie = new PartieControlleur(mPartie,vPartie);
         //affichageMapConsole("maps\\mapTest.txt"); // windows
         //vPartie.affichageMapConsole("maps/mapTest.txt"); // linux
-        vPartie.parcoursMap("maps/mapTest.txt");*/
-        PlateauModele plateau = new PlateauModele(9);
+        vPartie.parcoursMap("maps/mapTest.txt");
+        vPartie.repaint();
+
+        // Test clement
+        /*PlateauModele plateau = new PlateauModele(9); // A decomenter
         CaseModele caseTuile1[][]= new CaseModele[5][5];
         CaseModele caseTuile2[][]= new CaseModele[5][5];
         CaseModele caseTuile3[][]= new CaseModele[5][5];
@@ -275,7 +278,7 @@ public class test {
         caseTuile8[2][2].getCompElemCase().add(p);
         /*p.deplacement();
         p.deplacement();*/
-        String tab[]={"CS","HUMA"};
+        /*String tab[]={"CS","HUMA"}; // A decommenter
         EtudiantModele e = new EtudiantModele(null,caseTuile9[2][2],10,2,"etudiant simple",true,5,tab,2);
        // caseTuile9[2][2].getCompElemCase().add(e);
         PorteModele p1= new PorteModele(null,caseTuile8[2][0],true);
