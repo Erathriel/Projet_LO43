@@ -357,7 +357,7 @@ public class ProfModele extends PersonnageModele implements SpecialiteModele{
     public InventaireModele getInventaire() {
         return this.inventaire;
     }
-    
+
     @Override
     public String toString() {
         return "ProfModele{" +
