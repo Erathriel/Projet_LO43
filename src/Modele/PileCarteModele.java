@@ -96,7 +96,7 @@ public class PileCarteModele {
                 nbrOutil++;
             }
         }
-        if(nbrcle<2 || nbrCarteEtu <8 || nbrOutil <8){
+        if(nbrcle<2 || nbrCarteEtu <5 || nbrOutil <5){
             PileCarteModele p =new PileCarteModele();
             this.listeCarte=p.getListeCarte();
         }
