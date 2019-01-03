@@ -3,6 +3,7 @@ package Modele;
 import java.util.Arrays;
 
 public class OutilValidationModele extends ObjetModele {
+    private boolean modifier;
     private int portee;
     private int nbUVVal;
     private int nbActivation;
@@ -19,9 +20,12 @@ public class OutilValidationModele extends ObjetModele {
         this.nbTentative=nbTentative;
         this.typeUV=typeUV;
         this.tauxDeReussite=tauxDeReussite;
+        this.modifier=false;
     }
 
     // Getters et Setters
+    public boolean getModifier(){return this.modifier;}
+    public void setModifier(){this.modifier=true;}
     public int getNbActivation() {
         return nbActivation;
     }

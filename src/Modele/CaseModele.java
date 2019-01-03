@@ -17,7 +17,18 @@ public class CaseModele {
         this.passable = passable;
         this.compElemCase=new ArrayList<ElemCaseModele>();
     }
+    public boolean containDoorLocked(){
+        for (ElemCaseModele e:this.compElemCase) {
+            if(e instanceof PorteModele){
+                if(((PorteModele) e).isVerrouiller())
+                {
+                    return true;
+                }
+            }
+        }
+        return false;
 
+    }
     // Getters et Setters
     public TuileModele getMaTuile() {
         return maTuile;

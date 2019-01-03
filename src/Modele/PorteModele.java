@@ -16,8 +16,9 @@ public class PorteModele extends MurModele {
         return verrouiller;
     }
 
-    public void setVerrouiller(boolean verrouiller) {
-        this.verrouiller = verrouiller;
+    public void setVerrouiller() {
+        this.verrouiller = true;
+        this.getMaCase().setPassable(true);
     }
 
     @Override

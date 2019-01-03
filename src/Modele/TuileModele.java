@@ -9,6 +9,7 @@ public class TuileModele {
     private int nbCase;
     private ArrayList<TuileModele> tuileAccessible;
     private ArrayList<PersonnageModele> persOnTuile;
+    private ArrayList<CaseModele> porteFermer;
     private CaseModele[][] compCase;
 
 
@@ -20,6 +21,16 @@ public class TuileModele {
         this.compCase=compCase;
     }
     // Methode
+    public void porteSurTuile(){
+        this.porteFermer=new ArrayList<CaseModele>();
+        for (CaseModele[] c:this.compCase) {
+            for (CaseModele cp : c) {
+                if (cp.containDoorLocked()) {
+                    this.porteFermer.add(cp);
+                }
+            }
+        }
+    }
     public void setPersOnTuile(){
         this.persOnTuile=new ArrayList<PersonnageModele>();
         for (CaseModele[] c:this.compCase) {
@@ -106,8 +117,7 @@ public class TuileModele {
     public void setCompCase(CaseModele[][] compCase) {
         this.compCase = compCase;
     }
-
-
+    public ArrayList<CaseModele> getPorteFermer(){return this.porteFermer;}
     @Override
     public String toString() {
         return "TuileModele{" +

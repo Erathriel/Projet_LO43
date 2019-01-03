@@ -220,7 +220,7 @@ public class test {
         plateau.getCompTuile().get(6).setCompCase(caseTuile7);
         caseTuile8[0][0]= new CaseModele(plateau.getCompTuile().get(7),0,0,false);
         caseTuile8[1][0]= new CaseModele(plateau.getCompTuile().get(7),1,0,false);
-        caseTuile8[2][0]= new CaseModele(plateau.getCompTuile().get(7),2,0,false);
+        caseTuile8[2][0]= new CaseModele(plateau.getCompTuile().get(7),2,0,true);
         caseTuile8[3][0]= new CaseModele(plateau.getCompTuile().get(7),3,0,false);
         caseTuile8[4][0]= new CaseModele(plateau.getCompTuile().get(7),4,0,false);
         caseTuile8[0][1]= new CaseModele(plateau.getCompTuile().get(7),0,1,false);
@@ -275,25 +275,52 @@ public class test {
         caseTuile8[2][2].getCompElemCase().add(p);
         /*p.deplacement();
         p.deplacement();*/
-        EtudiantModele e = new EtudiantModele(null,caseTuile9[2][2],10,2,"etudiant simple",true,5,null,2);
-        caseTuile9[2][2].getCompElemCase().add(e);
+        String tab[]={"CS","HUMA"};
+        EtudiantModele e = new EtudiantModele(null,caseTuile9[2][2],10,2,"etudiant simple",true,5,tab,2);
+       // caseTuile9[2][2].getCompElemCase().add(e);
+        PorteModele p1= new PorteModele(null,caseTuile8[2][0],true);
+        PorteModele p2= new PorteModele(null,caseTuile8[0][2],true);
+        PorteModele p3= new PorteModele(null,caseTuile8[4][2],true);
+        caseTuile8[2][0].getCompElemCase().add(p1);
+        caseTuile8[0][2].getCompElemCase().add(p1);
+        caseTuile8[4][2].getCompElemCase().add(p1);
         for (TuileModele t : plateau.getCompTuile()) {
+            t.porteSurTuile();
             t.setPersOnTuile();
             System.out.println(t.tuileContainProf());
             System.out.println(t.tuileContainEtu());
             System.out.println(t.getId());
             t.setTuileAccessible(plateau.getCompTuile());
         }
+        OutilValidationModele o1=new OutilValidationModele("canif","Canif de la muerte",0,0,5,4,3,tab,3);
+        OutilValidationModele o2=new OutilValidationModele("canif","Canif de la muerte 2",0,1,5,4,3,tab,3);
+        OutilValidationModele o3=new OutilValidationModele("canif","Canif de la muerte 3",0,1,5,4,3,tab,3);
+        CleModele c1= new CleModele("cle","cle",3);
         System.out.println(p.getPv());
-        e.tourDeJeu();
-        System.out.println(p.getPv());
+        p.getInventaire().getContenuInventaire().add(o1);
+        p.getInventaire().getContenuInventaire().add(o2);
+        p.getInventaire().getContenuInventaire().add(o3);
+        p.getInventaire().getContenuInventaire().add(c1);
+        //e.tourDeJeu();
+        p.choixOutilEtZone();
+        //p.deplacement();
+        p.choixModifInventaire();
+        System.out.println(p.getMaCase().getMaTuile().getId());
+        p.choixPorte();
         for (TuileModele t : plateau.getCompTuile()) {
+            t.porteSurTuile();
+            t.setPersOnTuile();
+            t.setTuileAccessible(plateau.getCompTuile());
+        }
+        p.deplacement();
+        System.out.println(p.getPv());
+        /*for (TuileModele t : plateau.getCompTuile()) {
             t.setPersOnTuile();
             System.out.println(t.tuileContainProf());
             System.out.println(t.tuileContainEtu());
             System.out.println(t.getId());
             t.setTuileAccessible(plateau.getCompTuile());
         }
-        System.out.println(e.getMaCase().getMaTuile().getId());
+        System.out.println(e.getMaCase().getMaTuile().getId());*/
     }
 }
