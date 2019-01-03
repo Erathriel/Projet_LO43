@@ -13,9 +13,11 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 public class PlateauPanel extends JPanel {
+    private PlateauModele plateau;
 
-    public PlateauPanel() {
+    public PlateauPanel(PlateauModele pm) {
         super();
+        plateau = pm;
         /*JPanel jtest = new JPanel();
         jtest.setOpaque(false);
         jtest.setSize(100,100);
@@ -84,7 +86,7 @@ public class PlateauPanel extends JPanel {
                 }
             }
             // DEBUG affiche le tableau map en console
-            for (int k=0; k<80; k++){
+            /*for (int k=0; k<80; k++){
                 for (int l = 0; l<80; l++){
                     if (l == 79){
                         System.out.println(map[k][l]);
@@ -93,7 +95,7 @@ public class PlateauPanel extends JPanel {
                         System.out.print(map[k][l]+" ");
                     }
                 }
-            }
+            }*/
             bis.close();
             fis.close();
 
@@ -105,6 +107,7 @@ public class PlateauPanel extends JPanel {
     }
 
     public void afficheMapGraphique(Graphics g) throws IOException {
+        ArrayList<TuileModele> tuilePlateau;
         CaseModele[][] cases = new CaseModele[80][80];
         //ElemCaseModele[][] elemMap = new ElemCaseModele[80][80];
         ElemCaseModele elemMap;

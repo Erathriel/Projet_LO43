@@ -30,7 +30,7 @@ public class PartieVue extends JFrame {
         /*this.labelTest = new JLabel("test");
         labelTest.setBorder(null);
         labelTest.setOpaque(false);*/
-        this.plateau = new PlateauPanel();
+        this.plateau = new PlateauPanel(mpartie.getPlateau());
         //plateau.setBackground(Color.blue);
         plateau.setBorder(null);
         plateau.setOpaque(false);
