@@ -52,7 +52,7 @@ public class PlateauPanel extends JPanel {
     }
 
     public char[][] parcoursMap(String name){
-        char[][] map = new char[10][10];
+        char[][] map = new char[80][80];
         int i=0;
         int j=0;
         FileInputStream fis = null;
@@ -68,7 +68,7 @@ public class PlateauPanel extends JPanel {
                 //System.out.println("start boucle : i : "+i+"     j : "+j); DEBUG
                 if (buffer != 32 && buffer != 10 && i<map.length){
                     //System.out.print((char)buffer); DEBUG
-                    if (j == 10){
+                    if (j == map.length){
                         i++;
                         j=0;
                         map[i][j]=(char)buffer;
@@ -83,9 +83,9 @@ public class PlateauPanel extends JPanel {
                 }
             }
             // DEBUG affiche le tableau map en console
-            for (int k=0; k<10; k++){
-                for (int l = 0; l<10; l++){
-                    if (l == 9){
+            for (int k=0; k<80; k++){
+                for (int l = 0; l<80; l++){
+                    if (l == 79){
                         System.out.println(map[k][l]);
                     }
                     else{
@@ -104,39 +104,38 @@ public class PlateauPanel extends JPanel {
     }
 
     public void afficheMapGraphique(Graphics g) throws IOException {
-        CaseModele[][] cases = new CaseModele[10][10];
-        ElemCaseModele[][] elemMap = new ElemCaseModele[10][10];
+        CaseModele[][] cases = new CaseModele[80][80];
+        ElemCaseModele[][] elemMap = new ElemCaseModele[80][80];
             File nomImage;
             Image img;
-            char [][] map = parcoursMap("maps/mapTest.txt");
-            for (int i=0; i<10; i++){
-                for (int j=0; j<10; j++){
-                    System.out.println("Element"+ map[i][j]);
+            char [][] map = parcoursMap("maps/mapTest2.txt");
+            for (int i=0; i<80; i++){
+                for (int j=0; j<80; j++){
                     switch (map[i][j])
                     {
                         case '1':
                             nomImage = new File("img/mur.png");
                             img = ImageIO.read(nomImage.getAbsoluteFile());
                             elemMap[i][j]= new MurModele(img, null); // A modifier pour maCase
-                            g.drawImage(elemMap[i][j].getImage(),j*60,i*60,null);
+                            g.drawImage(elemMap[i][j].getImage(),j*20,i*20,null);
                             break;
                         case '2':
                             nomImage = new File("img/sol1.jpg");
                             img = ImageIO.read(nomImage.getAbsoluteFile());
                             elemMap[i][j]=new SolModele(img,null);
-                            g.drawImage(elemMap[i][j].getImage(),j*60,i*60,null);
+                            g.drawImage(elemMap[i][j].getImage(),j*20,i*20,null);
                             break;
                         case '3':
                             nomImage = new File("img/sol2.jpg");
                             img = ImageIO.read(nomImage.getAbsoluteFile());
                             elemMap[i][j]=new SolModele(img,null);
-                            g.drawImage(elemMap[i][j].getImage(),j*60,i*60,null);
+                            g.drawImage(elemMap[i][j].getImage(),j*20,i*20,null);
                             break;
                         case '4':
                             nomImage = new File("img/porte.jpg");
                             img = ImageIO.read(nomImage.getAbsoluteFile());
                             elemMap[i][j]=new PorteModele(img,null,true);
-                            g.drawImage(elemMap[i][j].getImage(),j*60,i*60,null);
+                            g.drawImage(elemMap[i][j].getImage(),j*20,i*20,null);
                             break;
                     }
                 }
