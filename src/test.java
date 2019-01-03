@@ -11,16 +11,19 @@ import java.util.Arrays;
 public class test {
 
     public static void main(String[] args) {
-        PartieModele mPartie = new PartieModele();
+        /*PartieModele mPartie = new PartieModele();
         PartieVue vPartie = new PartieVue(mPartie);
         PartieControlleur cPartie = new PartieControlleur(mPartie,vPartie);
         //affichageMapConsole("maps\\mapTest.txt"); // windows
         //vPartie.affichageMapConsole("maps/mapTest.txt"); // linux
+        vPartie.parcoursMap("maps/mapTest.txt");*/
+        //PartieModele mPartie = new PartieModele();
+        //PartieVue vPartie = new PartieVue(mPartie);
+        //PartieControlleur cPartie = new PartieControlleur(mPartie,vPartie);
+        //affichageMapConsole("maps\\mapTest.txt"); // windows
+        //vPartie.affichageMapConsole("maps/mapTest.txt"); // linux
         //vPartie.parcoursMap("maps/mapTest.txt");
-        vPartie.repaint();
-
-        // Test clement
-        /*PlateauModele plateau = new PlateauModele(9); // A decomenter
+        PlateauModele plateau = new PlateauModele(9);
         CaseModele caseTuile1[][]= new CaseModele[5][5];
         CaseModele caseTuile2[][]= new CaseModele[5][5];
         CaseModele caseTuile3[][]= new CaseModele[5][5];
@@ -30,15 +33,15 @@ public class test {
         CaseModele caseTuile7[][]= new CaseModele[5][5];
         CaseModele caseTuile8[][]= new CaseModele[5][5];
         CaseModele caseTuile9[][]= new CaseModele[5][5];
-        plateau.getCompTuile().add(new TuileModele(1,25,null,null));
-        plateau.getCompTuile().add(new TuileModele(2,25,null,null));
-        plateau.getCompTuile().add(new TuileModele(3,25,null,null));
-        plateau.getCompTuile().add(new TuileModele(4,25,null,null));
-        plateau.getCompTuile().add(new TuileModele(5,25,null,null));
-        plateau.getCompTuile().add(new TuileModele(6,25,null,null));
-        plateau.getCompTuile().add(new TuileModele(7,25,null,null));
-        plateau.getCompTuile().add(new TuileModele(8,25,null,null));
-        plateau.getCompTuile().add(new TuileModele(9,25,null,null));
+        plateau.getCompTuile().add(new TuileModele(1,25,null,null,plateau));
+        plateau.getCompTuile().add(new TuileModele(2,25,null,null,plateau));
+        plateau.getCompTuile().add(new TuileModele(3,25,null,null,plateau));
+        plateau.getCompTuile().add(new TuileModele(4,25,null,null,plateau));
+        plateau.getCompTuile().add(new TuileModele(5,25,null,null,plateau));
+        plateau.getCompTuile().add(new TuileModele(6,25,null,null,plateau));
+        plateau.getCompTuile().add(new TuileModele(7,25,null,null,plateau));
+        plateau.getCompTuile().add(new TuileModele(8,25,null,null,plateau));
+        plateau.getCompTuile().add(new TuileModele(9,25,null,null,plateau));
         caseTuile1[0][0]= new CaseModele(plateau.getCompTuile().get(0),0,0,false);
         caseTuile1[1][0]= new CaseModele(plateau.getCompTuile().get(0),1,0,false);
         caseTuile1[2][0]= new CaseModele(plateau.getCompTuile().get(0),2,0,false);
@@ -273,27 +276,27 @@ public class test {
         caseTuile9[3][2]= new CaseModele(plateau.getCompTuile().get(8),3,2,true);
         caseTuile9[3][3]= new CaseModele(plateau.getCompTuile().get(8),3,3,true);
         plateau.getCompTuile().get(8).setCompCase(caseTuile9);
-        plateau.getCompTuile().get(8).setTuileAccessible(plateau.getCompTuile());
+        plateau.getCompTuile().get(8).setTuileAccessible();
         ProfModele p=new ProfModele(null,caseTuile8[2][2],100,3,"Jean Pierre",true,0);
         caseTuile8[2][2].getCompElemCase().add(p);
         /*p.deplacement();
         p.deplacement();*/
-        /*String tab[]={"CS","HUMA"}; // A decommenter
+        String tab[]={"CS","HUMA"};
         EtudiantModele e = new EtudiantModele(null,caseTuile9[2][2],10,2,"etudiant simple",true,5,tab,2);
-       // caseTuile9[2][2].getCompElemCase().add(e);
+        // caseTuile9[2][2].getCompElemCase().add(e);
         PorteModele p1= new PorteModele(null,caseTuile8[2][0],true);
         PorteModele p2= new PorteModele(null,caseTuile8[0][2],true);
         PorteModele p3= new PorteModele(null,caseTuile8[4][2],true);
         caseTuile8[2][0].getCompElemCase().add(p1);
-        caseTuile8[0][2].getCompElemCase().add(p1);
-        caseTuile8[4][2].getCompElemCase().add(p1);
+        caseTuile8[0][2].getCompElemCase().add(p2);
+        caseTuile8[4][2].getCompElemCase().add(p3);
         for (TuileModele t : plateau.getCompTuile()) {
             t.porteSurTuile();
             t.setPersOnTuile();
             System.out.println(t.tuileContainProf());
             System.out.println(t.tuileContainEtu());
             System.out.println(t.getId());
-            t.setTuileAccessible(plateau.getCompTuile());
+            t.setTuileAccessible();
         }
         OutilValidationModele o1=new OutilValidationModele("canif","Canif de la muerte",0,0,5,4,3,tab,3);
         OutilValidationModele o2=new OutilValidationModele("canif","Canif de la muerte 2",0,1,5,4,3,tab,3);
@@ -304,6 +307,8 @@ public class test {
         p.getInventaire().getContenuInventaire().add(o2);
         p.getInventaire().getContenuInventaire().add(o3);
         p.getInventaire().getContenuInventaire().add(c1);
+        plateau.getCompTuile().get(7).getCompCase()[4][2].getCompElemCase().add(new PorteModele(null,plateau.getCompTuile().get(6).getCompCase()[4][2],true));
+        plateau.getCompTuile().get(6).getCompCase()[4][2].getCompElemCase().add(new PorteModele(null,plateau.getCompTuile().get(6).getCompCase()[4][2],true));
         //e.tourDeJeu();
         p.choixOutilEtZone();
         //p.deplacement();
@@ -313,9 +318,14 @@ public class test {
         for (TuileModele t : plateau.getCompTuile()) {
             t.porteSurTuile();
             t.setPersOnTuile();
-            t.setTuileAccessible(plateau.getCompTuile());
+            t.setTuileAccessible();
         }
+        System.out.println(p.getMaCase().getMaTuile().getId());
         p.deplacement();
+        System.out.println(p.getMaCase().getMaTuile().getId());
+        System.out.println(p.getMaCase().getMaTuile().getCompCase()[4][2].getPassable());
+        p.deplacement();
+        System.out.println(p.getMaCase().getMaTuile().getId());
         System.out.println(p.getPv());
         /*for (TuileModele t : plateau.getCompTuile()) {
             t.setPersOnTuile();
