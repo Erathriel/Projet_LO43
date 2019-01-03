@@ -354,83 +354,10 @@ public class ProfModele extends PersonnageModele implements SpecialiteModele{
     public void setExp(int exp) {
         this.exp = exp;
     }
-    public InventaireModele getInventaire(){
+    public InventaireModele getInventaire() {
         return this.inventaire;
     }
-    public static void main(String args[]){
-        /*CaseModele tab6[][]=new CaseModele[5][5];
-        TuileModele t=new TuileModele(0,1,null,tab6);
-        PileCarteModele pile= new PileCarteModele();
-        String tab[]={"CS","HUMA"};
-        String tab3[]={"TM"};
-        ProfModele p = new ProfModele(null,null,10,1,"Jean",true,1);
-        EtudiantModele e= new EtudiantModele(null,null,5,2,"etu1",true,2,tab,2);
-        OutilValidationModele o= new OutilValidationModele("Tampon","Tampon Ultime 1",0,0,2,3,2,tab3,3);
-        p.getInventaire().getContenuInventaire().add(o);
-        EtudiantModele e2= new EtudiantModele(null,null,5,2,"etu2",true,2,tab,2);
-        OutilValidationModele o2= new OutilValidationModele("Tampon","Tampon Ultime 2",0,0,2,3,3,tab,3);
-        p.getInventaire().getContenuInventaire().add(o2);
-        OutilValidationModele o3= new OutilValidationModele("Tampon","Tampon Ultime 3",0,0,2,3,3,tab,3);
-        p.getInventaire().getContenuInventaire().add(o3);
-        OutilValidationModele o4= new OutilValidationModele("Tampon","Tampon Ultime 4",0,0,2,3,3,tab,3);
-        p.getInventaire().getContenuInventaire().add(o4);
-        OutilValidationModele o5= new OutilValidationModele("Tampon","Tampon Ultime 5",0,0,2,3,3,tab,3);
-        p.getInventaire().getContenuInventaire().add(o5);
-        OutilValidationModele o6= new OutilValidationModele("Tampon","Tampon Ultime 6",0,0,2,3,3,tab,3);
-        pile.getListeCarte().add(o6);
-        OutilValidationModele o7= new OutilValidationModele("Tampon","Tampon Ultime 7",0,0,2,3,3,tab,3);
-        pile.getListeCarte().add(o7);
-        pile.getListeCarte().add(new CarteEtudianteModele("Carte moyenne",2));
-        pile.getListeCarte().add(new CarteEtudianteModele("Carte moyenne",2));
-        CaseModele case1=new CaseModele(t,0,0,true);
-        for (String s:o.getTypeUV()
-             ) {
-                System.out.println(s);
-
-        }
-        ArrayList<PersonnageModele> tab2=new ArrayList<PersonnageModele>();
-        tab2.add(p);
-        tab2.add(e);
-        tab2.add(e2);
-        case1.setCompElemCase(tab2);
-        p.valider(tab2,0);
-        for (int i = 0; i < tab2.size(); i++) {
-            if(tab2.get(i) instanceof EtudiantModele){
-                ((EtudiantModele)tab2.get(i)).valider(tab2);
-            }
-            if(tab2.get(i) instanceof  PersonnageModele) {System.out.println(((PersonnageModele)tab2.get(i)).getPv()+" "+((PersonnageModele)tab2.get(i)).getNom());}
-
-        }
-        p.modifInventaire(0,1);
-        p.valider(tab2,0);
-        System.out.println("2nd attaque");
-        for (ElemCaseModele a: tab2
-        ) {
-
-            if(a instanceof  PersonnageModele) {System.out.println(((PersonnageModele)a).getPv()+" "+((PersonnageModele)a).getNom());}
-
-        }
-        System.out.println(pile.getListeCarte().size());
-        p.setMaCase(case1);
-        p.fouiller(pile);
-        p.fouiller(pile);
-        p.fouiller(pile);
-        p.setExp(50);
-        System.out.println("3eme attaque : "+p.getExp()/25);
-        for (ElemCaseModele a: tab2
-        ) {
-
-               if(a instanceof  PersonnageModele) {System.out.println(((PersonnageModele)a).getPv()+" "+((PersonnageModele)a).getNom());}
-
-        }
-        t.getCompCase()[0][0]=case1;
-        t.setPersOnTuile();
-        TuileModele t2=new TuileModele(0,1,null,null);
-        TuileModele tab10[]={t2};
-       // t.setTuileAccessible(tab10);
-        //p.deplacement();*/
-    }
-
+    
     @Override
     public String toString() {
         return "ProfModele{" +
