@@ -16,7 +16,9 @@ https://git-scm.com/downloads
 
 Objectif :
 
-- Definir le projet
-- Mettre en place un planning
-- Configuration des logiciels
-- Tuto d'utilisation des logiciels
+- Création des tuiles
+- Mettre en page la fenetre - NOK
+- Affichage des persos - NOK
+- Les boutons d'actions - NOK
+- Création des objets - NOK
+- Afficher des cartes - NOK
