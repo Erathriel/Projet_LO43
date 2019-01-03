@@ -15,11 +15,11 @@ public class TuileModele {
 
 
     // Contructeur
-    public TuileModele(int id, int nbCase, ArrayList<TuileModele>  tuileAccessible,CaseModele[][] compCase,PlateauModele plateau) {
+    public TuileModele(int id, int nbCase, PlateauModele plateau) {
         this.id = id;
         this.nbCase = nbCase;
-        this.tuileAccessible = tuileAccessible;
-        this.compCase=compCase;
+        this.tuileAccessible = new ArrayList<TuileModele>();
+        this.compCase=new CaseModele[5][5];
         this.plateau=plateau;
     }
     // Methode
