@@ -41,7 +41,7 @@ public class PartieVue extends JFrame {
         /*plateau.add(labelTest);
         plateau.setOpaque(false);*/
         this.setContentPane(plateau);
-        plateau.setPreferredSize(new Dimension(10*32,10*32));
+        plateau.setPreferredSize(new Dimension(50,50));
     }
 
 

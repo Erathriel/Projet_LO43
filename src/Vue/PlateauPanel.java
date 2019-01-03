@@ -83,16 +83,16 @@ public class PlateauPanel extends JPanel {
                 }
             }
             // DEBUG affiche le tableau map en console
-            /*for (int k=0; k<10; k++){
+            for (int k=0; k<10; k++){
                 for (int l = 0; l<10; l++){
                     if (l == 9){
                         System.out.println(map[k][l]);
                     }
                     else{
-                        System.out.print(map[k][l]);
+                        System.out.print(map[k][l]+" ");
                     }
                 }
-            }*/
+            }
             bis.close();
             fis.close();
 
@@ -111,32 +111,32 @@ public class PlateauPanel extends JPanel {
             char [][] map = parcoursMap("maps/mapTest.txt");
             for (int i=0; i<10; i++){
                 for (int j=0; j<10; j++){
+                    System.out.println("Element"+ map[i][j]);
                     switch (map[i][j])
                     {
                         case '1':
                             nomImage = new File("img/mur.png");
                             img = ImageIO.read(nomImage.getAbsoluteFile());
                             elemMap[i][j]= new MurModele(img, null); // A modifier pour maCase
-                            System.out.println(elemMap[i][j]);
-                            g.drawImage(elemMap[i][j].getImage(),i*32,j*32,null);
+                            g.drawImage(elemMap[i][j].getImage(),j*60,i*60,null);
                             break;
                         case '2':
                             nomImage = new File("img/sol1.jpg");
                             img = ImageIO.read(nomImage.getAbsoluteFile());
                             elemMap[i][j]=new SolModele(img,null);
-                            g.drawImage(elemMap[i][j].getImage(),i*32,j*32,null);
+                            g.drawImage(elemMap[i][j].getImage(),j*60,i*60,null);
                             break;
                         case '3':
                             nomImage = new File("img/sol2.jpg");
                             img = ImageIO.read(nomImage.getAbsoluteFile());
                             elemMap[i][j]=new SolModele(img,null);
-                            g.drawImage(elemMap[i][j].getImage(),i*32,j*32,null);
+                            g.drawImage(elemMap[i][j].getImage(),j*60,i*60,null);
                             break;
                         case '4':
                             nomImage = new File("img/porte.jpg");
                             img = ImageIO.read(nomImage.getAbsoluteFile());
                             elemMap[i][j]=new PorteModele(img,null,true);
-                            g.drawImage(elemMap[i][j].getImage(),i*32,j*32,null);
+                            g.drawImage(elemMap[i][j].getImage(),j*60,i*60,null);
                             break;
                     }
                 }

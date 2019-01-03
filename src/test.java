@@ -11,19 +11,14 @@ import java.util.Arrays;
 public class test {
 
     public static void main(String[] args) {
-        /*PartieModele mPartie = new PartieModele();
+        PartieModele mPartie = new PartieModele();
         PartieVue vPartie = new PartieVue(mPartie);
         PartieControlleur cPartie = new PartieControlleur(mPartie,vPartie);
         //affichageMapConsole("maps\\mapTest.txt"); // windows
         //vPartie.affichageMapConsole("maps/mapTest.txt"); // linux
-        vPartie.parcoursMap("maps/mapTest.txt");*/
-        //PartieModele mPartie = new PartieModele();
-        //PartieVue vPartie = new PartieVue(mPartie);
-        //PartieControlleur cPartie = new PartieControlleur(mPartie,vPartie);
-        //affichageMapConsole("maps\\mapTest.txt"); // windows
-        //vPartie.affichageMapConsole("maps/mapTest.txt"); // linux
         //vPartie.parcoursMap("maps/mapTest.txt");
-        PlateauModele plateau = new PlateauModele(9);
+
+        /*PlateauModele plateau = new PlateauModele(9);
         CaseModele caseTuile1[][]= new CaseModele[5][5];
         CaseModele caseTuile2[][]= new CaseModele[5][5];
         CaseModele caseTuile3[][]= new CaseModele[5][5];
@@ -277,11 +272,11 @@ public class test {
         caseTuile9[3][3]= new CaseModele(plateau.getCompTuile().get(8),3,3,true);
         plateau.getCompTuile().get(8).setCompCase(caseTuile9);
         plateau.getCompTuile().get(8).setTuileAccessible();
-        /*ProfModele p=new ProfModele(null,caseTuile8[2][2],100,3,"Jean Pierre",true,0);
+        ProfModele p=new ProfModele(null,caseTuile8[2][2],100,3,"Jean Pierre",true,0);
         caseTuile8[2][2].getCompElemCase().add(p);
         /*p.deplacement();
-        p.deplacement();
-        String tab[]={"CS","HUMA"};
+        p.deplacement();*/
+        /*String tab[]={"CS","HUMA"};
         EtudiantModele e = new EtudiantModele(null,caseTuile9[2][2],10,2,"etudiant simple",true,5,tab,2);
         // caseTuile9[2][2].getCompElemCase().add(e);
         PorteModele p1= new PorteModele(null,caseTuile8[2][0],true);
@@ -326,7 +321,7 @@ public class test {
         System.out.println(p.getMaCase().getMaTuile().getCompCase()[4][2].getPassable());
         p.deplacement();
         System.out.println(p.getMaCase().getMaTuile().getId());
-        System.out.println(p.getPv());*/
+        System.out.println(p.getPv());
         /*for (TuileModele t : plateau.getCompTuile()) {
             t.setPersOnTuile();
             System.out.println(t.tuileContainProf());
@@ -335,29 +330,5 @@ public class test {
             t.setTuileAccessible(plateau.getCompTuile());
         }
         System.out.println(e.getMaCase().getMaTuile().getId());*/
-        //Test fonction rangement Etudiant Tuile
-        EtudiantModele e1=new EtudiantModele(null,caseTuile1[2][1],10,2,"Etu",true,2,null,2);
-        caseTuile1[2][1].getCompElemCase().add(e1);
-        EtudiantModele e2=new EtudiantModele(null,caseTuile1[2][1],10,2,"Etu",true,2,null,2);
-        caseTuile1[2][1].getCompElemCase().add(e2);
-        EtudiantModele e3=new EtudiantModele(null,caseTuile1[2][1],10,2,"Etu",true,2,null,2);
-        caseTuile1[2][1].getCompElemCase().add(e3);
-        EtudiantModele e4=new EtudiantModele(null,caseTuile1[2][1],10,2,"Etu",true,2,null,2);
-        caseTuile1[2][1].getCompElemCase().add(e4);
-        EtudiantModele e5=new EtudiantModele(null,caseTuile1[2][1],10,2,"Etu",true,2,null,2);
-        caseTuile1[2][1].getCompElemCase().add(e5);
-        EtudiantModele e7=new EtudiantModele(null,caseTuile1[2][1],10,2,"Etu",true,2,null,2);
-        caseTuile1[2][1].getCompElemCase().add(e7);
-        EtudiantModele e6=new EtudiantModele(null,caseTuile1[2][1],10,2,"Etu",true,2,null,2);
-        caseTuile1[2][1].getCompElemCase().add(e6);
-        plateau.getCompTuile().get(0).rangementEtudiants();
-        for(PersonnageModele p:plateau.getCompTuile().get(0).getPersOnTuile()){
-           System.out.println(p.getMaCase().getCoordX()+"  "+p.getMaCase().getCoordY());
-        }
-
-        for(ElemCaseModele e :caseTuile1[2][1].getCompElemCase())
-        {
-            System.out.println(e.getMaCase().getCoordX()+"  "+e.getMaCase().getCoordY());
-        }
     }
 }
