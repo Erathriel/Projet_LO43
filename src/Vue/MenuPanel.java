@@ -1,5 +1,8 @@
 package Vue;
 
+import Controleur.PartieControlleur;
+import Modele.PartieModele;
+
 import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
@@ -10,7 +13,7 @@ import java.io.IOException;
 public class MenuPanel extends JPanel {
     private BufferedImage background;
     //résolution image entière menu 1260/700
-    MenuPanel(){
+    MenuPanel(PartieControlleur control){
         super(new GridBagLayout());
         try {
             background = ImageIO.read(new File("C:/Users/cleme/OneDrive/Images/overlay4.png"));
@@ -19,7 +22,7 @@ public class MenuPanel extends JPanel {
         GridBagConstraints gbc=new GridBagConstraints();
         gbc.gridx = 3;
         gbc.gridy = 1;
-        MenuJButton b1=new MenuJButton(new ImageIcon("C:/Users/cleme/OneDrive/Images/overlay1.png"),new ImageIcon("C:/Users/cleme/OneDrive/Images/overlay2.png"));
+        MenuJButton b1=new MenuJButton(new ImageIcon("C:/Users/cleme/OneDrive/Images/overlay1.png"),new ImageIcon("C:/Users/cleme/OneDrive/Images/overlay2.png"),control);
         this.add(b1,gbc);
         gbc.gridy = 2;
         JPanel J =new JPanel();
@@ -31,7 +34,7 @@ public class MenuPanel extends JPanel {
         J2.setOpaque(false);
         J2.setSize(100,100);
         this.add(J2,gbc);
-        MenuJButton b2=new MenuJButton(new ImageIcon("C:/Users/cleme/OneDrive/Images/overlay2.png"),new ImageIcon("C:/Users/cleme/OneDrive/Images/overlay1.png"));
+        MenuJButton b2=new MenuJButton(new ImageIcon("C:/Users/cleme/OneDrive/Images/overlay2.png"),new ImageIcon("C:/Users/cleme/OneDrive/Images/overlay1.png"),control);
         gbc.gridy = 4;
         this.add(b2,gbc);
         gbc.gridy = 5;
@@ -45,7 +48,7 @@ public class MenuPanel extends JPanel {
         J4.setOpaque(false);
         J4.setSize(100,100);
         this.add(J4,gbc);
-        MenuJButton b3=new MenuJButton(new ImageIcon("C:/Users/cleme/OneDrive/Images/overlay1.png"),new ImageIcon("C:/Users/cleme/OneDrive/Images/overlay2.png"));
+        MenuJButton b3=new MenuJButton(new ImageIcon("C:/Users/cleme/OneDrive/Images/overlay1.png"),new ImageIcon("C:/Users/cleme/OneDrive/Images/overlay2.png"),control);
         gbc.gridy = 7;
         this.add(b3,gbc);
          }

@@ -29,6 +29,15 @@ public class CaseModele {
         return false;
 
     }
+    public int nombreEtu(){
+        int nbreEtu=0;
+        for (ElemCaseModele e:this.getCompElemCase()) {
+            if(e instanceof EtudiantModele){
+                nbreEtu++;
+            }
+        }
+        return nbreEtu;
+    }
     // Getters et Setters
     public TuileModele getMaTuile() {
         return maTuile;

@@ -23,6 +23,74 @@ public class TuileModele {
         this.plateau=plateau;
     }
     // Methode
+    public void rangementEtudiants(){
+        this.setPersOnTuile();
+        ArrayList<EtudiantModele> etuAPlacer=new ArrayList<EtudiantModele>();
+        if(this.tuileContainEtu())
+        {
+            for (PersonnageModele p:this.persOnTuile) {
+                if(p instanceof EtudiantModele){
+                    etuAPlacer.add(((EtudiantModele)p));
+                    p.getMaCase().getCompElemCase().remove(p);
+
+                }
+            }
+            int nbrEtuPresent=0;
+            while(etuAPlacer.size()>0){
+                if(this.getCompCase()[1][1].nombreEtu()==nbrEtuPresent)
+                {
+                    this.getCompCase()[1][1].getCompElemCase().add(etuAPlacer.get(0));
+                    etuAPlacer.get(0).setMaCase(this.getCompCase()[1][1]);
+                    etuAPlacer.remove(0);
+                }
+                else if(this.getCompCase()[2][1].nombreEtu()==nbrEtuPresent)
+                {
+                    this.getCompCase()[2][1].getCompElemCase().add(etuAPlacer.get(0));
+                    etuAPlacer.get(0).setMaCase(this.getCompCase()[2][1]);
+                    etuAPlacer.remove(0);
+                }
+                else if(this.getCompCase()[3][1].nombreEtu()==nbrEtuPresent)
+                {
+                    this.getCompCase()[3][1].getCompElemCase().add(etuAPlacer.get(0));
+                    etuAPlacer.get(0).setMaCase(this.getCompCase()[3][1]);
+                    etuAPlacer.remove(0);
+                }
+                else if(this.getCompCase()[1][2].nombreEtu()==nbrEtuPresent)
+                {
+                    this.getCompCase()[1][2].getCompElemCase().add(etuAPlacer.get(0));
+                    etuAPlacer.get(0).setMaCase(this.getCompCase()[1][2]);
+                    etuAPlacer.remove(0);
+                }
+                else if(this.getCompCase()[3][2].nombreEtu()==nbrEtuPresent)
+                {
+                    this.getCompCase()[3][2].getCompElemCase().add(etuAPlacer.get(0));
+                    etuAPlacer.get(0).setMaCase(this.getCompCase()[3][2]);
+                    etuAPlacer.remove(0);
+                }
+                else if(this.getCompCase()[1][3].nombreEtu()==nbrEtuPresent)
+                {
+                    this.getCompCase()[1][3].getCompElemCase().add(etuAPlacer.get(0));
+                    etuAPlacer.get(0).setMaCase(this.getCompCase()[1][3]);
+                    etuAPlacer.remove(0);
+                }
+                else if(this.getCompCase()[2][3].nombreEtu()==nbrEtuPresent)
+                {
+                    this.getCompCase()[2][3].getCompElemCase().add(etuAPlacer.get(0));
+                    etuAPlacer.get(0).setMaCase(this.getCompCase()[2][3]);
+                    etuAPlacer.remove(0);
+                }
+                else if(this.getCompCase()[3][3].nombreEtu()==nbrEtuPresent)
+                {
+                    this.getCompCase()[3][3].getCompElemCase().add(etuAPlacer.get(0));
+                    etuAPlacer.get(0).setMaCase(this.getCompCase()[3][3]);
+                    etuAPlacer.remove(0);
+                }
+                else{
+                    nbrEtuPresent++;
+                }
+            }
+        }
+    }
     public void porteSurTuile(){
         this.porteFermer=new ArrayList<CaseModele>();
         for (CaseModele[] c:this.compCase) {
