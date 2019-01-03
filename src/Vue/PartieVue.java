@@ -122,7 +122,7 @@ public class PartieVue extends JFrame {
         return map;
     }
 
-    public void affichageMapGraphique(Graphics g){
+    public void afficheMapGraphique(Graphics g){
         CaseModele[][] cases = new CaseModele[10][10];
         ElemCaseModele[][] elemMap = new ElemCaseModele[10][10];
         File nomImage;
@@ -136,7 +136,7 @@ public class PartieVue extends JFrame {
                         nomImage = new File("img/mur.jpg");
                         img = Toolkit.getDefaultToolkit().getImage(nomImage.getAbsolutePath());
                         elemMap[i][j]= new MurModele(img, null); // A modifier pour maCase
-                        g.drawImage(elemMap[i][j].getImage(),i*150,j*150,null);
+                        g.drawImage(elemMap[i][j].getImage(),i*32,j*32,null);
                         break;
                     case 2:
                         nomImage = new File("img/sol1.jpg");
@@ -159,6 +159,11 @@ public class PartieVue extends JFrame {
                 }
             }
         }
+    }
+
+    public void paintComponent(Graphics g){
+        super.paintComponents(g);
+        afficheMapGraphique(g);
     }
 
     // Getters et Setters

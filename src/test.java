@@ -17,7 +17,7 @@ public class test {
         //affichageMapConsole("maps\\mapTest.txt"); // windows
         //vPartie.affichageMapConsole("maps/mapTest.txt"); // linux
         vPartie.parcoursMap("maps/mapTest.txt");
-        vPartie.repaint();
+        vPartie.setVisible(true);
 
         // Test clement
         /*PlateauModele plateau = new PlateauModele(9); // A decomenter
