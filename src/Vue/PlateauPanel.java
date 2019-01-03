@@ -2,8 +2,10 @@ package Vue;
 
 import Modele.*;
 
+import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
+import java.awt.image.BufferedImage;
 import java.io.BufferedInputStream;
 import java.io.File;
 import java.io.FileInputStream;
@@ -12,7 +14,15 @@ import java.io.IOException;
 public class PlateauPanel extends JPanel {
 
     public PlateauPanel() {
-        
+        super();
+        /*JPanel jtest = new JPanel();
+        jtest.setOpaque(false);
+        jtest.setSize(100,100);
+        File nomImage = new File("img/mur.png");
+        Image img = Toolkit.getDefaultToolkit().getImage(nomImage.getAbsolutePath());
+        JLabel image = new JLabel(new ImageIcon(nomImage.getAbsolutePath()));
+        this.setLayout(new BorderLayout());
+        this.add(image,BorderLayout.CENTER);*/
     }
 
     public void affichageMapConsole(String name){
@@ -93,49 +103,54 @@ public class PlateauPanel extends JPanel {
         return map;
     }
 
-    public void afficheMapGraphique(Graphics g){
+    public void afficheMapGraphique(Graphics g) throws IOException {
         CaseModele[][] cases = new CaseModele[10][10];
         ElemCaseModele[][] elemMap = new ElemCaseModele[10][10];
-        File nomImage;
-        Image img;
-        char [][] map = parcoursMap("maps/mapTest.txt");
-        for (int i=0; i<10; i++){
-            for (int j=0; j<10; j++){
-                switch (map[i][j])
-                {
-                    case 1:
-                        nomImage = new File("img/mur.jpg");
-                        img = Toolkit.getDefaultToolkit().getImage(nomImage.getAbsolutePath());
-                        elemMap[i][j]= new MurModele(img, null); // A modifier pour maCase
-                        g.drawImage(elemMap[i][j].getImage(),i*32,j*32,null);
-                        break;
-                    case 2:
-                        nomImage = new File("img/sol1.jpg");
-                        img = Toolkit.getDefaultToolkit().getImage(nomImage.getAbsolutePath());
-                        elemMap[i][j]=new SolModele(null,null);
-                        g.drawImage(elemMap[i][j].getImage(),i*32,j*32,null);
-                        break;
-                    case 3:
-                        nomImage = new File("img/sol2.jpg");
-                        img = Toolkit.getDefaultToolkit().getImage(nomImage.getAbsolutePath());
-                        elemMap[i][j]=new SolModele(null,null);
-                        g.drawImage(elemMap[i][j].getImage(),i*32,j*32,null);
-                        break;
-                    case 4:
-                        nomImage = new File("img/porte.jpg");
-                        img = Toolkit.getDefaultToolkit().getImage(nomImage.getAbsolutePath());
-                        elemMap[i][j]=new PorteModele(null,null,true);
-                        g.drawImage(elemMap[i][j].getImage(),i*32,j*32,null);
-                        break;
+            File nomImage;
+            Image img;
+            char [][] map = parcoursMap("maps/mapTest.txt");
+            for (int i=0; i<10; i++){
+                for (int j=0; j<10; j++){
+                    switch (map[i][j])
+                    {
+                        case '1':
+                            nomImage = new File("img/mur.png");
+                            img = ImageIO.read(nomImage.getAbsoluteFile());
+                            elemMap[i][j]= new MurModele(img, null); // A modifier pour maCase
+                            System.out.println(elemMap[i][j]);
+                            g.drawImage(elemMap[i][j].getImage(),i*32,j*32,null);
+                            break;
+                        case '2':
+                            nomImage = new File("img/sol1.jpg");
+                            img = ImageIO.read(nomImage.getAbsoluteFile());
+                            elemMap[i][j]=new SolModele(img,null);
+                            g.drawImage(elemMap[i][j].getImage(),i*32,j*32,null);
+                            break;
+                        case '3':
+                            nomImage = new File("img/sol2.jpg");
+                            img = ImageIO.read(nomImage.getAbsoluteFile());
+                            elemMap[i][j]=new SolModele(img,null);
+                            g.drawImage(elemMap[i][j].getImage(),i*32,j*32,null);
+                            break;
+                        case '4':
+                            nomImage = new File("img/porte.jpg");
+                            img = ImageIO.read(nomImage.getAbsoluteFile());
+                            elemMap[i][j]=new PorteModele(img,null,true);
+                            g.drawImage(elemMap[i][j].getImage(),i*32,j*32,null);
+                            break;
+                    }
                 }
-            }
         }
     }
 
     @Override
     public void paintComponent(Graphics g){
         super.paintComponent(g);
-        afficheMapGraphique(g);
+        try {
+            afficheMapGraphique(g);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     @Override

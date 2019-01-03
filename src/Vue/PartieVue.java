@@ -8,7 +8,7 @@ import java.io.*;
 
 public class PartieVue extends JFrame {
     private PartieModele mpartie;
-    //private JLabel labelTest;
+   // private JLabel labelTest;
     private PlateauPanel plateau;
 
     // Constructeur
@@ -27,21 +27,21 @@ public class PartieVue extends JFrame {
 
     // Init des attribut de la fenetre
     public void initAttribut(){
-        /*this.labelTest = new JLabel();
+        /*this.labelTest = new JLabel("test");
         labelTest.setBorder(null);
         labelTest.setOpaque(false);*/
         this.plateau = new PlateauPanel();
+        //plateau.setBackground(Color.blue);
         plateau.setBorder(null);
         plateau.setOpaque(false);
     }
 
     // Creation de la fenetre avec l'ajout des different componsant
     public void creerFenetre(){
-        /*JPanel panTest = new JPanel();
-        panTest.add(labelTest);
-        panTest.setOpaque(false);
-        this.setContentPane(panTest);*/
-        plateau.setPreferredSize(new Dimension(10,10));
+        /*plateau.add(labelTest);
+        plateau.setOpaque(false);*/
+        this.setContentPane(plateau);
+        plateau.setPreferredSize(new Dimension(10*32,10*32));
     }
 
 
