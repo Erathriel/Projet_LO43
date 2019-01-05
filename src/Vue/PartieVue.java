@@ -1,5 +1,6 @@
 package Vue;
 
+import Controleur.PartieControlleur;
 import Modele.*;
 
 import javax.swing.*;
@@ -10,7 +11,7 @@ public class PartieVue extends JFrame {
     private PartieModele mpartie;
    // private JLabel labelTest;
     private PlateauPanel plateau;
-
+    private GameFen gamefen;
     // Constructeur
     public PartieVue(PartieModele partie) {
         super();
@@ -24,7 +25,12 @@ public class PartieVue extends JFrame {
     }
 
     // Methodes
-
+    public void setGamefen(PartieControlleur control){
+        this.gamefen=new GameFen(control);
+    }
+    public GameFen getGamefen(){
+        return this.gamefen;
+    }
     // Init des attribut de la fenetre
     public void initAttribut(){
         /*this.labelTest = new JLabel("test");
