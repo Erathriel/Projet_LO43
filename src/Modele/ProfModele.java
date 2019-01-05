@@ -90,7 +90,8 @@ public class ProfModele extends PersonnageModele implements SpecialiteModele{
             }
         }
         else{
-            System.out.println("Aucun Outil valide");
+            JOptionPane d= new JOptionPane();
+            d.showMessageDialog(d,"Vous ne possedez aucun outils de validation","Action Impossible",0);
         }
 
     }
@@ -104,9 +105,12 @@ public class ProfModele extends PersonnageModele implements SpecialiteModele{
                 for (String type : ((OutilValidationModele) this.inventaire.getContenuInventaire().get(indexObjet)).getTypeUV()) {
                     for (String typeE : ((EtudiantModele) per.get(parcours)).getTypeUV()
                     ) {
-                        if (typeE.compareTo(type) == 0) {
-                            validationPossible = true;
-                        }
+                       if(type!=null && typeE !=null) {
+                           if (typeE.compareTo(type) == 0) {
+                               validationPossible = true;
+                           }
+                       }
+
                     }
                 }
 
@@ -146,27 +150,46 @@ public class ProfModele extends PersonnageModele implements SpecialiteModele{
 
     public void fouiller(PileCarteModele p){
         int card = (int) (Math.random()*(p.getListeCarte().size()));
-        System.out.println(card);
        CarteModele c =p.getListeCarte().get(card);
        p.getListeCarte().remove(card);
         if(c instanceof ObjetModele) {
             if (this.inventaire.getContenuInventaire().size() < 5) {
+                JOptionPane d= new JOptionPane();
+                if(c instanceof OutilValidationModele) {
+                    d.showMessageDialog(d, c.getIntitule() + " " + ((ObjetModele) c).getNom() + "\n Nombres d'Uv validés : " + ((OutilValidationModele) c).getNbUVVal() + "\n Nombres de Tentatives : " + ((OutilValidationModele) c).getNbTentative() + "\n Nombres d'activation : " + ((OutilValidationModele) c).getNbActivation()
+                            + "\n Taux de réussite : " + ((OutilValidationModele) c).getTauxDeReussite(), "Nouvel Outil", 0, c.getImgIcon());
+                }
+                else{
+                    d.showMessageDialog(d,c.getIntitule()+" "+((ObjetModele) c).getNom(), "Nouvel Outil",0, c.getImgIcon());
+
+                }
                 this.inventaire.getContenuInventaire().add(((ObjetModele)c));
             }
             else{
                 String tab[]={this.inventaire.getContenuInventaire().get(0).getNom(),this.inventaire.getContenuInventaire().get(1).getNom(),this.inventaire.getContenuInventaire().get(2).getNom(),this.inventaire.getContenuInventaire().get(3).getNom(),this.inventaire.getContenuInventaire().get(4).getNom
                         (),"Aucun"};
-                    int rang = JOptionPane.showOptionDialog(null,  "Objet piocher : " + ((ObjetModele) c).getNom(),"Choix de l'objet à remplacer", JOptionPane.DEFAULT_OPTION, 0, null,tab,tab[0]);
-                      if(rang<5){
+                    int rang;
+                    if(c instanceof OutilValidationModele) {
+                        rang = JOptionPane.showOptionDialog(null, c.getIntitule() + " " + ((ObjetModele) c).getNom() + "\n Nombres d'Uv validés : " + ((OutilValidationModele) c).getNbUVVal() + "\n Nombres de Tentatives : " + ((OutilValidationModele) c).getNbTentative() + "\n Nombres d'activation : " + ((OutilValidationModele) c).getNbActivation()
+                                + "\n Taux de réussite : " + ((OutilValidationModele) c).getTauxDeReussite(), "Choix de l'objet à remplacer", JOptionPane.DEFAULT_OPTION, 0, ((ObjetModele) c).getImgIcon(), tab, tab[0]);
+                    }
+                    else{
+                        rang = JOptionPane.showOptionDialog(null, c.getIntitule()+" "+((ObjetModele) c).getNom(), "Choix de l'objet à remplacer", JOptionPane.DEFAULT_OPTION, 0, ((ObjetModele) c).getImgIcon(), tab, tab[0]);
+
+                    }
+                    if(rang<5){
                         this.inventaire.getContenuInventaire().set(rang,(ObjetModele)c);
                       }
             }
+            p.remplissage();
         }
         else
         {
-            System.out.println(c.getIntitule());
+            JOptionPane d= new JOptionPane();
+            d.showMessageDialog(d,c.getIntitule(),"Manque de chance",0,c.getImgIcon());
             ((CarteEtudianteModele)c).apparition(this.getMaCase(),this.getExp());
             this.getMaCase().getMaTuile().rangementEtudiants();
+            p.remplissage();
         }
         p.setNbCarte(p.getNbCarte()-1);
         this.setPa(this.getPa()-1);
@@ -237,7 +260,8 @@ public class ProfModele extends PersonnageModele implements SpecialiteModele{
             }
         }
         else{
-
+            JOptionPane d= new JOptionPane();
+            d.showMessageDialog(d,"Action Impossible aucune Porte","Action Impossible",0);
         }
     }
     public boolean ouvriPorte(PorteModele porte){
@@ -254,7 +278,8 @@ public class ProfModele extends PersonnageModele implements SpecialiteModele{
             return true;
         }
         else {
-            System.out.println("Action impossible");
+            JOptionPane d= new JOptionPane();
+            d.showMessageDialog(d,"Vous ne possedez aucune cle","Action Impossible",0);
             return false;
 
         }
@@ -268,12 +293,13 @@ public class ProfModele extends PersonnageModele implements SpecialiteModele{
                 tab2[i-2]=this.getInventaire().getContenuInventaire().get(i).getNom();
             }
             int objetAdeplacer = JOptionPane.showOptionDialog(null,  "Choisissez l'objet qui va etre placer dans les objets actifs pour utilisation","Choix de l'objet à remplacer", JOptionPane.DEFAULT_OPTION, 0, null,tab2,tab2[0]);
-            int objetRemplacer = JOptionPane.showOptionDialog(null,  "Choisissez l'objet qui va etre remplacer par celui choisis avant dans l'organisation de l'inventaire ","Choix de l'objet qui va être remplacer", JOptionPane.DEFAULT_OPTION, 0, null,tab1,tab1[0]);
+            int objetRemplacer = JOptionPane.showOptionDialog(null,  "Choisissez l'objet qui va etre remplacer par celui choisis avant dans l'organisation de l'inventaire ","Choix de l'objet qui va être remplacer", JOptionPane.DEFAULT_OPTION, 0, this.getInventaire().getContenuInventaire().get(objetAdeplacer+2).getImgIcon(),tab1,tab1[0]);
             modifInventaire(objetAdeplacer+2,objetRemplacer);
             this.setPa(this.getPa()-1);
         }
         else{
-            System.out.println("Pas assez d'objets pour permettre un changement");
+            JOptionPane d= new JOptionPane();
+            d.showMessageDialog(d,"Pas assez d'objets dans votre inventaire pour permettre un changement","Action Impossible",0);
         }
     }
     public void modifInventaire(int indexDépart,int indexArriv){
@@ -284,13 +310,27 @@ public class ProfModele extends PersonnageModele implements SpecialiteModele{
     }
 
     public void activerObjectif(){
+        boolean activation=false;
+        int exp=0;
         for (ElemCaseModele e:this.getMaCase().getCompElemCase()) {
             if(e instanceof ObjectifModele)
             {
+                activation =true;
                 this.setExp(this.getExp()+ ((ObjectifModele) e).getExpRapporte());
+                exp= ((ObjectifModele) e).getExpRapporte();
                 this.getMaCase().getCompElemCase().remove(e);
                 this.setPa(this.getPa()-1);
             }
+        }
+        if(activation){
+            JOptionPane d= new JOptionPane();
+            d.showMessageDialog(d,"Vous avez activé l'objectif vous remportez "+exp+" d'expérience","Action Réussi",0);
+
+        }
+        else{
+            JOptionPane d= new JOptionPane();
+            d.showMessageDialog(d,"Aucun objectif ici !","Action Impossible",0);
+
         }
     }
 
@@ -329,12 +369,12 @@ public class ProfModele extends PersonnageModele implements SpecialiteModele{
            }
            else
            {
-               d.showMessageDialog(d, "Déplacement Impossible", "Tentative de déplacement frauduleuse",JOptionPane.INFORMATION_MESSAGE);
+               d.showMessageDialog(d, "Déplacement Impossible aucune tuile accessible", "Tentative de déplacement frauduleuse",JOptionPane.INFORMATION_MESSAGE);
            }
         }
         else
         {
-            d.showMessageDialog(d, "Déplacement Impossible", "Tentative de déplacement frauduleuse",JOptionPane.INFORMATION_MESSAGE);
+            d.showMessageDialog(d, "Déplacement Impossible étudiants présent sur la case", "Tentative de déplacement frauduleuse",JOptionPane.INFORMATION_MESSAGE);
         }
     }
 
@@ -364,5 +404,26 @@ public class ProfModele extends PersonnageModele implements SpecialiteModele{
                 "exp=" + exp +
                 ", inventaire=" + inventaire +
                 '}';
+    }
+
+    public static void main(String args[]){
+        CaseModele tab[][]=new CaseModele[1][1];
+        TuileModele t=new TuileModele(1,2,null);
+        tab[0][0]=new CaseModele(t,1,1,true);
+        String tabS[]={"HUMA",null,"CS"};
+        ProfModele p=new ProfModele(null,tab[0][0],15,3,"Jean",true,0);
+        EtudiantModele e=new EtudiantModele(null,tab[0][0],4,4,"Etu",true,2,tabS,10);
+        tab[0][0].getCompElemCase().add(p);
+        tab[0][0].getCompElemCase().add(e);
+        String tabE[]={"CS",null,null};
+       ArrayList<PersonnageModele> pl=new ArrayList<PersonnageModele>();
+        pl.add(e);
+        PileCarteModele carte=new PileCarteModele();
+        p.fouiller(carte);
+        p.fouiller(carte);
+        p.fouiller(carte);
+        p.fouiller(carte);
+        p.fouiller(carte);
+        p.fouiller(carte);
     }
 }

@@ -1,5 +1,7 @@
 package Modele;
 
+import javax.swing.*;
+import java.awt.image.BufferedImage;
 import java.util.Arrays;
 
 public class OutilValidationModele extends ObjetModele {
@@ -12,8 +14,8 @@ public class OutilValidationModele extends ObjetModele {
     private String[] typeUV;
 
     // Constructeur
-    public OutilValidationModele(String intitule, String nom, int emplacement, int portee, int nbUVVal, int nbActivation, int nbTentative,String [] typeUV,int tauxDeReussite) {
-        super(intitule, nom, emplacement);
+    public OutilValidationModele(ImageIcon imgI,BufferedImage img, String intitule, String nom, int emplacement, int portee, int nbUVVal, int nbActivation, int nbTentative, String [] typeUV, int tauxDeReussite) {
+        super(imgI,img,intitule, nom, emplacement);
         this.portee=portee;
         this.nbUVVal=nbUVVal;
         this.nbActivation=nbActivation;

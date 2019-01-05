@@ -1,12 +1,15 @@
 package Modele;
 
+import javax.swing.*;
+import java.awt.image.BufferedImage;
+
 public class ObjetModele extends CarteModele{
     private String nom;
     private int emplacement;
 
     // Constructeur
-    public ObjetModele(String intitule, String nom, int emplacement) {
-        super(intitule);
+    public ObjetModele(ImageIcon imgI,BufferedImage img, String intitule, String nom, int emplacement) {
+        super(intitule,img,imgI);
         this.nom=nom;
         this.emplacement=emplacement;
     }

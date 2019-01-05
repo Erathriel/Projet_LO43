@@ -1,11 +1,14 @@
 package Modele;
 
+import javax.swing.*;
+import java.awt.image.BufferedImage;
+
 public class CarteEtudianteModele extends CarteModele {
     private int malchance;
 
     // Constructeur
-    public CarteEtudianteModele(String intitule, int malchance) {
-        super(intitule);
+    public CarteEtudianteModele(ImageIcon imgI,BufferedImage img, String intitule, int malchance) {
+        super(intitule,img,imgI);
         this.malchance = malchance;
     }
 
