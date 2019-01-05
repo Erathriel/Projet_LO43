@@ -184,7 +184,7 @@ public class PileCarteModele {
             this.listeCarte.add(new OutilValidationModele(tMUVI,tMUV,"Plutot chanceux ","Tampon Multi Uv ",0,1,5,2,5,tab,5));
         }
         for (int i = 0; i <1; i++) {
-            
+
             this.listeCarte.add(new OutilValidationModele(tMUTVI,tMUTV,"Un peu de chance mais pas trop non plus ","Tampon Multi Uv ",0,1,5,1,5,tab,5));
         }
         }catch (IOException e){System.out.print("FATAL ERROR");}
