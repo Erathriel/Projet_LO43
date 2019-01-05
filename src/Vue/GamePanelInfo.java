@@ -3,6 +3,7 @@ package Vue;
 
 
 import Modele.ObjetModele;
+import Modele.PersonnageModele;
 import Modele.ProfModele;
 
 import javax.swing.*;
@@ -12,7 +13,12 @@ public class GamePanelInfo extends JPanel {
     private ProfModele p;
     GamePanelInfo(ProfModele p){
         super();
+        this.setPreferredSize(new Dimension(200,500));
         this.p=p;
+    }
+    public void setJoueur(ProfModele p){
+        this.p=p;
+        this.repaint();
     }
     protected void paintComponent(Graphics g) {
 

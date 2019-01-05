@@ -16,6 +16,7 @@ public class PartieControlleur implements KeyListener, MouseListener {
     private boolean victoire;
     private boolean defaite;
     private int actionJoueur;
+    private ProfModele joueurEnAction;
 
     // Constructeur
     public PartieControlleur(PartieModele mPartie, PartieVue vPartie) {
@@ -35,7 +36,7 @@ public class PartieControlleur implements KeyListener, MouseListener {
                     p.tourDeJeu();
                 }
                 else if( p instanceof ProfModele){
-
+                    joueurEnAction=((ProfModele)p);
                     while(p.getPa()>0) {
                         switch (actionJoueur) {
                             case 1:
@@ -105,7 +106,7 @@ public class PartieControlleur implements KeyListener, MouseListener {
     }
     public int getActionJoueur(){return this.actionJoueur;}
     public void setActionJoueur(int actionJoueur){this.actionJoueur=actionJoueur;}
-
+    public ProfModele getJoueurEnAction(){return this.joueurEnAction;}
     @Override
     public void keyTyped(KeyEvent e) {
 
