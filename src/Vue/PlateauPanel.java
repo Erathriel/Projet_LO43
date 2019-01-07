@@ -55,7 +55,7 @@ public class PlateauPanel extends JPanel {
     }
 
     public char[][] parcoursMap(String name){
-        char[][] map = new char[80][80];
+        char[][] map = new char[25][25];
         int i=0;
         int j=0;
         FileInputStream fis = null;
@@ -106,8 +106,21 @@ public class PlateauPanel extends JPanel {
         return map;
     }
 
+    public ArrayList<TuileModele> listeTuile(CaseModele[][] cases){
+
+        final int NBTUILE = 25;
+        ArrayList<TuileModele> tuilePlateau = new ArrayList<TuileModele>();
+        int compteur = 0;
+        while(compteur<NBTUILE){
+            tuilePlateau.add(new TuileModele(compteur,plateau));
+
+            compteur++;
+        }
+
+        return tuilePlateau;
+    }
+
     public void afficheMapGraphique(Graphics g) throws IOException {
-        ArrayList<TuileModele> tuilePlateau;
         CaseModele[][] cases = new CaseModele[80][80];
         //ElemCaseModele[][] elemMap = new ElemCaseModele[80][80];
         ElemCaseModele elemMap;
@@ -115,8 +128,8 @@ public class PlateauPanel extends JPanel {
         File nomImage;
         Image img;
             char [][] map = parcoursMap("maps/mapTest2.txt");
-            for (int i=0; i<80; i++){
-                for (int j=0; j<80; j++){
+            for (int i=0; i<25; i++){
+                for (int j=0; j<25; j++){
                     switch (map[i][j])
                     {
                         case '1':
@@ -164,7 +177,7 @@ public class PlateauPanel extends JPanel {
                             break;
                     }
                 }
-        }
+            }
     }
 
     @Override

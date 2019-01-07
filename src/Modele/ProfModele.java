@@ -408,7 +408,7 @@ public class ProfModele extends PersonnageModele implements SpecialiteModele{
 
     public static void main(String args[]){
         CaseModele tab[][]=new CaseModele[1][1];
-        TuileModele t=new TuileModele(1,2,null);
+        TuileModele t=new TuileModele(1, null);
         tab[0][0]=new CaseModele(t,1,1,true);
         String tabS[]={"HUMA",null,"CS"};
         ProfModele p=new ProfModele(null,tab[0][0],15,3,"Jean",true,0);

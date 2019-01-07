@@ -16,7 +16,7 @@ public class MenuFen extends JFrame {
         this.setExtendedState(JFrame.MAXIMIZED_BOTH);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         //MenuPanel menuPanel = new MenuPanel(control);*/
-        ProfModele p=new ProfModele(null,new CaseModele(new TuileModele(1,1,null),0,0,true),100,3,"Jean",true,0);
+        ProfModele p=new ProfModele(null,new CaseModele(new TuileModele(1,null),0,0,true),100,3,"Jean",true,0);
         PileCarteModele carte=new PileCarteModele();
         p.fouiller(carte);
         p.fouiller(carte);
