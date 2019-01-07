@@ -17,6 +17,15 @@ public class CaseModele {
         this.passable = passable;
         this.compElemCase=new ArrayList<ElemCaseModele>();
     }
+
+    public CaseModele(CaseModele caseM){
+        this.maTuile=caseM.maTuile;
+        this.coordX=caseM.coordX;
+        this.coordY=caseM.coordY;
+        this.passable=caseM.passable;
+        this.compElemCase=caseM.compElemCase;
+    }
+
     public boolean containDoorLocked(){
         for (ElemCaseModele e:this.compElemCase) {
             if(e instanceof PorteModele){
@@ -72,10 +81,14 @@ public class CaseModele {
         this.compElemCase = compElemCase;
     }
 
+    public void setMaTuile(TuileModele maTuile) {
+        this.maTuile = maTuile;
+    }
+
     @Override
     public String toString() {
         return "CaseModele{" +
-                "maTuile=" + maTuile.toString() +
+                "maTuile=" + maTuile +
                 ", coordX=" + coordX +
                 ", coordY=" + coordY +
                 ", passable=" + passable +
