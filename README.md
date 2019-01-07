@@ -16,9 +16,9 @@ https://git-scm.com/downloads
 
 Objectif :
 
-- Création des tuiles
+- Création des tuiles - OK
 - Mettre en page la fenetre - NOK
 - Affichage des persos - NOK
-- Les boutons d'actions - NOK
-- Création des objets - NOK
-- Afficher des cartes - NOK
+- Les boutons d'actions - OK
+- Création des objets - OK
+- Afficher des cartes - OK
