@@ -85,6 +85,14 @@ public class CaseModele {
         this.maTuile = maTuile;
     }
 
+    public void setCoordX(int coordX) {
+        this.coordX = coordX;
+    }
+
+    public void setCoordY(int coordY) {
+        this.coordY = coordY;
+    }
+
     @Override
     public String toString() {
         return "CaseModele{" +
