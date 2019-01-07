@@ -107,16 +107,54 @@ public class PlateauPanel extends JPanel {
     }
 
     public ArrayList<TuileModele> listeTuile(CaseModele[][] cases){
-
         final int NBTUILE = 25;
         ArrayList<TuileModele> tuilePlateau = new ArrayList<TuileModele>();
         int compteur = 0;
         while(compteur<NBTUILE){
+            CaseModele[][] casesTuile = new CaseModele[5][5];
             tuilePlateau.add(new TuileModele(compteur,plateau));
-
+            if (compteur<5){
+                for (int i=0; i < 5; i++){
+                    for (int j=0; j < 5; j++){
+                        casesTuile[i][j]=cases[i+(compteur*5)][j];
+                    }
+                }
+                tuilePlateau.get(compteur).setCompCase(casesTuile);
+            }
+            else if (compteur>=5 && compteur<10){
+                for (int i=0; i < 5; i++){
+                    for (int j=0; j < 5; j++){
+                        casesTuile[i][j]=cases[i+((compteur%5)*5)][j+5];
+                    }
+                }
+                tuilePlateau.get(compteur).setCompCase(casesTuile);
+            }
+            else if(compteur >= 10 && compteur < 15){
+                for (int i=0; i < 5; i++){
+                    for (int j=0; j < 5; j++){
+                        casesTuile[i][j]=cases[i+((compteur%5)*5)][j+10];
+                    }
+                }
+                tuilePlateau.get(compteur).setCompCase(casesTuile);
+            }
+            else if (compteur >=15 && compteur < 20){
+                for (int i=0; i < 5; i++){
+                    for (int j=0; j < 5; j++){
+                        casesTuile[i][j]=cases[i+((compteur%5)*5)][j+15];
+                    }
+                }
+                tuilePlateau.get(compteur).setCompCase(casesTuile);
+            }
+            else if (compteur >= 20){
+                for (int i=0; i < 5; i++){
+                    for (int j=0; j < 5; j++){
+                        casesTuile[i][j]=cases[i+((compteur%5)*5)][j+20];
+                    }
+                }
+                tuilePlateau.get(compteur).setCompCase(casesTuile);
+            }
             compteur++;
         }
-
         return tuilePlateau;
     }
 
@@ -175,6 +213,19 @@ public class PlateauPanel extends JPanel {
                         default:
                             System.out.println("Error");
                             break;
+                    }
+                }
+            }
+            // DEBUG : listeTuile()
+            plateau.setCompTuile(listeTuile(cases));
+            for (int i=0; i < 25; i++){
+                TuileModele tuileTest = plateau.getCompTuile().get(i);
+                CaseModele[][] test = new CaseModele[5][5];
+                test=tuileTest.getCompCase();
+                System.out.println("----------------- tuile : " + i +" -------------");
+                for (int j=0;j<5;j++){
+                    for (int k=0;k<5;k++){
+                        System.out.print(" | " + cases[i][j]+" | ");
                     }
                 }
             }

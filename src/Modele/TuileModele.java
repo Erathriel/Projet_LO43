@@ -176,7 +176,6 @@ public class TuileModele {
         }
         if(compCase[2][4].getPassable())
         {
-
             this.tuileAccessible.add(plateau.getCompTuile().get(this.id+3));
         }
         if(compCase[4][2].getPassable())

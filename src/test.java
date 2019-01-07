@@ -11,7 +11,7 @@ import java.util.Arrays;
 public class test {
 
     public static void main(String[] args) {
-      /*  PartieModele mPartie = new PartieModele();
+        PartieModele mPartie = new PartieModele();
         PartieVue vPartie = new PartieVue(mPartie);
         PartieControlleur cPartie = new PartieControlleur(mPartie,vPartie);
         vPartie.setGamefen(cPartie);
