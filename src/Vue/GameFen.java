@@ -18,6 +18,7 @@ public class GameFen extends JFrame {
 
     }
     public void repaintInfo(ProfModele p){
+        System.out.println("Chenille");
         this.gamePane.getGamePanelInfo().setJoueur(p);
         this.gamePane.getGamePanelInfo().repaint();
     }
@@ -25,5 +26,6 @@ public class GameFen extends JFrame {
         PartieModele mPartie=new PartieModele();
         PartieControlleur control=new PartieControlleur(mPartie,null);
         GameFen g= new GameFen(control);
+        control.jeu();
     }
 }

@@ -11,9 +11,10 @@ import java.util.Arrays;
 public class test {
 
     public static void main(String[] args) {
-        PartieModele mPartie = new PartieModele();
+      /*  PartieModele mPartie = new PartieModele();
         PartieVue vPartie = new PartieVue(mPartie);
         PartieControlleur cPartie = new PartieControlleur(mPartie,vPartie);
+        vPartie.setGamefen(cPartie);
         //affichageMapConsole("maps\\mapTest.txt"); // windows
         //vPartie.affichageMapConsole("maps/mapTest.txt"); // linux
         //vPartie.parcoursMap("maps/mapTest.txt");

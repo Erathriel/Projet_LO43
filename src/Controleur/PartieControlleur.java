@@ -25,10 +25,12 @@ public class PartieControlleur implements KeyListener, MouseListener {
         this.victoire=false;
         this.defaite=false;
         this.actionJoueur=0;
+        this.joueurEnAction=null;
     }
 
     public void jeu() {
         this.mPartie.getListePerso().add(new ProfModele(null, null, 50, 3, "Prof Math", true, 0));
+        this.joueurEnAction=((ProfModele)this.mPartie.getListePerso().get(0));
         while(!victoire && !defaite ){
             for (PersonnageModele p:this.mPartie.getListePerso()) {
                 p.setJouable(true);
@@ -85,6 +87,9 @@ public class PartieControlleur implements KeyListener, MouseListener {
                                     this.actionJoueur = 0;
                                     this.vPartie.getGamefen().repaintInfo(joueurEnAction);
                                     break;
+                                case 9:
+                                        p.passer();
+                                        this.actionJoueur = 0;
                                 default:
                                     System.out.println(p.getPa());
                                     break;

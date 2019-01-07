@@ -14,9 +14,10 @@ public class GameButtonpane extends JPanel {
         this.add(new GameButton(control,2,"Fouiller"));
         this.add(new GameButton(control,3,"Déplacement"));
         this.add(new GameButton(control,4,"Ouverture porte"));
-        this.add(new GameButton(control,5,"Modification Inventaire"));
-        this.add(new GameButton(control,6,"Activation objectif"));
-        this.add(new GameButton(control,7,"Capacite active"));
-        this.add(new GameButton(control,8,"Capacite passive"));
+        this.add(new GameButton(control,5,"Modif Inventaire"));
+        this.add(new GameButton(control,6,"Activer objectif"));
+        this.add(new GameButton(control,7,"Cap active"));
+        this.add(new GameButton(control,8,"Cap passive"));
+        this.add(new GameButton(control,9,"Passer"));
     }
 }

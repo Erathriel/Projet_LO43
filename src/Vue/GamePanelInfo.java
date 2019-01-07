@@ -13,8 +13,8 @@ public class GamePanelInfo extends JPanel {
     private ProfModele p;
     GamePanelInfo(ProfModele p){
         super();
-        this.setPreferredSize(new Dimension(200,500));
-        this.p=p;
+        this.setPreferredSize(new Dimension(150,500));
+        this.p=new ProfModele(null, null, 50, 3, "Prof Math", true, 0);
     }
     public void setJoueur(ProfModele p){
         this.p=p;
@@ -25,12 +25,14 @@ public class GamePanelInfo extends JPanel {
         super.paintComponent(g);
         int y=0;
         int x=0;
-        for (ObjetModele e:p.getInventaire().getContenuInventaire()) {
-            g.drawImage(e.getImg(), x, y, this);
-            x+=80;
-            if(x==160) {
-                y += 105;
-                x=0;
+        if(p!=null) {
+            for (ObjetModele e : p.getInventaire().getContenuInventaire()) {
+                g.drawImage(e.getImg(), x, y, this);
+                x += 80;
+                if (x == 160) {
+                    y += 105;
+                    x = 0;
+                }
             }
         }
         y+=105;
