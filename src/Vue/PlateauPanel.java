@@ -14,10 +14,13 @@ import java.util.ArrayList;
 
 public class PlateauPanel extends JPanel {
     private PlateauModele plateau;
+    private char[][] map;
 
     public PlateauPanel(PlateauModele pm) {
         super();
         plateau = pm;
+        //TEST
+        map = new char[25][25];
     }
 
     public void affichageMapConsole(String name){
@@ -44,7 +47,7 @@ public class PlateauPanel extends JPanel {
     }
 
     public char[][] parcoursMap(String name){
-        char[][] map = new char[25][25];
+        //char[][] map = new char[25][25];
         int i=0;
         int j=0;
         FileInputStream fis = null;
@@ -57,14 +60,14 @@ public class PlateauPanel extends JPanel {
             int buffer;
             String ligne="";
             while((buffer = fis.read()) != -1){
-                if (buffer != 32 && buffer != 10 && i<map.length){
-                    if (j == map.length){
+                if (buffer != 32 && buffer != 10 && i<this.map.length){
+                    if (j == this.map.length){
                         i++;
                         j=0;
-                        map[i][j]=(char)buffer;
+                        this.map[i][j]=(char)buffer;
                     }
                     else{
-                        map[i][j]=(char)buffer;
+                        this.map[i][j]=(char)buffer;
                         j++;
                     }
                 }
@@ -160,17 +163,20 @@ public class PlateauPanel extends JPanel {
         return tuilePlateau;
     }
 
+    // TEST
+    /*public char[][] updateMap(char[][] mapActu){
+
+    }*/
 
     public void afficheMapGraphique(Graphics g) throws IOException {
         CaseModele[][] cases = new CaseModele[25][25];
         ElemCaseModele elemMap;
-        ArrayList<ElemCaseModele> listeElemDeCase;
         File nomImage;
         Image img;
-            char [][] map = parcoursMap("maps/mapTest2.txt");
+            this.map = parcoursMap("maps/mapTest2.txt");
             for (int i=0; i<25; i++){
                 for (int j=0; j<25; j++){
-                    switch (map[i][j])
+                    switch (this.map[i][j])
                     {
                         case '1':
                             nomImage = new File("img/mur.png");
@@ -218,7 +224,7 @@ public class PlateauPanel extends JPanel {
                     }
                 }
             }
-            plateau.setCompTuile(listeTuile(cases));
+            this.plateau.setCompTuile(listeTuile(cases));
             // DEBUG : listeTuile()
             /*for (int i=0; i < 25; i++){
                 TuileModele tuileTest = plateau.getCompTuile().get(i);
