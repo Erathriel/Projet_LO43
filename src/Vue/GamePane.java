@@ -12,9 +12,9 @@ public class GamePane extends JPanel {
         this.setLayout(new BorderLayout());
         this.gamePanelInfo=new GamePanelInfo(control.getJoueurEnAction());
         this.add(new GameButtonpane(control),BorderLayout.PAGE_END);
-        //PlateauPanel map=new PlateauPanel(new PlateauModele(16));
-        //map.setPreferredSize(new Dimension(600,600));
-        //this.add(map,BorderLayout.CENTER);
+        PlateauPanel map=new PlateauPanel(new PlateauModele(16));
+        map.setPreferredSize(new Dimension(600,600));
+        this.add(map,BorderLayout.CENTER);
         this.add(this.gamePanelInfo,BorderLayout.LINE_START);
         this.setVisible(true);
     }

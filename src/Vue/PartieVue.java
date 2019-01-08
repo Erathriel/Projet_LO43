@@ -33,21 +33,14 @@ public class PartieVue extends JFrame {
     }
     // Init des attribut de la fenetre
     public void initAttribut(){
-        /*this.labelTest = new JLabel("test");
-        labelTest.setBorder(null);
-        labelTest.setOpaque(false);*/
         this.plateau = new PlateauPanel(mpartie.getPlateau());
-        //plateau.setBackground(Color.blue);
         plateau.setBorder(null);
         plateau.setOpaque(false);
     }
 
     // Creation de la fenetre avec l'ajout des different componsant
     public void creerFenetre(){
-        /*plateau.add(labelTest);
-        plateau.setOpaque(false);*/
         this.setContentPane(plateau);
-        //plateau.setPreferredSize(new Dimension(50,50));
     }
 
 
@@ -60,11 +53,4 @@ public class PartieVue extends JFrame {
         this.mpartie = partie;
     }
 
-    /*public JLabel getLabelTest() {
-        return labelTest;
-    }
-
-    public void setLabelTest(JLabel labelTest) {
-        this.labelTest = labelTest;
-    }*/
 }

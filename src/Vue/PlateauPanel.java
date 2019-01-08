@@ -18,21 +18,11 @@ public class PlateauPanel extends JPanel {
     public PlateauPanel(PlateauModele pm) {
         super();
         plateau = pm;
-        /*JPanel jtest = new JPanel();
-        jtest.setOpaque(false);
-        jtest.setSize(100,100);
-        File nomImage = new File("img/mur.png");
-        Image img = Toolkit.getDefaultToolkit().getImage(nomImage.getAbsolutePath());
-        JLabel image = new JLabel(new ImageIcon(nomImage.getAbsolutePath()));
-        this.setLayout(new BorderLayout());
-        this.add(image,BorderLayout.CENTER);*/
     }
 
     public void affichageMapConsole(String name){
         FileInputStream fis = null;
         BufferedInputStream bis = null;
-        //String map = "maps\\mapTest.txt";
-        //System.out.println(map);
         File file = new File(name);
         System.out.println(file.getAbsoluteFile());
         try {
@@ -42,7 +32,6 @@ public class PlateauPanel extends JPanel {
             int buffer;
             String ligne="";
             while((buffer = fis.read()) != -1){
-                //System.out.println((char) buffer);
                 ligne= ligne + (char) buffer;
             }
             System.out.println(ligne);
@@ -68,21 +57,16 @@ public class PlateauPanel extends JPanel {
             int buffer;
             String ligne="";
             while((buffer = fis.read()) != -1){
-                //System.out.println("start boucle : i : "+i+"     j : "+j); DEBUG
                 if (buffer != 32 && buffer != 10 && i<map.length){
-                    //System.out.print((char)buffer); DEBUG
                     if (j == map.length){
                         i++;
                         j=0;
                         map[i][j]=(char)buffer;
-                        //System.out.println("passage cond i = 10"); DEBUG
                     }
                     else{
                         map[i][j]=(char)buffer;
                         j++;
-                        //System.out.println("passage else"); DEBUG
                     }
-                    //System.out.println("end boucle : i : "+i+"     j : "+j); DEBUG
                 }
             }
             // DEBUG affiche le tableau map en console
@@ -116,7 +100,6 @@ public class PlateauPanel extends JPanel {
             if (compteur<5){
                 for (int i=0; i < 5; i++){
                     for (int j=0; j < 5; j++){
-                        //casesTuile[i][j]=cases[i+(compteur*5)][j];
                         casesTuile[i][j]= new CaseModele(cases[i+(compteur*5)][j]);
                         casesTuile[i][j].setMaTuile(tuilePlateau.get(compteur));
                         casesTuile[i][j].setCoordX(i);
@@ -128,7 +111,6 @@ public class PlateauPanel extends JPanel {
             else if (compteur>=5 && compteur<10){
                 for (int i=0; i < 5; i++){
                     for (int j=0; j < 5; j++){
-                        //casesTuile[i][j]=cases[i+((compteur%5)*5)][j+5];
                         casesTuile[i][j]= new CaseModele(cases[i+((compteur%5)*5)][j+5]);
                         casesTuile[i][j].setMaTuile(tuilePlateau.get(compteur));
                         casesTuile[i][j].setCoordX(i);
@@ -140,7 +122,6 @@ public class PlateauPanel extends JPanel {
             else if(compteur >= 10 && compteur < 15){
                 for (int i=0; i < 5; i++){
                     for (int j=0; j < 5; j++){
-                        //casesTuile[i][j]=cases[i+((compteur%5)*5)][j+10];
                         casesTuile[i][j]=new CaseModele(cases[i+((compteur%5)*5)][j+10]);
                         casesTuile[i][j].setMaTuile(tuilePlateau.get(compteur));
                         casesTuile[i][j].setCoordX(i);
@@ -152,7 +133,6 @@ public class PlateauPanel extends JPanel {
             else if (compteur >=15 && compteur < 20){
                 for (int i=0; i < 5; i++){
                     for (int j=0; j < 5; j++){
-                        //casesTuile[i][j]=cases[i+((compteur%5)*5)][j+15];
                         casesTuile[i][j]=new CaseModele(cases[i+((compteur%5)*5)][j+15]);
                         casesTuile[i][j].setMaTuile(tuilePlateau.get(compteur));
                         casesTuile[i][j].setCoordX(i);
@@ -164,7 +144,6 @@ public class PlateauPanel extends JPanel {
             else if (compteur >= 20){
                 for (int i=0; i < 5; i++){
                     for (int j=0; j < 5; j++){
-                        //casesTuile[i][j]=cases[i+((compteur%5)*5)][j+20];
                         casesTuile[i][j]=new CaseModele(cases[i+((compteur%5)*5)][j+20]);
                         casesTuile[i][j].setMaTuile(tuilePlateau.get(compteur));
                         casesTuile[i][j].setCoordX(i);
@@ -181,9 +160,9 @@ public class PlateauPanel extends JPanel {
         return tuilePlateau;
     }
 
+
     public void afficheMapGraphique(Graphics g) throws IOException {
-        CaseModele[][] cases = new CaseModele[80][80];
-        //ElemCaseModele[][] elemMap = new ElemCaseModele[80][80];
+        CaseModele[][] cases = new CaseModele[25][25];
         ElemCaseModele elemMap;
         ArrayList<ElemCaseModele> listeElemDeCase;
         File nomImage;
@@ -239,9 +218,9 @@ public class PlateauPanel extends JPanel {
                     }
                 }
             }
-            // DEBUG : listeTuile()
             plateau.setCompTuile(listeTuile(cases));
-            for (int i=0; i < 25; i++){
+            // DEBUG : listeTuile()
+            /*for (int i=0; i < 25; i++){
                 TuileModele tuileTest = plateau.getCompTuile().get(i);
                 CaseModele[][] test;
                 test=tuileTest.getCompCase();
@@ -252,7 +231,7 @@ public class PlateauPanel extends JPanel {
                     }
                 }
                 System.out.println(" ");
-            }
+            }*/
     }
 
     @Override
