@@ -327,6 +327,46 @@ public class PlateauPanel extends JPanel {
                             //g.drawImage(elemMap.getImage(),j*20,i*20,null);
                             cases[i][j].getCompElemCase().add(elemMap);
                             break;
+                        case 'd':
+                            nomImage = new File("img/porteo1.jpg");
+                            img = ImageIO.read(nomImage.getAbsoluteFile());
+                            //elemMap[i][j]=new PorteModele(img,null,true);
+                            cases[i][j]= new CaseModele(null, i, j, false);
+                            elemMap=new PorteModele(img,cases[i][j],false);
+                            //g.drawImage(elemMap[i][j].getImage(),j*20,i*20,null);
+                            //g.drawImage(elemMap.getImage(),j*20,i*20,null);
+                            cases[i][j].getCompElemCase().add(elemMap);
+                            break;
+                        case 'e':
+                            nomImage = new File("img/porteo2.jpg");
+                            img = ImageIO.read(nomImage.getAbsoluteFile());
+                            //elemMap[i][j]=new PorteModele(img,null,true);
+                            cases[i][j]= new CaseModele(null, i, j, false);
+                            elemMap=new PorteModele(img,cases[i][j],false);
+                            //g.drawImage(elemMap[i][j].getImage(),j*20,i*20,null);
+                            //g.drawImage(elemMap.getImage(),j*20,i*20,null);
+                            cases[i][j].getCompElemCase().add(elemMap);
+                            break;
+                        case 'f':
+                            nomImage = new File("img/porteo3.jpg");
+                            img = ImageIO.read(nomImage.getAbsoluteFile());
+                            //elemMap[i][j]=new PorteModele(img,null,true);
+                            cases[i][j]= new CaseModele(null, i, j, false);
+                            elemMap=new PorteModele(img,cases[i][j],false);
+                            //g.drawImage(elemMap[i][j].getImage(),j*20,i*20,null);
+                            //g.drawImage(elemMap.getImage(),j*20,i*20,null);
+                            cases[i][j].getCompElemCase().add(elemMap);
+                            break;
+                        case 'g':
+                            nomImage = new File("img/porteo4.jpg");
+                            img = ImageIO.read(nomImage.getAbsoluteFile());
+                            //elemMap[i][j]=new PorteModele(img,null,true);
+                            cases[i][j]= new CaseModele(null, i, j, false);
+                            elemMap=new PorteModele(img,cases[i][j],false);
+                            //g.drawImage(elemMap[i][j].getImage(),j*20,i*20,null);
+                            //g.drawImage(elemMap.getImage(),j*20,i*20,null);
+                            cases[i][j].getCompElemCase().add(elemMap);
+                            break;
                         default:
                             System.out.println("Error : afficheMapGraphique() ");
                             break;
