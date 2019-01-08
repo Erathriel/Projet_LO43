@@ -163,6 +163,7 @@ public class PlateauPanel extends JPanel {
         return tuilePlateau;
     }
 
+
     // TEST
     /*public char[][] updateMap(char[][] mapActu){
 
@@ -185,7 +186,7 @@ public class PlateauPanel extends JPanel {
                             cases[i][j]= new CaseModele(null, i, j, false);
                             elemMap = new MurModele(img, cases[i][j]);
                             //g.drawImage(elemMap[i][j].getImage(),j*20,i*20,null);
-                            g.drawImage(elemMap.getImage(),j*20,i*20,null);
+                            //g.drawImage(elemMap.getImage(),j*20,i*20,null);
                             cases[i][j].getCompElemCase().add(elemMap);
                             break;
                         case '2':
@@ -195,7 +196,7 @@ public class PlateauPanel extends JPanel {
                             cases[i][j]= new CaseModele(null, i, j, true);
                             elemMap =new SolModele(img,cases[i][j]);
                             //g.drawImage(elemMap[i][j].getImage(),j*20,i*20,null);
-                            g.drawImage(elemMap.getImage(),j*20,i*20,null);
+                            //g.drawImage(elemMap.getImage(),j*20,i*20,null);
                             cases[i][j].getCompElemCase().add(elemMap);
                             break;
                         case '3':
@@ -205,7 +206,7 @@ public class PlateauPanel extends JPanel {
                             cases[i][j]= new CaseModele(null, i, j, true);
                             elemMap=new SolModele(img,cases[i][j]);
                             //g.drawImage(elemMap[i][j].getImage(),j*20,i*20,null);
-                            g.drawImage(elemMap.getImage(),j*20,i*20,null);
+                            //g.drawImage(elemMap.getImage(),j*20,i*20,null);
                             cases[i][j].getCompElemCase().add(elemMap);
                             break;
                         case '4':
@@ -215,16 +216,22 @@ public class PlateauPanel extends JPanel {
                             cases[i][j]= new CaseModele(null, i, j, false);
                             elemMap=new PorteModele(img,cases[i][j],true);
                             //g.drawImage(elemMap[i][j].getImage(),j*20,i*20,null);
-                            g.drawImage(elemMap.getImage(),j*20,i*20,null);
+                            //g.drawImage(elemMap.getImage(),j*20,i*20,null);
                             cases[i][j].getCompElemCase().add(elemMap);
                             break;
                         default:
-                            System.out.println("Error");
+                            System.out.println("Error : afficheMapGraphique() ");
                             break;
                     }
                 }
             }
             this.plateau.setCompTuile(listeTuile(cases));
+            // DEBUG : draw des images après parcours de la map
+            for (int i=0; i<25; i++){
+                for (int j=0; j<25; j++){
+                    g.drawImage(cases[i][j].getCompElemCase().get(0).getImage(),j*20,i*20,null);
+                }
+            }
             // DEBUG : listeTuile()
             /*for (int i=0; i < 25; i++){
                 TuileModele tuileTest = plateau.getCompTuile().get(i);
