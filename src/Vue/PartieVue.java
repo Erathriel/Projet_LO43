@@ -53,4 +53,11 @@ public class PartieVue extends JFrame {
         this.mpartie = partie;
     }
 
+    public PlateauPanel getPlateau() {
+        return plateau;
+    }
+
+    public void setPlateau(PlateauPanel plateau) {
+        this.plateau = plateau;
+    }
 }

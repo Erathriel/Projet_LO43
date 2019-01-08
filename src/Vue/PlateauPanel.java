@@ -180,9 +180,11 @@ public class PlateauPanel extends JPanel {
     }
 
     // TEST
-    /*public char[][] updateMap(){
-        return null;
-    }*/
+    public char[][] changeMap(){
+        this.map[0][0]='2';
+        this.map[1][1]='2';
+        return this.map;
+    }
 
     // Affichage graphique de la map
     public void afficheMapGraphique(Graphics g) throws IOException {
@@ -191,7 +193,6 @@ public class PlateauPanel extends JPanel {
         File nomImage;
         Image img;
         if (isEmpty(this.map)){
-            System.out.println("LA MAP DE MERDE : "+isEmpty(this.map));
             this.map = parcoursMap("maps/mapTest2.txt");
         }
             //this.map = updateMap();
@@ -252,6 +253,8 @@ public class PlateauPanel extends JPanel {
                     g.drawImage(cases[i][j].getCompElemCase().get(0).getImage(),j*20,i*20,null);
                 }
             }
+
+            //
             // DEBUG : listeTuile()
             /*for (int i=0; i < 25; i++){
                 TuileModele tuileTest = plateau.getCompTuile().get(i);

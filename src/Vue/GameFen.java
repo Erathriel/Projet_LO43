@@ -1,10 +1,10 @@
 package Vue;
 
-import Controleur.PartieControlleur;
-import Modele.PartieModele;
-import Modele.ProfModele;
+        import Controleur.PartieControlleur;
+        import Modele.PartieModele;
+        import Modele.ProfModele;
 
-import javax.swing.*;
+        import javax.swing.*;
 
 public class GameFen extends JFrame {
     private GamePane gamePane;
