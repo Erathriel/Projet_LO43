@@ -170,7 +170,6 @@ public class PlateauPanel extends JPanel {
     public boolean isEmpty(char[][] map){
         for (int i=0; i<25;i++){
             for (int j=0; j<25;j++){
-                System.out.println("Elem : " + map[i][j]);
                 if (map[i][j] != '\0'){
                     return false;
                 }
@@ -180,11 +179,11 @@ public class PlateauPanel extends JPanel {
     }
 
     // TEST
-    public char[][] changeMap(){
+    /*public char[][] changeMap(){
         this.map[0][0]='2';
         this.map[1][1]='2';
         return this.map;
-    }
+    }*/
 
     // Affichage graphique de la map
     public void afficheMapGraphique(Graphics g) throws IOException {
@@ -195,7 +194,6 @@ public class PlateauPanel extends JPanel {
         if (isEmpty(this.map)){
             this.map = parcoursMap("maps/mapTest2.txt");
         }
-            //this.map = updateMap();
             for (int i=0; i<25; i++){
                 for (int j=0; j<25; j++){
                     switch (this.map[i][j])
@@ -246,15 +244,12 @@ public class PlateauPanel extends JPanel {
                     }
                 }
             }
-            this.plateau.setCompTuile(listeTuile(cases));
-
             for (int i=0; i<25; i++){
                 for (int j=0; j<25; j++){
                     g.drawImage(cases[i][j].getCompElemCase().get(0).getImage(),j*20,i*20,null);
                 }
             }
-
-            //
+            this.plateau.setCompTuile(listeTuile(cases));
             // DEBUG : listeTuile()
             /*for (int i=0; i < 25; i++){
                 TuileModele tuileTest = plateau.getCompTuile().get(i);

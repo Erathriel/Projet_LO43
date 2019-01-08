@@ -88,8 +88,9 @@ public class PartieControlleur implements KeyListener, MouseListener {
                                     this.vPartie.getGamefen().repaintInfo(joueurEnAction);
                                     break;
                                 case 9:
-                                        p.passer();
-                                        this.actionJoueur = 0;
+                                    p.passer();
+                                    this.actionJoueur = 0;
+                                    break;
                                 default:
                                     System.out.println(p.getPa());
                                     break;
