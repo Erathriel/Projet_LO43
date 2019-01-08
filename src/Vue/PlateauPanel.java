@@ -23,6 +23,7 @@ public class PlateauPanel extends JPanel {
         map = new char[25][25];
     }
 
+    // affichage de la map en console
     public void affichageMapConsole(String name){
         FileInputStream fis = null;
         BufferedInputStream bis = null;
@@ -46,6 +47,7 @@ public class PlateauPanel extends JPanel {
         }
     }
 
+    // Parcours du fichier texte representant la map
     public char[][] parcoursMap(String name){
         //char[][] map = new char[25][25];
         int i=0;
@@ -93,6 +95,7 @@ public class PlateauPanel extends JPanel {
         return map;
     }
 
+    // Création des tuiles de la map
     public ArrayList<TuileModele> listeTuile(CaseModele[][] cases){
         final int NBTUILE = 25;
         ArrayList<TuileModele> tuilePlateau = new ArrayList<TuileModele>();
@@ -163,18 +166,35 @@ public class PlateauPanel extends JPanel {
         return tuilePlateau;
     }
 
+    // verifie si le tableau est vide
+    public boolean isEmpty(char[][] map){
+        for (int i=0; i<25;i++){
+            for (int j=0; j<25;j++){
+                System.out.println("Elem : " + map[i][j]);
+                if (map[i][j] != '\0'){
+                    return false;
+                }
+            }
+        }
+        return true;
+    }
 
     // TEST
-    /*public char[][] updateMap(char[][] mapActu){
-
+    /*public char[][] updateMap(){
+        return null;
     }*/
 
+    // Affichage graphique de la map
     public void afficheMapGraphique(Graphics g) throws IOException {
         CaseModele[][] cases = new CaseModele[25][25];
         ElemCaseModele elemMap;
         File nomImage;
         Image img;
+        if (isEmpty(this.map)){
+            System.out.println("LA MAP DE MERDE : "+isEmpty(this.map));
             this.map = parcoursMap("maps/mapTest2.txt");
+        }
+            //this.map = updateMap();
             for (int i=0; i<25; i++){
                 for (int j=0; j<25; j++){
                     switch (this.map[i][j])
@@ -226,7 +246,7 @@ public class PlateauPanel extends JPanel {
                 }
             }
             this.plateau.setCompTuile(listeTuile(cases));
-            // DEBUG : draw des images après parcours de la map
+
             for (int i=0; i<25; i++){
                 for (int j=0; j<25; j++){
                     g.drawImage(cases[i][j].getCompElemCase().get(0).getImage(),j*20,i*20,null);
@@ -260,5 +280,13 @@ public class PlateauPanel extends JPanel {
     @Override
     public String toString() {
         return "PlateauPanel{}";
+    }
+
+    public char[][] getMap() {
+        return map;
+    }
+
+    public void setMap(char[][] map) {
+        this.map = map;
     }
 }

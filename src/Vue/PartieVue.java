@@ -31,7 +31,7 @@ public class PartieVue extends JFrame {
     public GameFen getGamefen(){
         return this.gamefen;
     }
-    // Init des attribut de la fenetre
+    // Init des attributs de la fenetre
     public void initAttribut(){
         this.plateau = new PlateauPanel(mpartie.getPlateau());
         plateau.setBorder(null);
