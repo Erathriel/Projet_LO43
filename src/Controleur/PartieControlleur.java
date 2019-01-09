@@ -25,18 +25,8 @@ public class PartieControlleur implements KeyListener, MouseListener, ActionList
 
     public void jeu() {
         int exptot=0;
-        for (TuileModele t:this.mPartie.getPlateau().getCompTuile()) {
-            System.out.println("Tuile id : "+t.getId()
-            );
-            for (int i = 0; i < 5; i++) {
-                for (int j = 0; j <5 ; j++) {
-                    System.out.print(" "+i+"  "+t.getCompCase()[i][j].getPassable()+" "+j+" ");
-                }
-                System.out.println("\n");
-            }
-        }
+        mPartie.creationPersoObjM();
         while(!victoire && !defaite ){
-            this.actualisationTuile();
             for (PersonnageModele p : this.mPartie.getListePerso()) {
                 if (p.isJouable()) {
                     if (p instanceof EtudiantModele) {
@@ -97,6 +87,7 @@ public class PartieControlleur implements KeyListener, MouseListener, ActionList
                                     this.actionJoueur = 0;
                                     break;
                                 default:
+                                    System.out.println(p.getPa());
                                     break;
                             }
                             this.victoire=victoire();

@@ -39,9 +39,7 @@ public class GameFen extends JFrame {
     public static void main(String Args[]){
         PartieModele mPartie=new PartieModele();
         //PartieVue vPartie=new PartieVue(mPartie);
-        System.out.println(mPartie.getPlateau().getCompTuile().size());
         GameFen g= new GameFen(mPartie);
-        System.out.println(mPartie.getPlateau().getCompTuile().size());
         PartieControlleur control=new PartieControlleur(mPartie,g);
         mPartie.creationPersoObjM();
         control.jeu();

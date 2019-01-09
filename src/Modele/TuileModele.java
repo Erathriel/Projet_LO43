@@ -19,6 +19,7 @@ public class TuileModele {
         this.id = id;
         this.nbCase = 25;
         this.tuileAccessible = new ArrayList<TuileModele>();
+        this.persOnTuile=new ArrayList<PersonnageModele>();
         this.compCase=new CaseModele[5][5];
         this.plateau=plateau;
     }

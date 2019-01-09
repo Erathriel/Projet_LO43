@@ -36,7 +36,7 @@ public class GamePanelInfo extends JPanel {
                 }
             }
             x=0;
-            y += 105;
+            y += 115;
             g.drawString(p.getNom(), 0, y);
             y += 15;
             g.drawString("\n Point de Stress : " + p.getPv(), 0, y);

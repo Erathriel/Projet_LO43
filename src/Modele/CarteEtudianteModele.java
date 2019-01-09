@@ -98,7 +98,7 @@ public class CarteEtudianteModele extends CarteModele {
             }
         }
         catch(Exception e){
-            System.out.println("Error reading file");
+            System.out.println("Error reading file Carte Etu");
         }
     }
     

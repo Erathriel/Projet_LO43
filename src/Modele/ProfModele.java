@@ -18,80 +18,70 @@ public class ProfModele extends PersonnageModele implements SpecialiteModele{
 
 
     // Methodes
-    public void choixOutilEtZone(){
+    public void choixOutilEtZone() {
         int rangOutil;
-       if(inventaire.getContenuInventaire().size()>=2) {
-           if (this.inventaire.getContenuInventaire().get(0)instanceof OutilValidationModele && this.inventaire.getContenuInventaire().get(1)instanceof OutilValidationModele)
-           {
-               String outilValidation[]={this.inventaire.getContenuInventaire().get(0).getNom(),this.inventaire.getContenuInventaire().get(1).getNom()};
-               rangOutil = JOptionPane.showOptionDialog(null,  "Choix de l'objet utiliser pour la validation des UVs","Choix de l'objet a utilisé", JOptionPane.DEFAULT_OPTION, 0, null,outilValidation,outilValidation[0]);
-           }
-           else if(this.inventaire.getContenuInventaire().get(0)instanceof OutilValidationModele){
-               rangOutil=0;
-           }
-           else if(this.inventaire.getContenuInventaire().get(1)instanceof OutilValidationModele){
-               rangOutil=1;
-           }
-           else{rangOutil=-1;}
-       }
-       else if(this.inventaire.getContenuInventaire().get(0)instanceof OutilValidationModele)
-        {
-            rangOutil=0;
+      if(this.inventaire.getContenuInventaire().size()!=0){
+          if (inventaire.getContenuInventaire().size() >= 2) {
+            if (this.inventaire.getContenuInventaire().get(0) instanceof OutilValidationModele && this.inventaire.getContenuInventaire().get(1) instanceof OutilValidationModele) {
+                String outilValidation[] = {this.inventaire.getContenuInventaire().get(0).getNom(), this.inventaire.getContenuInventaire().get(1).getNom()};
+                rangOutil = JOptionPane.showOptionDialog(null, "Choix de l'objet utiliser pour la validation des UVs", "Choix de l'objet a utilisé", JOptionPane.DEFAULT_OPTION, 0, null, outilValidation, outilValidation[0]);
+            } else if (this.inventaire.getContenuInventaire().get(0) instanceof OutilValidationModele) {
+                rangOutil = 0;
+            } else if (this.inventaire.getContenuInventaire().get(1) instanceof OutilValidationModele) {
+                rangOutil = 1;
+            } else {
+                rangOutil = -1;
+            }
+        } else if (this.inventaire.getContenuInventaire().get(0) instanceof OutilValidationModele) {
+            rangOutil = 0;
+        } else {
+            rangOutil = -1;
         }
-        else
-       {
-           rangOutil=-1;
-       }
-        if(rangOutil>=0){
-            if(((OutilValidationModele)this.inventaire.getContenuInventaire().get(rangOutil)).getPortee()>0){
-                String tab[]=new String[this.getMaCase().getMaTuile().getTuileAccessible().size()+1];
-                int positionTab=0;
-                for(int i=0;i<this.getMaCase().getMaTuile().getTuileAccessible().size();i++)
-                {
-                    if(this.getMaCase().getMaTuile().getTuileAccessible().get(i).getId()==this.getMaCase().getMaTuile().getId()-3)
-                    {
-                        tab[positionTab]="Nord";
+        if (rangOutil >= 0) {
+            if (((OutilValidationModele) this.inventaire.getContenuInventaire().get(rangOutil)).getPortee() > 0) {
+                String tab[] = new String[this.getMaCase().getMaTuile().getTuileAccessible().size() + 1];
+                int positionTab = 0;
+                for (int i = 0; i < this.getMaCase().getMaTuile().getTuileAccessible().size(); i++) {
+                    if (this.getMaCase().getMaTuile().getTuileAccessible().get(i).getId() == this.getMaCase().getMaTuile().getId() - 3) {
+                        tab[positionTab] = "Nord";
                         positionTab++;
-                    }
-                    else if(this.getMaCase().getMaTuile().getTuileAccessible().get(i).getId()==this.getMaCase().getMaTuile().getId()-1)
-                    {
-                        tab[positionTab]="Ouest";
+                    } else if (this.getMaCase().getMaTuile().getTuileAccessible().get(i).getId() == this.getMaCase().getMaTuile().getId() - 1) {
+                        tab[positionTab] = "Ouest";
                         positionTab++;
-                    }
-                    else if(this.getMaCase().getMaTuile().getTuileAccessible().get(i).getId()==this.getMaCase().getMaTuile().getId()+1)
-                    {
-                        tab[positionTab]="Est";
+                    } else if (this.getMaCase().getMaTuile().getTuileAccessible().get(i).getId() == this.getMaCase().getMaTuile().getId() + 1) {
+                        tab[positionTab] = "Est";
                         positionTab++;
-                    }
-                    else if(this.getMaCase().getMaTuile().getTuileAccessible().get(i).getId()==this.getMaCase().getMaTuile().getId()+3)
-                    {
-                        tab[positionTab]="Sud";
+                    } else if (this.getMaCase().getMaTuile().getTuileAccessible().get(i).getId() == this.getMaCase().getMaTuile().getId() + 3) {
+                        tab[positionTab] = "Sud";
                         positionTab++;
                     }
                 }
-                tab[positionTab]="Position Actuelle";
-                int tuileViser=JOptionPane.showOptionDialog(null, "Choisissez la tuile qui va être la cible de votre validation", "Choix de la tuile qui va être valider", JOptionPane.DEFAULT_OPTION, 0, null,tab,tab[0]);
-                if(tuileViser==this.getMaCase().getMaTuile().getTuileAccessible().size()){
-                    if(this.getMaCase().getMaTuile().tuileContainEtu())
-                    {
-                        this.valider(this.getMaCase().getMaTuile().getPersOnTuile(),rangOutil);
-                    }
-                    else{
+                tab[positionTab] = "Position Actuelle";
+                int tuileViser = JOptionPane.showOptionDialog(null, "Choisissez la tuile qui va être la cible de votre validation", "Choix de la tuile qui va être valider", JOptionPane.DEFAULT_OPTION, 0, null, tab, tab[0]);
+                if (tuileViser == this.getMaCase().getMaTuile().getTuileAccessible().size()) {
+                    if (this.getMaCase().getMaTuile().tuileContainEtu()) {
+                        this.valider(this.getMaCase().getMaTuile().getPersOnTuile(), rangOutil);
+                    } else {
                         System.out.println("Error aucune cible");
                     }
-                }
-                else{
-                    if(this.getMaCase().getMaTuile().getTuileAccessible().get(tuileViser).tuileContainEtu())
-                    {
-                        this.valider(this.getMaCase().getMaTuile().getTuileAccessible().get(tuileViser).getPersOnTuile(),rangOutil);
-                    }
-                    else{
+                } else {
+                    if (this.getMaCase().getMaTuile().getTuileAccessible().get(tuileViser).tuileContainEtu()) {
+                        this.valider(this.getMaCase().getMaTuile().getTuileAccessible().get(tuileViser).getPersOnTuile(), rangOutil);
+                    } else {
                         System.out.println("Error Aucune cible valide");
                     }
                 }
             }
+            else{
+                this.valider(this.getMaCase().getMaTuile().getPersOnTuile(), rangOutil);
+            }
         }
         else{
+            JOptionPane d= new JOptionPane();
+            d.showMessageDialog(d,"Vous ne possedez aucun outils de validation","Action Impossible",0);
+        }
+    }
+    else{
             JOptionPane d= new JOptionPane();
             d.showMessageDialog(d,"Vous ne possedez aucun outils de validation","Action Impossible",0);
         }
@@ -117,16 +107,21 @@ public class ProfModele extends PersonnageModele implements SpecialiteModele{
                 }
 
                 if (validationPossible) {
-                    lancerDé = (int) (Math.random() * (7));
+                    lancerDé = (int) (Math.random() * (6)+1);
                     System.out.print(lancerDé + " Lancer numéro : " + nbValidation + "  ");
                     if (lancerDé >= ((OutilValidationModele) this.inventaire.getContenuInventaire().get(indexObjet)).getTauxDeReussite()) {
                         (per.get(parcours)).setPv((per.get(parcours)).getPv() - ((OutilValidationModele) this.inventaire.getContenuInventaire().get(indexObjet)).getNbUVVal());
                         nbValidation++;
+                        JOptionPane d= new JOptionPane();
+                        d.showMessageDialog(d,"Lancer de dés réussi : "+lancerDé,"Réussite",1,null);
                         if (per.get(parcours).isValider()) {
                             this.setExp(this.getExp() + ((EtudiantModele) per.get(parcours)).getExpRapporte());
                             parcours++;
                         }
                     } else {
+                        JOptionPane d= new JOptionPane();
+                        d.showMessageDialog(d,"Echec au lancé de dés : "+lancerDé,"Echec",1,null);
+
                         nbValidation++;
                     }
                 } else {

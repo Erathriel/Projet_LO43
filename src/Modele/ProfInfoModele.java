@@ -12,7 +12,7 @@ public class ProfInfoModele extends ProfModele {
             this.setImage(ImageIO.read(nomImage.getAbsoluteFile()));
         }
         catch(Exception e){
-            System.out.println("Error Reading File");
+            System.out.println("Error Reading File prof info");
         }
     }
 
