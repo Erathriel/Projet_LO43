@@ -26,7 +26,7 @@ public class GameButtonpane extends JPanel {
         this.add(modifInv);
         this.add(actObj);
         this.add(capAct);
-        this.add(capAct);
+        this.add(capPas);
         this.add(passer);
     }
 

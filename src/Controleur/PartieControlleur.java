@@ -89,7 +89,7 @@ public class PartieControlleur implements KeyListener, MouseListener, ActionList
                                     this.actionJoueur = 0;
                                     break;
                                 default:
-                                    System.out.println(p.getPa());
+                                    //System.out.println(p.getPa());
                                     break;
                             }
                             this.victoire=victoire();
