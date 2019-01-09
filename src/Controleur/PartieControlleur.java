@@ -18,6 +18,7 @@ public class PartieControlleur implements KeyListener, MouseListener, ActionList
     public PartieControlleur(PartieModele mPartie, GameFen gameFen) {
         this.mPartie = mPartie;
         this.gameFen = gameFen;
+        this.gameFen.getGamePane().getGbp().addListeners(this);
         this.victoire=false;
         this.defaite=false;
         this.actionJoueur=0;
