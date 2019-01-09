@@ -8,9 +8,9 @@ import java.awt.*;
 
 public class GamePane extends JPanel {
     private GamePanelInfo gamePanelInfo;
-    GamePane(PartieControlleur control){
+    GamePane(PartieModele mPartie){
         this.setLayout(new BorderLayout());
-        this.gamePanelInfo=new GamePanelInfo(control.getJoueurEnAction());
+        this.gamePanelInfo=new GamePanelInfo(mPartie.getJoueurEnAction());
         this.add(new GameButtonpane(control),BorderLayout.PAGE_END);
         PlateauPanel map=new PlateauPanel(new PlateauModele(16));
         map.setPreferredSize(new Dimension(600,600));

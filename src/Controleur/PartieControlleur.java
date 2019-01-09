@@ -12,26 +12,22 @@ import java.util.ArrayList;
 
 public class PartieControlleur implements KeyListener, MouseListener {
     private PartieModele mPartie;
-    private PartieVue vPartie;
+    private GameFen gameFen;
     private boolean victoire;
     private boolean defaite;
     private int actionJoueur;
-    private ProfModele joueurEnAction;
 
     // Constructeur
-    public PartieControlleur(PartieModele mPartie, PartieVue vPartie) {
+    public PartieControlleur(PartieModele mPartie, GameFen gameFen) {
         this.mPartie = mPartie;
-        this.vPartie = vPartie;
+        this.gameFen = gameFen;
         this.victoire=false;
         this.defaite=false;
         this.actionJoueur=0;
-        this.joueurEnAction=null;
     }
 
     public void jeu() {
         int exptot=0;
-        this.mPartie.getListePerso().add(new ProfModele(null, null, 50, 3, "Prof Math", true, 0));
-        this.joueurEnAction=((ProfModele)this.mPartie.getListePerso().get(0));
         for (TuileModele t:this.mPartie.getPlateau().getCompTuile()) {
             System.out.println("Tuile id : "+t.getId()
             );
@@ -51,54 +47,53 @@ public class PartieControlleur implements KeyListener, MouseListener {
                         this.defaite=defaite();
 
                     } else if (p instanceof ProfModele) {
-                        joueurEnAction = ((ProfModele) p);
-                        this.vPartie.getGamefen().repaintInfo(joueurEnAction);
+                        this.gameFen.repaintInfo(mPartie.getJoueurEnAction());
                         while (p.getPa() > 0) {
                             switch (actionJoueur) {
                                 case 1:
                                     ((ProfModele) p).choixOutilEtZone();
                                     this.actionJoueur = 0;
                                     this.actualisationTuile();
-                                    this.vPartie.getGamefen().repaintInfo(joueurEnAction);
+                                    this.gameFen.repaintInfo(mPartie.getJoueurEnAction());
                                     break;
                                 case 2:
                                     ((ProfModele) p).fouiller(this.mPartie.getPileCarte());
                                     this.actionJoueur = 0;
                                     this.actualisationTuile();
-                                    this.vPartie.getGamefen().repaintInfo(joueurEnAction);
+                                    this.gameFen.repaintInfo(mPartie.getJoueurEnAction());
                                     break;
                                 case 3:
                                     p.deplacement();
                                     System.out.println(p.getMaCase().getMaTuile().getId());
                                     this.actionJoueur = 0;
                                     this.actualisationTuile();
-                                    this.vPartie.getGamefen().repaintInfo(joueurEnAction);
+                                    this.gameFen.repaintInfo(mPartie.getJoueurEnAction());
                                     break;
                                 case 4:
                                     ((ProfModele) p).choixPorte();
                                     this.actionJoueur = 0;
                                     this.actualisationTuile();
-                                    this.vPartie.getGamefen().repaintInfo(joueurEnAction);
+                                    this.gameFen.repaintInfo(mPartie.getJoueurEnAction());
                                     break;
                                 case 5:
                                     ((ProfModele) p).choixModifInventaire();
                                     this.actionJoueur = 0;
-                                    this.vPartie.getGamefen().repaintInfo(joueurEnAction);
+                                    this.gameFen.repaintInfo(mPartie.getJoueurEnAction());
                                     break;
                                 case 6:
                                     ((ProfModele) p).activerObjectif();
                                     this.actionJoueur = 0;
-                                    this.vPartie.getGamefen().repaintInfo(joueurEnAction);
+                                    this.gameFen.repaintInfo(mPartie.getJoueurEnAction());
                                     break;
                                 case 7:
                                     ((ProfModele) p).capaciteActive();
                                     this.actionJoueur = 0;
-                                    this.vPartie.getGamefen().repaintInfo(joueurEnAction);
+                                    this.gameFen.repaintInfo(mPartie.getJoueurEnAction());
                                     break;
                                 case 8:
                                     ((ProfModele) p).capacitePassive();
                                     this.actionJoueur = 0;
-                                    this.vPartie.getGamefen().repaintInfo(joueurEnAction);
+                                    this.gameFen.repaintInfo(mPartie.getJoueurEnAction());
                                     break;
                                 case 9:
                                     p.passer();
@@ -186,16 +181,15 @@ public class PartieControlleur implements KeyListener, MouseListener {
         this.mPartie = mPartie;
     }
 
-    public PartieVue getvPartie() {
-        return vPartie;
+    public GameFen getgameFen() {
+        return gameFen;
     }
 
-    public void setvPartie(PartieVue vPartie) {
-        this.vPartie = vPartie;
+    public void setgameFen(GameFen gameFen) {
+        this.gameFen = gameFen;
     }
     public int getActionJoueur(){return this.actionJoueur;}
     public void setActionJoueur(int actionJoueur){this.actionJoueur=actionJoueur;}
-    public ProfModele getJoueurEnAction(){return this.joueurEnAction;}
     @Override
     public void keyTyped(KeyEvent e) {
 

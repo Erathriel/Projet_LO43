@@ -14,6 +14,7 @@ public class PartieModele {
     private ArrayList<MachineCafeModele> machineCafeModele;
     private PileCarteModele pileCarte;
     private PlateauModele plateau;
+    private ProfModele joueurEnAction;
 
     // Contructeur
     public PartieModele() {
@@ -23,6 +24,8 @@ public class PartieModele {
         this.machineCafeModele=new ArrayList<MachineCafeModele>();
         this.pileCarte = new PileCarteModele();
         this.plateau = new PlateauModele(16); // nb tuile de 16 normalement 4 pour les test
+        creationPersoObjM();
+        this.joueurEnAction=(ProfModele)listePerso.get(0);
     }
 
     // Getters et Setters
@@ -110,5 +113,13 @@ public class PartieModele {
                 ", listePerso=" + listePerso +
                 ", listeObjectif=" + listeObjectif +
                 '}';
+    }
+
+    public ProfModele getJoueurEnAction() {
+        return joueurEnAction;
+    }
+
+    public void setJoueurEnAction(ProfModele joueurEnAction) {
+        this.joueurEnAction = joueurEnAction;
     }
 }
