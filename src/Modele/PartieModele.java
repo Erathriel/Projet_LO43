@@ -23,7 +23,7 @@ public class PartieModele {
         this.listeObjectif= new ArrayList<ObjectifModele>();
         this.machineCafeModele=new ArrayList<MachineCafeModele>();
         this.pileCarte = new PileCarteModele();
-        this.plateau = new PlateauModele(16); // nb tuile de 16 normalement 4 pour les test
+        this.plateau = new PlateauModele(25); // nb tuile de 16 normalement 4 pour les test
         //creationPersoObjM();
         //this.joueurEnAction=(ProfModele)listePerso.get(0);
     }

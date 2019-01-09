@@ -25,6 +25,7 @@ public class GamePane extends JPanel {
     // Init des attributs de la fenetre
     public void initAttribut(){
         this.plateau = new PlateauPanel(mpartie.getPlateau());
+        this.plateau.updateListeTuile();
         plateau.setBorder(null);
         plateau.setOpaque(false);
     }

@@ -18,8 +18,8 @@ public class PlateauPanel extends JPanel {
 
     public PlateauPanel(PlateauModele pm) {
         super();
-        plateau = pm;
-        map = new char[25][25];
+        this.plateau = pm;
+        this.map = new char[25][25];
     }
 
     // affichage de la map en console
@@ -165,6 +165,10 @@ public class PlateauPanel extends JPanel {
         return tuilePlateau;
     }
 
+    public void updateListeTuile(){
+        this.plateau.setCompTuile(listeTuile(map()));
+    }
+
     // verifie si le tableau est vide
     public boolean isEmpty(char[][] map){
         for (int i=0; i<25;i++){
@@ -177,15 +181,7 @@ public class PlateauPanel extends JPanel {
         return true;
     }
 
-    // TEST
-    /*public char[][] changeMap(){
-        this.map[0][0]='2';
-        this.map[1][1]='2';
-        return this.map;
-    }*/
-
-    // Affichage graphique de la map
-    public void afficheMapGraphique(Graphics g) throws IOException {
+    public CaseModele[][] map(){
         CaseModele[][] cases = new CaseModele[25][25];
         ElemCaseModele elemMap;
         File nomImage;
@@ -193,8 +189,10 @@ public class PlateauPanel extends JPanel {
         if (isEmpty(this.map)){
             this.map = parcoursMap("maps/mapTest3.txt");
         }
-            for (int i=0; i<25; i++){
-                for (int j=0; j<25; j++){
+        for (int i=0; i<25; i++){
+            for (int j=0; j<25; j++){
+                try {
+
                     switch (this.map[i][j])
                     {
                         case '1':
@@ -371,16 +369,32 @@ public class PlateauPanel extends JPanel {
                             System.out.println("Error : afficheMapGraphique() ");
                             break;
                     }
+                }catch (Exception e){
+                    System.out.println("EROROROROROROROR");
                 }
+
             }
+        }
+        return cases;
+    }
+
+    // TEST
+    /*public char[][] changeMap(){
+        this.map[0][0]='2';
+        this.map[1][1]='2';
+        return this.map;
+    }*/
+
+    // Affichage graphique de la map
+    public void afficheMapGraphique(Graphics g) throws IOException {
+            CaseModele[][] cases = map();
             for (int i=0; i<25; i++){
                 for (int j=0; j<25; j++){
                     g.drawImage(cases[i][j].getCompElemCase().get(0).getImage(),j*35,i*35,null);
                 }
             }
-            this.plateau.setCompTuile(listeTuile(cases));
             // DEBUG : listeTuile()
-            for (int i=0; i < 25; i++){
+            /*for (int i=0; i < 25; i++){
                 TuileModele tuileTest = plateau.getCompTuile().get(i);
                 CaseModele[][] test;
                 test=tuileTest.getCompCase();
@@ -391,7 +405,7 @@ public class PlateauPanel extends JPanel {
                     }
                 }
                 System.out.println(" ");
-            }
+            }*/
     }
 
     @Override
