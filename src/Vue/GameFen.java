@@ -9,7 +9,7 @@ public class GameFen extends JFrame {
     private PartieModele mpartie;
     private GamePane gamePane;
     private PlateauPanel plateau;
-    GameFen(PartieControlleur control,PartieModele partie){
+    GameFen(PartieModele partie){
         super();
         this.mpartie = partie;
         this.setTitle("Jeu");
@@ -17,7 +17,7 @@ public class GameFen extends JFrame {
         initAttribut();
         creerFenetre();
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        this.gamePane=new GamePane(control);
+        this.gamePane=new GamePane(mpartie);
         this.add(gamePane);
         this.setVisible(true);
 
@@ -58,10 +58,8 @@ public class GameFen extends JFrame {
     public static void main(String Args[]){
         PartieModele mPartie=new PartieModele();
         //PartieVue vPartie=new PartieVue(mPartie);
-        PartieControlleur control=new PartieControlleur(mPartie,);
-        GameFen g= new GameFen(control,mPartie);
-
-        vPartie.setGamefen(control);
+        GameFen g= new GameFen(mPartie);
+        PartieControlleur control=new PartieControlleur(mPartie,g);
         mPartie.creationPersoObjM();
         control.jeu();
     }

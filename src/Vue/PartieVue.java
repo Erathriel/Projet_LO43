@@ -11,7 +11,6 @@ public class PartieVue extends JFrame {
     private PartieModele mpartie;
    // private JLabel labelTest;
     private PlateauPanel plateau;
-    private GameFen gamefen;
     // Constructeur
     public PartieVue(PartieModele partie) {
         super();
@@ -25,12 +24,7 @@ public class PartieVue extends JFrame {
     }
 
     // Methodes
-    public void setGamefen(PartieControlleur control){
-        this.gamefen=new GameFen(control);
-    }
-    public GameFen getGamefen(){
-        return this.gamefen;
-    }
+
     // Init des attributs de la fenetre
     public void initAttribut(){
         this.plateau = new PlateauPanel(mpartie.getPlateau());

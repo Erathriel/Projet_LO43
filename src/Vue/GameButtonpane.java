@@ -5,19 +5,41 @@ import Controleur.PartieControlleur;
 import javax.swing.*;
 import javax.swing.border.Border;
 import java.awt.*;
+import java.awt.event.ActionListener;
 
 public class GameButtonpane extends JPanel {
-    private PartieControlleur control;
-    GameButtonpane(PartieControlleur control){
-        this.control=control;
-        this.add(new GameButton(control,1,"Validation"));
-        this.add(new GameButton(control,2,"Fouiller"));
-        this.add(new GameButton(control,3,"Déplacement"));
-        this.add(new GameButton(control,4,"Ouverture porte"));
-        this.add(new GameButton(control,5,"Modif Inventaire"));
-        this.add(new GameButton(control,6,"Activer objectif"));
-        this.add(new GameButton(control,7,"Cap active"));
-        this.add(new GameButton(control,8,"Cap passive"));
-        this.add(new GameButton(control,9,"Passer"));
+    private GameButton validation, fouiller, deplacer, ouvPorte, modifInv, actObj, capAct, capPas, passer;
+    GameButtonpane(){
+        validation=new GameButton(1,"Validation");
+        fouiller=new GameButton(2,"Fouiller");
+        deplacer=new GameButton(3,"Déplacement");
+        ouvPorte=new GameButton(4,"Ouverture porte");
+        modifInv=new GameButton(5,"Modif Inventaire");
+        actObj=new GameButton(6,"Activer objectif");
+        capAct=new GameButton(7,"Cap active");
+        capPas=new GameButton(8,"Cap passive");
+        passer=new GameButton(9,"Passer");
+        this.add(validation);
+        this.add(fouiller);
+        this.add(deplacer);
+        this.add(ouvPorte);
+        this.add(modifInv);
+        this.add(actObj);
+        this.add(capAct);
+        this.add(capAct);
+        this.add(passer);
     }
+
+    public void addListeners(ActionListener a){
+        validation.addActionListener(a);
+        fouiller.addActionListener(a);
+        deplacer.addActionListener(a);
+        ouvPorte.addActionListener(a);
+        modifInv.addActionListener(a);
+        actObj.addActionListener(a);
+        capAct.addActionListener(a);
+        capPas.addActionListener(a);
+        passer.addActionListener(a);
+    }
+
 }
