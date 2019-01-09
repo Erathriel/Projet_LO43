@@ -18,7 +18,6 @@ public class GameFen extends JFrame {
         this.gamePane=new GamePane(mpartie);
         this.add(gamePane);
         this.setVisible(true);
-        System.out.println(mpartie.getPlateau().getCompTuile().size());
 
     }
 

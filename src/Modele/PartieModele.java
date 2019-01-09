@@ -122,4 +122,8 @@ public class PartieModele {
     public void setJoueurEnAction(ProfModele joueurEnAction) {
         this.joueurEnAction = joueurEnAction;
     }
+
+    public void setMachineCafeModele(ArrayList<MachineCafeModele> machineCafeModele) {
+        this.machineCafeModele = machineCafeModele;
+    }
 }

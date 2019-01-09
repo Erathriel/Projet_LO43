@@ -35,6 +35,7 @@ public class PartieControlleur implements KeyListener, MouseListener, ActionList
                         this.defaite=defaite();
 
                     } else if (p instanceof ProfModele) {
+                        mPartie.setJoueurEnAction((ProfModele)p);
                         this.gameFen.repaintInfo(mPartie.getJoueurEnAction());
                         while (p.getPa() > 0) {
                             switch (actionJoueur) {
