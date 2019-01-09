@@ -29,18 +29,30 @@ public class PartieControlleur implements KeyListener, MouseListener {
     }
 
     public void jeu() {
+        int exptot=0;
         this.mPartie.getListePerso().add(new ProfModele(null, null, 50, 3, "Prof Math", true, 0));
         this.joueurEnAction=((ProfModele)this.mPartie.getListePerso().get(0));
-        while(!victoire && !defaite ){
-            for (PersonnageModele p:this.mPartie.getListePerso()) {
-                p.setJouable(true);
+        for (TuileModele t:this.mPartie.getPlateau().getCompTuile()) {
+            System.out.println("Tuile id : "+t.getId()
+            );
+            for (int i = 0; i < 5; i++) {
+                for (int j = 0; j <5 ; j++) {
+                    System.out.print(" "+i+"  "+t.getCompCase()[i][j].getPassable()+" "+j+" ");
+                }
+                System.out.println("\n");
             }
+        }
+        while(!victoire && !defaite ){
+            this.actualisationTuile();
             for (PersonnageModele p : this.mPartie.getListePerso()) {
                 if (p.isJouable()) {
                     if (p instanceof EtudiantModele) {
                         p.tourDeJeu();
+                        this.defaite=defaite();
+
                     } else if (p instanceof ProfModele) {
                         joueurEnAction = ((ProfModele) p);
+                        this.vPartie.getGamefen().repaintInfo(joueurEnAction);
                         while (p.getPa() > 0) {
                             switch (actionJoueur) {
                                 case 1:
@@ -57,6 +69,7 @@ public class PartieControlleur implements KeyListener, MouseListener {
                                     break;
                                 case 3:
                                     p.deplacement();
+                                    System.out.println(p.getMaCase().getMaTuile().getId());
                                     this.actionJoueur = 0;
                                     this.actualisationTuile();
                                     this.vPartie.getGamefen().repaintInfo(joueurEnAction);
@@ -92,22 +105,77 @@ public class PartieControlleur implements KeyListener, MouseListener {
                                     this.actionJoueur = 0;
                                     break;
                                 default:
-                                    System.out.println(p.getPa());
                                     break;
                             }
+                            this.victoire=victoire();
                         }
                     }
                     p.setJouable(false);
                     this.actualisationTuile();
                 }
             }
+            exptot=0;
+            for (PersonnageModele p: this.mPartie.getListePerso()) {
+                p.setJouable(true);
+                p.setPa(p.getNbPa());
+                if(p instanceof ProfModele){
+                    exptot+=((ProfModele) p).getExp();
+                }
+            }
+            for(MachineCafeModele m:this.mPartie.getMachineCafeModele()){
+                m.spawnDebutManche(this.mPartie.getPileCarte(),exptot);
+            }
         }
+        System.out.println("FIN");
     }
     public void actualisationTuile(){
         for (TuileModele t : this.mPartie.getPlateau().getCompTuile()) {
             t.setPersOnTuile();
+            t.porteSurTuile();
             t.setTuileAccessible();
         }
+        ArrayList<PersonnageModele> p=new ArrayList<PersonnageModele>();
+        for(TuileModele t:mPartie.getPlateau().getCompTuile()){
+            for(PersonnageModele pers:t.getPersOnTuile()){
+                if(pers instanceof ProfModele && pers.getPv()>0){
+                    p.add(pers);
+                }
+            }
+        }
+        for(TuileModele t:mPartie.getPlateau().getCompTuile()){
+            for(PersonnageModele pers:t.getPersOnTuile()){
+                if(pers instanceof EtudiantModele && pers.getPv()>0){
+                    p.add(pers);
+                }
+            }
+        }
+        this.mPartie.setListePerso(p);
+    }
+    public boolean defaite()
+    {
+        for(PersonnageModele p : this.mPartie.getListePerso()){
+            if(p instanceof ProfModele)
+            {
+                return false;
+            }
+        }
+        return true;
+    }
+    public boolean victoire(){
+        for(PersonnageModele p : this.mPartie.getListePerso()){
+            if(p instanceof ProfModele)
+            {
+                for(ElemCaseModele e:p.getMaCase().getCompElemCase()){
+                    if(this.mPartie.getListeObjectif().size()==0){
+                       if(e instanceof SortieModele) {
+                           return true;
+                       }
+                    }
+                }
+
+            }
+        }
+        return false;
     }
     // Getters et Setters
     public PartieModele getmPartie() {

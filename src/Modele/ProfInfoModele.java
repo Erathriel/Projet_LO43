@@ -1,10 +1,19 @@
 package Modele;
 
+import javax.imageio.ImageIO;
 import java.awt.*;
+import java.io.File;
 
 public class ProfInfoModele extends ProfModele {
     ProfInfoModele(Image image, CaseModele maCase, int pv, int pa, String nom, boolean jouable, int  exp){
         super(image, maCase,pv,pa,nom,jouable,exp);
+        try{
+            File nomImage = new File("img/infoinfo.png");
+            this.setImage(ImageIO.read(nomImage.getAbsoluteFile()));
+        }
+        catch(Exception e){
+            System.out.println("Error Reading File");
+        }
     }
 
     @Override

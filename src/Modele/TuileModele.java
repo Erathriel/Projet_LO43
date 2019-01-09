@@ -167,21 +167,30 @@ public class TuileModele {
         this.tuileAccessible=new ArrayList<TuileModele>();
         if(compCase[2][0].getPassable())
         {
-            this.tuileAccessible.add(plateau.getCompTuile().get(this.id-4));
+            if(this.id-5>=0) {
+                this.tuileAccessible.add(plateau.getCompTuile().get(this.id - 5));
+            }
         }
         if(compCase[0][2].getPassable())
         {
-
-            this.tuileAccessible.add(plateau.getCompTuile().get(this.id-2));
+            System.out.println(compCase[0][2].getPassable());
+            if(this.id-1>=0) {
+                this.tuileAccessible.add(plateau.getCompTuile().get(this.id - 1));
+            }
         }
         if(compCase[2][4].getPassable())
         {
-            this.tuileAccessible.add(plateau.getCompTuile().get(this.id+3));
+            if(this.id+1<=24) {
+                this.tuileAccessible.add(plateau.getCompTuile().get(this.id + 1));
+            }
         }
         if(compCase[4][2].getPassable())
         {
-            this.tuileAccessible.add(plateau.getCompTuile().get(this.id));
+            if(this.id+5<=24) {
+                this.tuileAccessible.add(plateau.getCompTuile().get(this.id +5));
+            }
         }
+
     }
     public void setCompCase(CaseModele[][] compCase) {
         this.compCase = compCase;

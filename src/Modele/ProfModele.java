@@ -2,11 +2,13 @@ package Modele;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.image.BufferedImage;
 import java.util.ArrayList;
 
 public class ProfModele extends PersonnageModele implements SpecialiteModele{
     private int exp;
     private InventaireModele inventaire;
+    private BufferedImage info;
     // Constructeur
     public ProfModele(Image image, CaseModele maCase, int pv, int pa, String nom, boolean jouable, int  exp) {
         super(image, maCase, pv, pa, nom, jouable);
@@ -195,20 +197,29 @@ public class ProfModele extends PersonnageModele implements SpecialiteModele{
         this.setPa(this.getPa()-1);
     }
     public void choixPorte(){
+        int x=0,y=0;
         if(this.getMaCase().getMaTuile().getPorteFermer().size()>0){
             String tab[]= new String[this.getMaCase().getMaTuile().getPorteFermer().size()];
             for (int i = 0; i <this.getMaCase().getMaTuile().getPorteFermer().size() ; i++) {
-                if(this.getMaCase().getMaTuile().getPorteFermer().get(i).getCoordX()==2 && this.getMaCase().getMaTuile().getPorteFermer().get(i).getCoordY()==0){
+                if(this.getMaCase().getMaTuile().getPorteFermer().get(i)==this.getMaCase().getMaTuile().getCompCase()[2][0]){
                     tab[i]="Nord";
+                    x=2;
+                    y=0;
                 }
-                else if(this.getMaCase().getMaTuile().getPorteFermer().get(i).getCoordX()==0 && this.getMaCase().getMaTuile().getPorteFermer().get(i).getCoordY()==2){
+                else if(this.getMaCase().getMaTuile().getPorteFermer().get(i)==this.getMaCase().getMaTuile().getCompCase()[0][2]){
                     tab[i]="Ouest";
+                    x=0;
+                    y=2;
                 }
-                else if(this.getMaCase().getMaTuile().getPorteFermer().get(i).getCoordX()==4 && this.getMaCase().getMaTuile().getPorteFermer().get(i).getCoordY()==2){
+                else if(this.getMaCase().getMaTuile().getPorteFermer().get(i)==this.getMaCase().getMaTuile().getCompCase()[4][2]){
                     tab[i]="Est";
+                    x=4;
+                    y=2;
                 }
-                else if(this.getMaCase().getMaTuile().getPorteFermer().get(i).getCoordX()==2 && this.getMaCase().getMaTuile().getPorteFermer().get(i).getCoordY()==4){
+                else if(this.getMaCase().getMaTuile().getPorteFermer().get(i)==this.getMaCase().getMaTuile().getCompCase()[2][4]){
                     tab[i]="Sud";
+                    x=2;
+                    y=4;
                 }
             }
             int porteChoisie=JOptionPane.showOptionDialog(null,  "Choisissez la porte dans la direction que vous souaitez ouvrir","Choix de la porte a ouvrir", JOptionPane.DEFAULT_OPTION, 0, null,tab,tab[0]);
@@ -219,7 +230,7 @@ public class ProfModele extends PersonnageModele implements SpecialiteModele{
                 {
 
                     if(this.ouvriPorte(((PorteModele)e))){
-                        this.getMaCase().getMaTuile().getCompCase()[c.getCoordX()][c.getCoordY()].setPassable(true);
+                        this.getMaCase().getMaTuile().getCompCase()[x][y].setPassable(true);
                         ArrayList<TuileModele> comparePassage=c.getMaTuile().getTuileAccessible();
                         c.getMaTuile().setTuileAccessible();
                         for (TuileModele t:c.getMaTuile().getTuileAccessible()) {
@@ -239,14 +250,14 @@ public class ProfModele extends PersonnageModele implements SpecialiteModele{
                                         }
                                     }
                                 }
-                                else if(t.getId()==c.getMaTuile().getId()-3){
+                                else if(t.getId()==c.getMaTuile().getId()-5){
                                     for (ElemCaseModele cp:t.getCompCase()[2][0].getCompElemCase()) {
                                         if(cp instanceof PorteModele){
                                             ((PorteModele) cp).setVerrouiller();
                                         }
                                     }
                                 }
-                                else if(t.getId()==c.getMaTuile().getId()+3){
+                                else if(t.getId()==c.getMaTuile().getId()+5){
                                     for (ElemCaseModele cp:t.getCompCase()[2][4].getCompElemCase()) {
                                         if(cp instanceof PorteModele){
                                             ((PorteModele) cp).setVerrouiller();
@@ -266,23 +277,43 @@ public class ProfModele extends PersonnageModele implements SpecialiteModele{
     }
     public boolean ouvriPorte(PorteModele porte){
         // Teste si l'un des 2 premiers elements de l'inventaire est une clé si c'est le cas on deverrouille la porte et supprime la cle
-        if (inventaire.getContenuInventaire().get(0) instanceof CleModele || inventaire.getContenuInventaire().get(1) instanceof CleModele){
-            porte.setVerrouiller();
-            if (inventaire.getContenuInventaire().get(1) instanceof CleModele){
-                this.inventaire.suppressionObjet(0);
-            }
-            else {
-                this.inventaire.suppressionObjet(1);
-            }
-            this.setPa(this.getPa()-1);
-            return true;
-        }
-        else {
-            JOptionPane d= new JOptionPane();
-            d.showMessageDialog(d,"Vous ne possedez aucune cle","Action Impossible",0);
-            return false;
+         if(this.getInventaire().getContenuInventaire().size()>=2) {
+             if (inventaire.getContenuInventaire().get(0) instanceof CleModele || inventaire.getContenuInventaire().get(1) instanceof CleModele) {
+                 porte.setVerrouiller();
+                 if (inventaire.getContenuInventaire().get(0) instanceof CleModele) {
+                     this.inventaire.suppressionObjet(0);
+                 } else {
+                     this.inventaire.suppressionObjet(1);
+                 }
+                 this.setPa(this.getPa() - 1);
+                 return true;
+             } else {
+                 JOptionPane d = new JOptionPane();
+                 d.showMessageDialog(d, "Vous ne possedez aucune cle", "Action Impossible", 0);
+                 return false;
 
-        }
+             }
+         }
+         else{
+             if(this.getInventaire().getContenuInventaire().size()==1)
+             {
+                 if(this.inventaire.getContenuInventaire().get(0) instanceof CleModele){
+                     porte.setVerrouiller();
+                     this.inventaire.suppressionObjet(0);
+                     this.setPa(this.getPa() - 1);
+                     return true;
+                 }else{
+                     JOptionPane d = new JOptionPane();
+                     d.showMessageDialog(d, "Vous ne possedez aucune cle", "Action Impossible", 0);
+                     return false;
+                 }
+             }
+             else{
+                 JOptionPane d = new JOptionPane();
+                 d.showMessageDialog(d, "Vous ne possedez aucune cle", "Action Impossible", 0);
+                 return false;
+             }
+         }
     }
     public void choixModifInventaire(){
         if(this.getInventaire().getContenuInventaire().size()>2)
@@ -344,7 +375,7 @@ public class ProfModele extends PersonnageModele implements SpecialiteModele{
                String tab[] = new String[this.getMaCase().getMaTuile().getTuileAccessible().size()];
                int positionTab = 0;
                for (int i = 0; i < this.getMaCase().getMaTuile().getTuileAccessible().size(); i++) {
-                   if (this.getMaCase().getMaTuile().getTuileAccessible().get(i).getId() == this.getMaCase().getMaTuile().getId() - 3) {
+                   if (this.getMaCase().getMaTuile().getTuileAccessible().get(i).getId() == this.getMaCase().getMaTuile().getId() - 5) {
                        tab[positionTab] = "Nord";
                        positionTab++;
                    } else if (this.getMaCase().getMaTuile().getTuileAccessible().get(i).getId() == this.getMaCase().getMaTuile().getId() - 1) {
@@ -353,7 +384,7 @@ public class ProfModele extends PersonnageModele implements SpecialiteModele{
                    } else if (this.getMaCase().getMaTuile().getTuileAccessible().get(i).getId() == this.getMaCase().getMaTuile().getId() + 1) {
                        tab[positionTab] = "Est";
                        positionTab++;
-                   } else if (this.getMaCase().getMaTuile().getTuileAccessible().get(i).getId() == this.getMaCase().getMaTuile().getId() + 3) {
+                   } else if (this.getMaCase().getMaTuile().getTuileAccessible().get(i).getId() == this.getMaCase().getMaTuile().getId() + 5) {
                        tab[positionTab] = "Sud";
                        positionTab++;
                    }
@@ -397,7 +428,10 @@ public class ProfModele extends PersonnageModele implements SpecialiteModele{
     public InventaireModele getInventaire() {
         return this.inventaire;
     }
-
+    public void setImage(BufferedImage img){
+        this.info=img;
+    }
+    public BufferedImage getInfo(){return this.info;}
     @Override
     public String toString() {
         return "ProfModele{" +

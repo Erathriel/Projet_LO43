@@ -221,7 +221,7 @@ public class PlateauPanel extends JPanel {
                             nomImage = new File("img/coin1.png");
                             img = ImageIO.read(nomImage.getAbsoluteFile());
                             //elemMap[i][j]=new SolModele(img,null);
-                            cases[i][j]= new CaseModele(null, i, j, true);
+                            cases[i][j]= new CaseModele(null, i, j, false);
                             elemMap=new SolModele(img,cases[i][j]);
                             //g.drawImage(elemMap[i][j].getImage(),j*20,i*20,null);
                             //g.drawImage(elemMap.getImage(),j*20,i*20,null);
@@ -241,7 +241,7 @@ public class PlateauPanel extends JPanel {
                             nomImage = new File("img/coin2.png");
                             img = ImageIO.read(nomImage.getAbsoluteFile());
                             //elemMap[i][j]=new SolModele(img,null);
-                            cases[i][j]= new CaseModele(null, i, j, true);
+                            cases[i][j]= new CaseModele(null, i, j, false);
                             elemMap=new SolModele(img,cases[i][j]);
                             //g.drawImage(elemMap[i][j].getImage(),j*20,i*20,null);
                             //g.drawImage(elemMap.getImage(),j*20,i*20,null);
@@ -251,7 +251,7 @@ public class PlateauPanel extends JPanel {
                             nomImage = new File("img/coin3.png");
                             img = ImageIO.read(nomImage.getAbsoluteFile());
                             //elemMap[i][j]=new SolModele(img,null);
-                            cases[i][j]= new CaseModele(null, i, j, true);
+                            cases[i][j]= new CaseModele(null, i, j, false);
                             elemMap=new SolModele(img,cases[i][j]);
                             //g.drawImage(elemMap[i][j].getImage(),j*20,i*20,null);
                             //g.drawImage(elemMap.getImage(),j*20,i*20,null);
@@ -261,7 +261,7 @@ public class PlateauPanel extends JPanel {
                             nomImage = new File("img/coin4.png");
                             img = ImageIO.read(nomImage.getAbsoluteFile());
                             //elemMap[i][j]=new SolModele(img,null);
-                            cases[i][j]= new CaseModele(null, i, j, true);
+                            cases[i][j]= new CaseModele(null, i, j, false);
                             elemMap=new SolModele(img,cases[i][j]);
                             //g.drawImage(elemMap[i][j].getImage(),j*20,i*20,null);
                             //g.drawImage(elemMap.getImage(),j*20,i*20,null);
@@ -271,7 +271,7 @@ public class PlateauPanel extends JPanel {
                             nomImage = new File("img/mur2.png");
                             img = ImageIO.read(nomImage.getAbsoluteFile());
                             //elemMap[i][j]=new SolModele(img,null);
-                            cases[i][j]= new CaseModele(null, i, j, true);
+                            cases[i][j]= new CaseModele(null, i, j, false);
                             elemMap=new SolModele(img,cases[i][j]);
                             //g.drawImage(elemMap[i][j].getImage(),j*20,i*20,null);
                             //g.drawImage(elemMap.getImage(),j*20,i*20,null);
@@ -281,7 +281,7 @@ public class PlateauPanel extends JPanel {
                             nomImage = new File("img/mur3.png");
                             img = ImageIO.read(nomImage.getAbsoluteFile());
                             //elemMap[i][j]=new SolModele(img,null);
-                            cases[i][j]= new CaseModele(null, i, j, true);
+                            cases[i][j]= new CaseModele(null, i, j, false);
                             elemMap=new SolModele(img,cases[i][j]);
                             //g.drawImage(elemMap[i][j].getImage(),j*20,i*20,null);
                             //g.drawImage(elemMap.getImage(),j*20,i*20,null);
@@ -291,7 +291,7 @@ public class PlateauPanel extends JPanel {
                             nomImage = new File("img/mur4.png");
                             img = ImageIO.read(nomImage.getAbsoluteFile());
                             //elemMap[i][j]=new SolModele(img,null);
-                            cases[i][j]= new CaseModele(null, i, j, true);
+                            cases[i][j]= new CaseModele(null, i, j, false);
                             elemMap=new SolModele(img,cases[i][j]);
                             //g.drawImage(elemMap[i][j].getImage(),j*20,i*20,null);
                             //g.drawImage(elemMap.getImage(),j*20,i*20,null);
@@ -331,7 +331,7 @@ public class PlateauPanel extends JPanel {
                             nomImage = new File("img/porteo1.jpg");
                             img = ImageIO.read(nomImage.getAbsoluteFile());
                             //elemMap[i][j]=new PorteModele(img,null,true);
-                            cases[i][j]= new CaseModele(null, i, j, false);
+                            cases[i][j]= new CaseModele(null, i, j, true);
                             elemMap=new PorteModele(img,cases[i][j],false);
                             //g.drawImage(elemMap[i][j].getImage(),j*20,i*20,null);
                             //g.drawImage(elemMap.getImage(),j*20,i*20,null);
@@ -341,7 +341,7 @@ public class PlateauPanel extends JPanel {
                             nomImage = new File("img/porteo2.jpg");
                             img = ImageIO.read(nomImage.getAbsoluteFile());
                             //elemMap[i][j]=new PorteModele(img,null,true);
-                            cases[i][j]= new CaseModele(null, i, j, false);
+                            cases[i][j]= new CaseModele(null, i, j, true);
                             elemMap=new PorteModele(img,cases[i][j],false);
                             //g.drawImage(elemMap[i][j].getImage(),j*20,i*20,null);
                             //g.drawImage(elemMap.getImage(),j*20,i*20,null);
@@ -351,7 +351,7 @@ public class PlateauPanel extends JPanel {
                             nomImage = new File("img/porteo3.jpg");
                             img = ImageIO.read(nomImage.getAbsoluteFile());
                             //elemMap[i][j]=new PorteModele(img,null,true);
-                            cases[i][j]= new CaseModele(null, i, j, false);
+                            cases[i][j]= new CaseModele(null, i, j, true);
                             elemMap=new PorteModele(img,cases[i][j],false);
                             //g.drawImage(elemMap[i][j].getImage(),j*20,i*20,null);
                             //g.drawImage(elemMap.getImage(),j*20,i*20,null);
@@ -361,7 +361,7 @@ public class PlateauPanel extends JPanel {
                             nomImage = new File("img/porteo4.jpg");
                             img = ImageIO.read(nomImage.getAbsoluteFile());
                             //elemMap[i][j]=new PorteModele(img,null,true);
-                            cases[i][j]= new CaseModele(null, i, j, false);
+                            cases[i][j]= new CaseModele(null, i, j, true);
                             elemMap=new PorteModele(img,cases[i][j],false);
                             //g.drawImage(elemMap[i][j].getImage(),j*20,i*20,null);
                             //g.drawImage(elemMap.getImage(),j*20,i*20,null);

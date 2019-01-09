@@ -22,7 +22,7 @@ public class EtudiantModele extends PersonnageModele {
            while (parcours < per.size()) {
                    if (per.get(parcours) instanceof PersonnageModele) {
                        if (per.get(parcours) instanceof ProfModele) {
-                           System.out.println("dégat Prof");
+                           System.out.println("dégat Prof"+ per.get(parcours).getNom()+"   "+per.get(parcours).getNom());
                            (per.get(parcours)).setPv((per.get(parcours)).getPv() - this.getNbDemandeValidation());
                            parcours++;
 
@@ -51,30 +51,32 @@ public class EtudiantModele extends PersonnageModele {
         {
             CaseModele anciennePosition=this.getMaCase();
             ArrayList<TuileModele> containProf=new ArrayList<TuileModele>();
-            for (TuileModele t:this.getMaCase().getMaTuile().getTuileAccessible()) {
-                if(t.tuileContainProf()){
-                    containProf.add(t);
-                }
-                else{
-                }
-            }
-            System.out.print(containProf.size());
-            if(containProf.size()>0){
-                int  destination= (int) (Math.random()*(containProf.size()));
-                this.setMaCase(containProf.get(destination).getCompCase()[this.getMaCase().getCoordX()][this.getMaCase().getCoordY()]);
-                this.getMaCase().getCompElemCase().add(this);
-                anciennePosition.getCompElemCase().remove(this);
-                anciennePosition.getMaTuile().setPersOnTuile();
-                this.getMaCase().getMaTuile().setPersOnTuile();
-            }
-            else{
-                int  destination= (int) (Math.random()*(containProf.size()));
-                this.setMaCase(this.getMaCase().getMaTuile().getTuileAccessible().get(destination).getCompCase()[this.getMaCase().getCoordX()][this.getMaCase().getCoordY()]);
-                anciennePosition.getCompElemCase().remove(this);
-                anciennePosition.getMaTuile().setPersOnTuile();
-                this.getMaCase().getMaTuile().setPersOnTuile();
-            }
-            this.setPa(this.getPa()-1);
+              if(this.getMaCase().getMaTuile().getTuileAccessible().size()>0) {
+                  for (TuileModele t : this.getMaCase().getMaTuile().getTuileAccessible()) {
+                      if (t.tuileContainProf()) {
+                          containProf.add(t);
+                      } else {
+                      }
+                  }
+                  if (containProf.size() > 0) {
+                      int destination = (int) (Math.random() * (containProf.size()));
+                      this.setMaCase(containProf.get(destination).getCompCase()[this.getMaCase().getCoordX()][this.getMaCase().getCoordY()]);
+                      this.getMaCase().getCompElemCase().add(this);
+                      anciennePosition.getCompElemCase().remove(this);
+                      anciennePosition.getMaTuile().setPersOnTuile();
+                      this.getMaCase().getMaTuile().setPersOnTuile();
+                  } else {
+                      int destination = (int) (Math.random() * (containProf.size()));
+                      this.setMaCase(this.getMaCase().getMaTuile().getTuileAccessible().get(destination).getCompCase()[this.getMaCase().getCoordX()][this.getMaCase().getCoordY()]);
+                      anciennePosition.getCompElemCase().remove(this);
+                      anciennePosition.getMaTuile().setPersOnTuile();
+                      this.getMaCase().getMaTuile().setPersOnTuile();
+                  }
+                  this.setPa(this.getPa() - 1);
+              }
+              else{
+                  this.setPa(0);
+              }
         }
     }
     public void tourDeJeu(){

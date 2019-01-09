@@ -14,7 +14,6 @@ public class GamePanelInfo extends JPanel {
     GamePanelInfo(ProfModele p){
         super();
         this.setPreferredSize(new Dimension(150,500));
-        this.p=new ProfModele(null, null, 50, 3, "Prof Math", true, 0);
     }
     public void setJoueur(ProfModele p){
         this.p=p;
@@ -26,22 +25,28 @@ public class GamePanelInfo extends JPanel {
         int y=0;
         int x=0;
         if(p!=null) {
-            for (ObjetModele e : p.getInventaire().getContenuInventaire()) {
-                g.drawImage(e.getImg(), x, y, this);
-                x += 80;
-                if (x == 160) {
-                    y += 105;
-                    x = 0;
+            if (p.getInventaire().getContenuInventaire().size() > 0) {
+                for (ObjetModele e : p.getInventaire().getContenuInventaire()) {
+                    g.drawImage(e.getImg(), x, y, this);
+                    x += 80;
+                    if (x == 160) {
+                        y += 105;
+                        x = 0;
+                    }
                 }
             }
+            x=0;
+            y += 105;
+            g.drawString(p.getNom(), 0, y);
+            y += 15;
+            g.drawString("\n Point de Stress : " + p.getPv(), 0, y);
+            y += 15;
+            g.drawString("\n Point d'action : " + p.getPa(), 0, y);
+            y += 15;
+            g.drawString("\n Experience : " + p.getExp(), 0, y);
+            y+=100;
+            x=0;
+            g.drawImage(p.getInfo(),x,y,this);
         }
-        y+=105;
-        g.drawString(p.getNom(),0,y);
-        y+=15;
-        g.drawString("\n Point de Stress : "+p.getPv(),0,y);
-        y+=15;
-        g.drawString("\n Point d'action : "+p.getPa(),0,y);
-        y+=15;
-        g.drawString("\n Experience : "+p.getExp(),0,y);
     }
 }
