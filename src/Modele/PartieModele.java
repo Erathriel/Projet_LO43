@@ -24,7 +24,7 @@ public class PartieModele {
         this.machineCafeModele=new ArrayList<MachineCafeModele>();
         this.pileCarte = new PileCarteModele();
         this.plateau = new PlateauModele(16); // nb tuile de 16 normalement 4 pour les test
-        creationPersoObjM();
+        //creationPersoObjM();
         //this.joueurEnAction=(ProfModele)listePerso.get(0);
     }
 

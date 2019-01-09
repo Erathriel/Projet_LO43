@@ -380,7 +380,7 @@ public class PlateauPanel extends JPanel {
             }
             this.plateau.setCompTuile(listeTuile(cases));
             // DEBUG : listeTuile()
-            /*for (int i=0; i < 25; i++){
+            for (int i=0; i < 25; i++){
                 TuileModele tuileTest = plateau.getCompTuile().get(i);
                 CaseModele[][] test;
                 test=tuileTest.getCompCase();
@@ -391,7 +391,7 @@ public class PlateauPanel extends JPanel {
                     }
                 }
                 System.out.println(" ");
-            }*/
+            }
     }
 
     @Override
