@@ -3,14 +3,11 @@ package Controleur;
 import Vue.*;
 import Modele.*;
 
-import java.awt.event.KeyEvent;
-import java.awt.event.KeyListener;
-import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
+import java.awt.event.*;
 import java.io.*;
 import java.util.ArrayList;
 
-public class PartieControlleur implements KeyListener, MouseListener {
+public class PartieControlleur implements KeyListener, MouseListener, ActionListener {
     private PartieModele mPartie;
     private GameFen gameFen;
     private boolean victoire;
@@ -229,4 +226,35 @@ public class PartieControlleur implements KeyListener, MouseListener {
     public void mouseExited(MouseEvent e) {
 
     }
+    public void actionPerformed(ActionEvent e){
+        if (e.getSource() == gameFen.getGamePane().getGbp().getValidation()) {
+            this.actionJoueur=gameFen.getGamePane().getGbp().getValidation().getActionJoueur();
+        }
+        if (e.getSource() == gameFen.getGamePane().getGbp().getFouiller()){
+            this.actionJoueur=gameFen.getGamePane().getGbp().getFouiller().getActionJoueur();
+        }
+        if (e.getSource() == gameFen.getGamePane().getGbp().getDeplacer()){
+            this.actionJoueur=gameFen.getGamePane().getGbp().getDeplacer().getActionJoueur();
+        }
+        if (e.getSource() == gameFen.getGamePane().getGbp().getOuvPorte()){
+            this.actionJoueur=gameFen.getGamePane().getGbp().getOuvPorte().getActionJoueur();
+        }
+        if (e.getSource() == gameFen.getGamePane().getGbp().getModifInv()){
+            this.actionJoueur=gameFen.getGamePane().getGbp().getModifInv().getActionJoueur();
+        }
+        if(e.getSource() == gameFen.getGamePane().getGbp().getActObj()){
+            this.actionJoueur=gameFen.getGamePane().getGbp().getActObj().getActionJoueur();
+        }
+        if(e.getSource() == gameFen.getGamePane().getGbp().getCapAct()){
+            this.actionJoueur=gameFen.getGamePane().getGbp().getCapAct().getActionJoueur();
+        }
+        if (e.getSource() == gameFen.getGamePane().getGbp().getCapPas()){
+            this.actionJoueur=gameFen.getGamePane().getGbp().getCapPas().getActionJoueur();
+        }
+        if (e.getSource() == gameFen.getGamePane().getGbp().getPasser()){
+            this.actionJoueur=gameFen.getGamePane().getGbp().getPasser().getActionJoueur();
+        }
+    }
+
+
 }

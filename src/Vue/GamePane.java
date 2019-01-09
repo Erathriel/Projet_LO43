@@ -10,11 +10,13 @@ public class GamePane extends JPanel {
     private GamePanelInfo gamePanelInfo;
     private PlateauPanel plateau;
     private PartieModele mpartie;
+    private GameButtonpane gbp;
     GamePane(PartieModele mPartie){
         this.mpartie = mPartie;
         this.setLayout(new BorderLayout());
         this.gamePanelInfo=new GamePanelInfo(mPartie.getJoueurEnAction());
-        this.add(new GameButtonpane(),BorderLayout.PAGE_END);
+        this.gbp=new GameButtonpane();
+        this.add(gbp,BorderLayout.PAGE_END);
         initAttribut();
         this.add(plateau,BorderLayout.CENTER);
         this.add(this.gamePanelInfo,BorderLayout.LINE_START);
@@ -35,5 +37,13 @@ public class GamePane extends JPanel {
     }
     public GamePanelInfo getGamePanelInfo(){
         return this.gamePanelInfo;
+    }
+
+    public GameButtonpane getGbp() {
+        return gbp;
+    }
+
+    public void setGbp(GameButtonpane gbp) {
+        this.gbp = gbp;
     }
 }

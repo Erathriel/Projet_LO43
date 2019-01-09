@@ -17,6 +17,14 @@ public class GameButton extends JButton {
         this.setPreferredSize(new Dimension(125,25));
     }
 
+    public int getActionJoueur() {
+        return actionJoueur;
+    }
+
+    public void setActionJoueur(int actionJoueur) {
+        this.actionJoueur = actionJoueur;
+    }
+
 
     /*@Override
     public void actionPerformed(ActionEvent e) {

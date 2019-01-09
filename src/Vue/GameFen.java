@@ -43,4 +43,12 @@ public class GameFen extends JFrame {
         mPartie.creationPersoObjM();
         control.jeu();
     }
+
+    public GamePane getGamePane() {
+        return gamePane;
+    }
+
+    public void setGamePane(GamePane gamePane) {
+        this.gamePane = gamePane;
+    }
 }

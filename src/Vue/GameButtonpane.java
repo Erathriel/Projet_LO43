@@ -42,4 +42,75 @@ public class GameButtonpane extends JPanel {
         passer.addActionListener(a);
     }
 
+    public GameButton getValidation() {
+        return validation;
+    }
+
+    public void setValidation(GameButton validation) {
+        this.validation = validation;
+    }
+
+    public GameButton getFouiller() {
+        return fouiller;
+    }
+
+    public void setFouiller(GameButton fouiller) {
+        this.fouiller = fouiller;
+    }
+
+    public GameButton getDeplacer() {
+        return deplacer;
+    }
+
+    public void setDeplacer(GameButton deplacer) {
+        this.deplacer = deplacer;
+    }
+
+    public GameButton getOuvPorte() {
+        return ouvPorte;
+    }
+
+    public void setOuvPorte(GameButton ouvPorte) {
+        this.ouvPorte = ouvPorte;
+    }
+
+    public GameButton getModifInv() {
+        return modifInv;
+    }
+
+    public void setModifInv(GameButton modifInv) {
+        this.modifInv = modifInv;
+    }
+
+    public GameButton getActObj() {
+        return actObj;
+    }
+
+    public void setActObj(GameButton actObj) {
+        this.actObj = actObj;
+    }
+
+    public GameButton getCapAct() {
+        return capAct;
+    }
+
+    public void setCapAct(GameButton capAct) {
+        this.capAct = capAct;
+    }
+
+    public GameButton getCapPas() {
+        return capPas;
+    }
+
+    public void setCapPas(GameButton capPas) {
+        this.capPas = capPas;
+    }
+
+    public GameButton getPasser() {
+        return passer;
+    }
+
+    public void setPasser(GameButton passer) {
+        this.passer = passer;
+    }
 }
