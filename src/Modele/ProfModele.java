@@ -42,7 +42,7 @@ public class ProfModele extends PersonnageModele implements SpecialiteModele{
                 String tab[] = new String[this.getMaCase().getMaTuile().getTuileAccessible().size() + 1];
                 int positionTab = 0;
                 for (int i = 0; i < this.getMaCase().getMaTuile().getTuileAccessible().size(); i++) {
-                    if (this.getMaCase().getMaTuile().getTuileAccessible().get(i).getId() == this.getMaCase().getMaTuile().getId() - 3) {
+                    if (this.getMaCase().getMaTuile().getTuileAccessible().get(i).getId() == this.getMaCase().getMaTuile().getId() - 5) {
                         tab[positionTab] = "Nord";
                         positionTab++;
                     } else if (this.getMaCase().getMaTuile().getTuileAccessible().get(i).getId() == this.getMaCase().getMaTuile().getId() - 1) {
@@ -51,7 +51,7 @@ public class ProfModele extends PersonnageModele implements SpecialiteModele{
                     } else if (this.getMaCase().getMaTuile().getTuileAccessible().get(i).getId() == this.getMaCase().getMaTuile().getId() + 1) {
                         tab[positionTab] = "Est";
                         positionTab++;
-                    } else if (this.getMaCase().getMaTuile().getTuileAccessible().get(i).getId() == this.getMaCase().getMaTuile().getId() + 3) {
+                    } else if (this.getMaCase().getMaTuile().getTuileAccessible().get(i).getId() == this.getMaCase().getMaTuile().getId() + 5) {
                         tab[positionTab] = "Sud";
                         positionTab++;
                     }
@@ -196,22 +196,22 @@ public class ProfModele extends PersonnageModele implements SpecialiteModele{
         if(this.getMaCase().getMaTuile().getPorteFermer().size()>0){
             String tab[]= new String[this.getMaCase().getMaTuile().getPorteFermer().size()];
             for (int i = 0; i <this.getMaCase().getMaTuile().getPorteFermer().size() ; i++) {
-                if(this.getMaCase().getMaTuile().getPorteFermer().get(i)==this.getMaCase().getMaTuile().getCompCase()[2][0]){
+                if(this.getMaCase().getMaTuile().getPorteFermer().get(i)==this.getMaCase().getMaTuile().getCompCase()[0][2]){
                     tab[i]="Nord";
                     x=2;
                     y=0;
                 }
-                else if(this.getMaCase().getMaTuile().getPorteFermer().get(i)==this.getMaCase().getMaTuile().getCompCase()[0][2]){
+                else if(this.getMaCase().getMaTuile().getPorteFermer().get(i)==this.getMaCase().getMaTuile().getCompCase()[2][0]){
                     tab[i]="Ouest";
                     x=0;
                     y=2;
                 }
-                else if(this.getMaCase().getMaTuile().getPorteFermer().get(i)==this.getMaCase().getMaTuile().getCompCase()[4][2]){
+                else if(this.getMaCase().getMaTuile().getPorteFermer().get(i)==this.getMaCase().getMaTuile().getCompCase()[2][4]){
                     tab[i]="Est";
                     x=4;
                     y=2;
                 }
-                else if(this.getMaCase().getMaTuile().getPorteFermer().get(i)==this.getMaCase().getMaTuile().getCompCase()[2][4]){
+                else if(this.getMaCase().getMaTuile().getPorteFermer().get(i)==this.getMaCase().getMaTuile().getCompCase()[4][2]){
                     tab[i]="Sud";
                     x=2;
                     y=4;

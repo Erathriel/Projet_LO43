@@ -166,13 +166,13 @@ public class TuileModele {
     }
     public void setTuileAccessible(){
         this.tuileAccessible=new ArrayList<TuileModele>();
-        if(compCase[2][0].getPassable())
+        if(compCase[0][2].getPassable())
         {
             if(this.id-5>=0) {
                 this.tuileAccessible.add(plateau.getCompTuile().get(this.id - 5));
             }
         }
-        if(compCase[0][2].getPassable())
+        if(compCase[2][0].getPassable())
         {
             System.out.println(compCase[0][2].getPassable());
             if(this.id-1>=0) {

@@ -28,6 +28,7 @@ public class PartieControlleur implements KeyListener, MouseListener, ActionList
         int exptot=0;
         mPartie.creationPersoObjM();
         while(!victoire && !defaite ){
+            this.actualisationTuile();
             for (PersonnageModele p : this.mPartie.getListePerso()) {
                 if (p.isJouable()) {
                     if (p instanceof EtudiantModele) {
