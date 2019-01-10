@@ -19,6 +19,12 @@ alt si cle equipe
     Prof --[#blue]> Plateau : Ouvrir porte
 end
 Prof --[#blue]> Inventaire : Modifier inventaire
+alt Si objet modifiable
+    Prof --[#blue]> Inventaire : Capacité passive
+end
+alt Si etudiant sur tuile
+    Prof --[#blue]> Etudiant : Capacité active
+end
 alt si objectif sur tuile
     Prof --[#blue]> Plateau : Activer objectif
 end
