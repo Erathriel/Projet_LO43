@@ -143,6 +143,9 @@ public class ProfModele extends PersonnageModele implements SpecialiteModele{
         }
         this.setPa(this.getPa()-1);
         ((OutilValidationModele)this.inventaire.getContenuInventaire().get(indexObjet)).setNbActivation(((OutilValidationModele)this.inventaire.getContenuInventaire().get(indexObjet)).getNbActivation()-1);
+        if(((OutilValidationModele)this.inventaire.getContenuInventaire().get(indexObjet)).getNbActivation()<=0){
+            this.inventaire.getContenuInventaire().remove(indexObjet);
+        }
     }
 
     public void fouiller(PileCarteModele p){
@@ -198,23 +201,23 @@ public class ProfModele extends PersonnageModele implements SpecialiteModele{
             for (int i = 0; i <this.getMaCase().getMaTuile().getPorteFermer().size() ; i++) {
                 if(this.getMaCase().getMaTuile().getPorteFermer().get(i)==this.getMaCase().getMaTuile().getCompCase()[0][2]){
                     tab[i]="Nord";
-                    x=2;
-                    y=0;
-                }
-                else if(this.getMaCase().getMaTuile().getPorteFermer().get(i)==this.getMaCase().getMaTuile().getCompCase()[2][0]){
-                    tab[i]="Ouest";
                     x=0;
                     y=2;
                 }
+                else if(this.getMaCase().getMaTuile().getPorteFermer().get(i)==this.getMaCase().getMaTuile().getCompCase()[2][0]){
+                    tab[i]="Ouest";
+                    x=2;
+                    y=0;
+                }
                 else if(this.getMaCase().getMaTuile().getPorteFermer().get(i)==this.getMaCase().getMaTuile().getCompCase()[2][4]){
                     tab[i]="Est";
-                    x=4;
-                    y=2;
+                    x=2;
+                    y=4;
                 }
                 else if(this.getMaCase().getMaTuile().getPorteFermer().get(i)==this.getMaCase().getMaTuile().getCompCase()[4][2]){
                     tab[i]="Sud";
-                    x=2;
-                    y=4;
+                    x=4;
+                    y=2;
                 }
             }
             int porteChoisie=JOptionPane.showOptionDialog(null,  "Choisissez la porte dans la direction que vous souaitez ouvrir","Choix de la porte a ouvrir", JOptionPane.DEFAULT_OPTION, 0, null,tab,tab[0]);

@@ -1,6 +1,7 @@
 package Modele;
 
 import javax.imageio.ImageIO;
+import javax.swing.*;
 import java.awt.*;
 import java.io.File;
 
@@ -29,6 +30,8 @@ public class ProfMathModele extends ProfModele {
            this.setPa(this.getPa() - 1);
        }
        else{
+           JOptionPane d= new JOptionPane();
+           d.showMessageDialog(d,"Action Impossible aucun etudiant présent","Action Impossible",0);
 
        }
     }
@@ -47,9 +50,12 @@ public class ProfMathModele extends ProfModele {
         }
         if(modif) {
             this.setPa(this.getPa() - 1);
+            JOptionPane d= new JOptionPane();
+            d.showMessageDialog(d,"Vous avez ameliorer le nbr d'activation de vos Objets","Capacité passive activé",0);
         }
         else{
-
+            JOptionPane d= new JOptionPane();
+            d.showMessageDialog(d,"Action Impossible aucun objet à mofifier","Action Impossible",0);
         }
     }
 }

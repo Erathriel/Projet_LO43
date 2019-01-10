@@ -109,7 +109,9 @@ public class TuileModele {
                if(cp!=null) {
                    for (ElemCaseModele e : cp.getCompElemCase()) {
                        if (e instanceof PersonnageModele) {
-                           this.persOnTuile.add(((PersonnageModele) e));
+                          if(((PersonnageModele) e).getPv()<=0){
+                          }
+                           else{this.persOnTuile.add(((PersonnageModele) e));}
                        }
                    }
                }

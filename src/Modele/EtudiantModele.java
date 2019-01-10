@@ -78,6 +78,9 @@ public class EtudiantModele extends PersonnageModele {
                   this.setPa(0);
               }
         }
+        else{
+            this.setPa(0);
+        }
     }
     public void tourDeJeu(){
         while(this.getPa()>0)

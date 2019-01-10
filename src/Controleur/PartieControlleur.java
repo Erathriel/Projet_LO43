@@ -3,6 +3,7 @@ package Controleur;
 import Vue.*;
 import Modele.*;
 
+import javax.swing.*;
 import java.awt.event.*;
 import java.io.*;
 import java.util.ArrayList;
@@ -27,6 +28,22 @@ public class PartieControlleur implements KeyListener, MouseListener, ActionList
     public void jeu() {
         int exptot=0;
         mPartie.creationPersoObjM();
+        for (TuileModele t:mPartie.getPlateau().getCompTuile()){
+            System.out.print(t.getId()+"\n");
+            for (int i=0;i<5;i++){
+                for(int j=0;j<5;j++){
+                    System.out.print(" x : "+i+"  "+t.getCompCase()[i][j].getPassable()+"  y : "+j);
+                    for(ElemCaseModele e :t.getCompCase()[i][j].getCompElemCase()){
+                        if(e instanceof PorteModele){
+                            System.out.print(" x : "+i+"Porte   y : "+j);
+                        }
+                    }
+                }
+                System.out.print("\n");
+            }
+            System.out.print("\n");
+            System.out.print("\n");
+        }
         while(!victoire && !defaite ){
             this.actualisationTuile();
             for (PersonnageModele p : this.mPartie.getListePerso()) {
@@ -112,7 +129,12 @@ public class PartieControlleur implements KeyListener, MouseListener, ActionList
                 m.spawnDebutManche(this.mPartie.getPileCarte(),exptot);
             }
         }
-        System.out.println("FIN");
+        if(defaite){   JOptionPane d= new JOptionPane();
+            d.showMessageDialog(d,"Vous avez perdu","Défaite",0);
+        }
+        else{   JOptionPane d= new JOptionPane();
+            d.showMessageDialog(d,"Vous avez gagné","Victoire",0);
+        }
     }
     public void actualisationTuile(){
         for (TuileModele t : this.mPartie.getPlateau().getCompTuile()) {

@@ -2,6 +2,7 @@ package Vue;
 
 
 
+import Modele.EtudiantModele;
 import Modele.ObjetModele;
 import Modele.PersonnageModele;
 import Modele.ProfModele;
@@ -24,6 +25,7 @@ public class GamePanelInfo extends JPanel {
         super.paintComponent(g);
         int y=0;
         int x=0;
+        int etudiant=0;
         if(p!=null) {
             if (p.getInventaire().getContenuInventaire().size() > 0) {
                 for (ObjetModele e : p.getInventaire().getContenuInventaire()) {
@@ -47,6 +49,14 @@ public class GamePanelInfo extends JPanel {
             y+=100;
             x=0;
             g.drawImage(p.getInfo(),x,y,this);
+            for(PersonnageModele p:p.getMaCase().getMaTuile().getPersOnTuile()){
+                if(p instanceof EtudiantModele){
+                    System.out.println("pv etudiant : "+etudiant+" : "+p.getPv());
+                    etudiant++;
+                }
+            }
+            y-=20;
+            g.drawString("Il y a "+etudiant+" étudiants sur la case ou vous êtes !",x,y);
         }
     }
 }

@@ -1,6 +1,7 @@
 package Modele;
 
 import javax.imageio.ImageIO;
+import javax.swing.*;
 import java.awt.*;
 import java.io.File;
 
@@ -20,7 +21,7 @@ public class ProfHumaModele extends ProfModele {
     public void capaciteActive() {
         boolean action=false;
         for (PersonnageModele p:this.getMaCase().getMaTuile().getPersOnTuile()) {
-            if(p instanceof ProfModele){
+            if(p instanceof ProfModele && p.getPv()<100){
                 action=true;
                 p.setPv(p.getPv()+10);
             }
@@ -29,6 +30,8 @@ public class ProfHumaModele extends ProfModele {
             this.setPa(this.getPa() - 1);
         }
         else{
+            JOptionPane d= new JOptionPane();
+            d.showMessageDialog(d,"Action Impossible , resistance au stress des profs trop importante ","Action Impossible",0);
 
         }
     }
@@ -47,9 +50,13 @@ public class ProfHumaModele extends ProfModele {
         }
         if(modif) {
             this.setPa(this.getPa() - 1);
+            JOptionPane d= new JOptionPane();
+            d.showMessageDialog(d,"Taux de réussite des UVs baissé validation plus facile","Capacité passive activé",0);
+
         }
         else{
-
+            JOptionPane d= new JOptionPane();
+            d.showMessageDialog(d,"Action Impossible aucun objet à mofifier","Action Impossible",0);
         }
     }
 }

@@ -4,6 +4,7 @@ package Vue;
         import Modele.*;
 
         import javax.swing.*;
+        import java.util.ArrayList;
 
 public class GameFen extends JFrame {
     private PartieModele mpartie;
@@ -34,6 +35,7 @@ public class GameFen extends JFrame {
     public void repaintInfo(ProfModele p){
         this.gamePane.getGamePanelInfo().setJoueur(p);
         this.gamePane.getGamePanelInfo().repaint();
+        this.gamePane.repaint();
     }
     public static void main(String Args[]){
         PartieModele mPartie=new PartieModele();
