@@ -1,7 +1,5 @@
 package Vue;
 
-import Controleur.PartieControlleur;
-import Modele.PartieModele;
 
 import javax.imageio.ImageIO;
 import javax.swing.*;

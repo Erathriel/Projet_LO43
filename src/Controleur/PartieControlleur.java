@@ -135,6 +135,7 @@ public class PartieControlleur implements KeyListener, MouseListener, ActionList
         else{   JOptionPane d= new JOptionPane();
             d.showMessageDialog(d,"Vous avez gagné","Victoire",0);
         }
+        this.gameFen.dispatchEvent(new WindowEvent(this.gameFen, WindowEvent.WINDOW_CLOSING));
     }
     public void actualisationTuile(){
         for (TuileModele t : this.mPartie.getPlateau().getCompTuile()) {

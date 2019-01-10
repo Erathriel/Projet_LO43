@@ -138,6 +138,7 @@ public class ProfModele extends PersonnageModele implements SpecialiteModele{
             {
                 if( per.get(i).isValider())
                 {
+                    per.get(i).getMaCase().getCompElemCase().remove(per.get(i));
                     per.remove(i);
                 }
             }
