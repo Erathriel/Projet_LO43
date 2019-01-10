@@ -247,28 +247,28 @@ public class ProfModele extends PersonnageModele implements SpecialiteModele{
                             if(!comparePassage.contains(t))
                             {
                                 if(t.getId()==c.getMaTuile().getId()-1){
-                                    for (ElemCaseModele cp:t.getCompCase()[4][2].getCompElemCase()) {
+                                    for (ElemCaseModele cp:t.getCompCase()[2][4].getCompElemCase()) {
                                         if(cp instanceof PorteModele){
                                             ((PorteModele) cp).setVerrouiller();
                                         }
                                     }
                                 }
                                 else if(t.getId()==c.getMaTuile().getId()+1){
-                                    for (ElemCaseModele cp:t.getCompCase()[0][2].getCompElemCase()) {
-                                        if(cp instanceof PorteModele){
-                                            ((PorteModele) cp).setVerrouiller();
-                                        }
-                                    }
-                                }
-                                else if(t.getId()==c.getMaTuile().getId()-5){
                                     for (ElemCaseModele cp:t.getCompCase()[2][0].getCompElemCase()) {
                                         if(cp instanceof PorteModele){
                                             ((PorteModele) cp).setVerrouiller();
                                         }
                                     }
                                 }
+                                else if(t.getId()==c.getMaTuile().getId()-5){
+                                    for (ElemCaseModele cp:t.getCompCase()[4][2].getCompElemCase()) {
+                                        if(cp instanceof PorteModele){
+                                            ((PorteModele) cp).setVerrouiller();
+                                        }
+                                    }
+                                }
                                 else if(t.getId()==c.getMaTuile().getId()+5){
-                                    for (ElemCaseModele cp:t.getCompCase()[2][4].getCompElemCase()) {
+                                    for (ElemCaseModele cp:t.getCompCase()[0][2].getCompElemCase()) {
                                         if(cp instanceof PorteModele){
                                             ((PorteModele) cp).setVerrouiller();
                                         }

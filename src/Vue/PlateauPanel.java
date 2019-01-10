@@ -395,9 +395,7 @@ public class PlateauPanel extends JPanel {
             for (int i=0; i<25; i++){
                 for (int j=0; j<25; j++){
                     for(ElemCaseModele e:this.cases[i][j].getCompElemCase()){
-
-                            g.drawImage(e.getImage(), j * 35, i * 35, null);
-
+                        g.drawImage(e.getImage(), j * 35, i * 35, null);
                     }
                 }
             }

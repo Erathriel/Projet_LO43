@@ -79,10 +79,10 @@ public class PileCarteModele {
         for (int i = 0; i <8; i++) {
             this.listeCarte.add(new CarteEtudianteModele(cE2,carteEtu2,"La chance commence a s'éloigner",2));
         }
-        for (int i = 0; i <6; i++) {
+        for (int i = 0; i <3; i++) {
             this.listeCarte.add(new CarteEtudianteModele(cE3,carteEtu3,"La chance vous regarde au loin",3));
         }
-        for (int i = 0; i <4; i++) {
+        for (int i = 0; i <3; i++) {
             this.listeCarte.add(new CarteEtudianteModele(cE4,carteEtu4,"Ne comptez plus sur la chance",4));
         }
         for (int i = 0; i <1; i++) {
@@ -93,7 +93,7 @@ public class PileCarteModele {
         }
         //Fiche UV
         for (int i = 0; i <8; i++) {
-            this.listeCarte.add(new OutilValidationModele(cH,carteHuma,"Simple à trouver difficile à valider","Fiche Humanité",0,0,2,5,4,tab4,3));
+            this.listeCarte.add(new OutilValidationModele(cH,carteHuma,"Simple à trouver difficile à valider","Fiche Humanité",0,0,2,5,4,tab6,3));
         }
 
         for (int i = 0; i <8; i++) {
@@ -101,11 +101,11 @@ public class PileCarteModele {
         }
 
         for (int i = 0; i <8; i++) {
-            this.listeCarte.add(new OutilValidationModele(cT,carteTM,"Beaucoup de choix","Fiche Tm",0,0,2,5,4,tab6,3));
+            this.listeCarte.add(new OutilValidationModele(cT,carteTM,"Beaucoup de choix","Fiche Tm",0,0,2,5,4,tab4,3));
         }
 
         for (int i = 0; i <4; i++) {
-            this.listeCarte.add(new OutilValidationModele(cHMS,carteHumaMultiSite,"Basique mais fantastique","Fiche Huma multi-sites",0,0,4,4,4,tab4,4));
+            this.listeCarte.add(new OutilValidationModele(cHMS,carteHumaMultiSite,"Basique mais fantastique","Fiche Huma multi-sites",0,0,4,4,4,tab6,4));
         }
 
         for (int i = 0; i <4; i++) {
@@ -113,7 +113,7 @@ public class PileCarteModele {
         }
 
         for (int i = 0; i <4; i++) {
-            this.listeCarte.add(new OutilValidationModele(cTMS,carteTmMultiSite,"Coder ta mission sera","Fiche Tm multi-sites",0,0,4,4,4,tab6,4));
+            this.listeCarte.add(new OutilValidationModele(cTMS,carteTmMultiSite,"Coder ta mission sera","Fiche Tm multi-sites",0,0,4,4,4,tab4,4));
         }
 
         for (int i = 0; i <4; i++) {
@@ -128,7 +128,7 @@ public class PileCarteModele {
         //Tampon Encreur
 
         for (int i = 0; i <5; i++) {
-            this.listeCarte.add(new OutilValidationModele(tHI,tH,"Classique mais pas fantastique","Tampon Huma",0,1,2,5,3,tab4,4));
+            this.listeCarte.add(new OutilValidationModele(tHI,tH,"Classique mais pas fantastique","Tampon Huma",0,1,2,5,3,tab6,4));
         }
 
         for (int i = 0; i <5; i++) {
@@ -136,7 +136,7 @@ public class PileCarteModele {
         }
 
         for (int i = 0; i <5; i++) {
-            this.listeCarte.add(new OutilValidationModele(tTI,tT,"Beaucoup de choix","Tampon TM",0,1,2,5,3,tab6,4));
+            this.listeCarte.add(new OutilValidationModele(tTI,tT,"Beaucoup de choix","Tampon TM",0,1,2,5,3,tab4,4));
         }
 
         for (int i = 0; i <4; i++) {
@@ -144,11 +144,11 @@ public class PileCarteModele {
         }
 
         for (int i = 0; i <4; i++) {
-            this.listeCarte.add(new OutilValidationModele(tHMsI,tHMs,"Fantastique","Tampon Huma multi-site",0,1,4,4,3,tab4,4));
+            this.listeCarte.add(new OutilValidationModele(tHMsI,tHMs,"Fantastique","Tampon Huma multi-site",0,1,4,4,3,tab6,4));
         }
 
         for (int i = 0; i <4; i++) {
-            this.listeCarte.add(new OutilValidationModele(tTMsI,tTMs,"Beaucoup de choix grace à ca","Tampon Tm multi-site",0,1,4,4,3,tab6,4));
+            this.listeCarte.add(new OutilValidationModele(tTMsI,tTMs,"Beaucoup de choix grace à ca","Tampon Tm multi-site",0,1,4,4,3,tab4,4));
         }
 
         for (int i = 0; i <1; i++) {

@@ -33,12 +33,12 @@ public class CarteEtudianteModele extends CarteModele {
             if (this.malchance == 1) {
                 for (int i = 0; i < (exp / 25) + 1; i++) {
 
-                    c.getCompElemCase().add(new EtudiantModele(etuSimple, c, 5, 2, "etudiant à l'heure", true, 2, tab2, 2));
+                    c.getCompElemCase().add(new EtudiantModele(etuSimple, c, 3, 2, "etudiant à l'heure", true, 2, tab2, 2));
                 }
             } else if (this.malchance == 2) {
                 for (int i = 0; i < (exp / 25) + 1; i++) {
 
-                    c.getCompElemCase().add(new EtudiantModele(etuSimple, c, 5, 2, "etudiant à l'heure", true, 2, tab2, 2));
+                    c.getCompElemCase().add(new EtudiantModele(etuSimple, c, 3, 2, "etudiant à l'heure", true, 2, tab2, 2));
                 }
                 for (int i = 0; i < (exp / 25) + 1; i++) {
 
@@ -47,7 +47,7 @@ public class CarteEtudianteModele extends CarteModele {
             } else if (this.malchance == 3) {
                 for (int i = 0; i < (exp / 25) + 1; i++) {
 
-                    c.getCompElemCase().add(new EtudiantModele(etuCsTm, c, 5, 2, "etudiant en manque de TM CS", true, 2, tab5, 3));
+                    c.getCompElemCase().add(new EtudiantModele(etuCsTm, c, 3, 2, "etudiant en manque de TM CS", true, 2, tab5, 3));
                 }
                 for (int i = 0; i < (exp / 25) + 1; i++) {
 
@@ -56,7 +56,7 @@ public class CarteEtudianteModele extends CarteModele {
             } else if (this.malchance == 4) {
                 for (int i = 0; i < (exp / 25) + 1; i++) {
 
-                    c.getCompElemCase().add(new EtudiantModele(etuSimple, c, 5, 2, "etudiant à l'heure", true, 2, tab2, 2));
+                    c.getCompElemCase().add(new EtudiantModele(etuSimple, c, 3, 2, "etudiant à l'heure", true, 2, tab2, 2));
                 }
                 for (int i = 0; i < (exp / 25) + 1; i++) {
 
@@ -64,24 +64,24 @@ public class CarteEtudianteModele extends CarteModele {
                 }
                 for (int i = 0; i < (exp / 25) + 1; i++) {
 
-                    c.getCompElemCase().add(new EtudiantModele(etuHumaTm, c, 3, 3, "etudiant en manque de TM HUMA", true, 2, tab7, 8));
+                    c.getCompElemCase().add(new EtudiantModele(etuHumaTm, c, 1, 3, "etudiant en manque de TM HUMA", true, 2, tab7, 8));
                 }
             } else if (this.malchance == 5) {
 
-                c.getCompElemCase().add(new EtudiantModele(etuHuma, c, 20, 1, "etudiant négligeant envers les HUMA", true, 10,  tab6, 20));
+                c.getCompElemCase().add(new EtudiantModele(etuHuma, c, 10, 1, "etudiant négligeant envers les HUMA", true, 10,  tab6, 20));
             } else if (this.malchance == 6) {
                 for (int i = 0; i < (exp / 25) + 1; i++) {
 
-                    c.getCompElemCase().add(new EtudiantModele(etuSimple, c, 5, 2, "etudiant à l'heure", true, 2, tab2, 2));
+                    c.getCompElemCase().add(new EtudiantModele(etuSimple, c, 3, 2, "etudiant à l'heure", true, 2, tab2, 2));
                 }
                 for (int i = 0; i < (exp / 25) + 1; i++) {
-                    c.getCompElemCase().add(new EtudiantModele(etuCsTm, c, 10, 1, "etudiant en manque de TM CS", true, 2, tab5, 4));
+                    c.getCompElemCase().add(new EtudiantModele(etuCsTm, c, 5, 1, "etudiant en manque de TM CS", true, 2, tab5, 4));
                 }
                 for (int i = 0; i < (exp / 25) + 1; i++) {
-                    c.getCompElemCase().add(new EtudiantModele(etuHumaTm, c, 3, 3, "etudiant en manque de TM HUMA", true, 2, tab7, 8));
+                    c.getCompElemCase().add(new EtudiantModele(etuHumaTm, c, 1, 3, "etudiant en manque de TM HUMA", true, 2, tab7, 8));
                 }
 
-                c.getCompElemCase().add(new EtudiantModele(etuHuma, c, 20, 1, "etudiant négligeant envers les HUMA", true, 10,  tab6, 20));
+                c.getCompElemCase().add(new EtudiantModele(etuHuma, c, 10, 1, "etudiant négligeant envers les HUMA", true, 10,  tab6, 20));
 
             }
         }
