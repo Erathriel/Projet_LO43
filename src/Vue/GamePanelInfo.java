@@ -14,7 +14,7 @@ public class GamePanelInfo extends JPanel {
     private ProfModele p;
     GamePanelInfo(ProfModele p){
         super();
-        this.setPreferredSize(new Dimension(450,500));
+        this.setPreferredSize(new Dimension(200,200));
     }
     public void setJoueur(ProfModele p){
         this.p=p;
@@ -49,13 +49,14 @@ public class GamePanelInfo extends JPanel {
             y+=100;
             x=0;
             g.drawImage(p.getInfo(),x,y,this);
-            for(PersonnageModele p:p.getMaCase().getMaTuile().getPersOnTuile()){
-                if(p instanceof EtudiantModele){
-                    System.out.println("pv etudiant : "+etudiant+" : "+p.getPv());
-                    etudiant++;
-                }
-            }
+
+                     for(int i=0;i<p.getMaCase().getMaTuile().getPersOnTuile().size();i++) {
+                        if (p.getMaCase().getMaTuile().getPersOnTuile().get(i) instanceof EtudiantModele) {
+                            etudiant++;
+                        }
+                    }
             y-=20;
+            g.drawString("Il y a "+etudiant+" étudiants sur la case",x,y);
             g.drawString("Il y a "+etudiant+" étudiants sur la case ou vous êtes !",x,y);
         }
     }

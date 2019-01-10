@@ -350,7 +350,7 @@ public class ProfModele extends PersonnageModele implements SpecialiteModele{
         this.inventaire.getContenuInventaire().set(indexArriv,switchO);
     }
 
-    public void activerObjectif(){
+    public boolean activerObjectif(){
         boolean activation=false;
         int exp=0;
         for (ElemCaseModele e:this.getMaCase().getCompElemCase()) {
@@ -359,19 +359,19 @@ public class ProfModele extends PersonnageModele implements SpecialiteModele{
                 activation =true;
                 this.setExp(this.getExp()+ ((ObjectifModele) e).getExpRapporte());
                 exp= ((ObjectifModele) e).getExpRapporte();
-                this.getMaCase().getCompElemCase().remove(e);
                 this.setPa(this.getPa()-1);
+
             }
         }
         if(activation){
             JOptionPane d= new JOptionPane();
             d.showMessageDialog(d,"Vous avez activé l'objectif vous remportez "+exp+" d'expérience","Action Réussi",0);
-
+            return true;
         }
         else{
             JOptionPane d= new JOptionPane();
             d.showMessageDialog(d,"Aucun objectif ici !","Action Impossible",0);
-
+            return false;
         }
     }
 

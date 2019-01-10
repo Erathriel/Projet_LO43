@@ -3,6 +3,7 @@ package Modele;
 import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
+import java.awt.image.BufferedImage;
 import java.io.File;
 
 public class ProfInfoModele extends ProfModele {
@@ -11,6 +12,10 @@ public class ProfInfoModele extends ProfModele {
         try{
             File nomImage = new File("img/infoinfo.png");
             this.setImage(ImageIO.read(nomImage.getAbsoluteFile()));
+            BufferedImage cle=ImageIO.read(new File("img/Cle.png"));
+            ImageIcon cleI=new ImageIcon("img/Cle.png");
+            this.getInventaire().getContenuInventaire().add(new CleModele(cleI,cle,"L'Objet Utile qui vous sauvera","Cle",0));
+            this.getInventaire().getContenuInventaire().add(new CleModele(cleI,cle,"L'Objet Utile qui vous sauvera","Cle",0));
         }
         catch(Exception e){
             System.out.println("Error Reading File prof info");
@@ -22,8 +27,13 @@ public class ProfInfoModele extends ProfModele {
         boolean action=false;
         for (PersonnageModele p:this.getMaCase().getMaTuile().getPersOnTuile()) {
             if(p instanceof EtudiantModele){
-                action=true;
-                ((EtudiantModele) p).setNbDemandeValidation(((EtudiantModele) p).getNbDemandeValidation()-2);
+                if(((EtudiantModele)p).getNbDemandeValidation()>1) {
+                    action = true;
+                    ((EtudiantModele) p).setNbDemandeValidation(((EtudiantModele) p).getNbDemandeValidation() - 2);
+                    if(((EtudiantModele)p).getNbDemandeValidation()==0){
+                        ((EtudiantModele) p).setNbDemandeValidation(1);
+                    }
+                }
             }
         }
         if(action) {

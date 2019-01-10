@@ -13,7 +13,6 @@ public class GameFen extends JFrame {
     public GameFen(PartieModele partie){
         super();
         this.mpartie = partie;
-        mpartie.creationPersoObjM();
         this.setTitle("Jeu");
         this.setExtendedState(JFrame.MAXIMIZED_BOTH);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

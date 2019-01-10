@@ -28,7 +28,7 @@ public class PartieControlleur implements KeyListener, MouseListener, ActionList
     public void jeu() {
         int exptot=0,exp=0;
         mPartie.creationPersoObjM();
-        for (TuileModele t:mPartie.getPlateau().getCompTuile()){
+        /**for (TuileModele t:mPartie.getPlateau().getCompTuile()){
             System.out.print(t.getId()+"\n");
             for (int i=0;i<5;i++){
                 for(int j=0;j<5;j++){
@@ -43,17 +43,22 @@ public class PartieControlleur implements KeyListener, MouseListener, ActionList
             }
             System.out.print("\n");
             System.out.print("\n");
-        }
+        }*/
         while(!victoire && !defaite ){
             this.actualisationTuile();
             for (PersonnageModele p : this.mPartie.getListePerso()) {
                 if (p.isJouable()) {
                     if (p instanceof EtudiantModele) {
                         p.tourDeJeu();
+                        this.actualisationTuile();
                         this.defaite=defaite();
 
                     } else if (p instanceof ProfModele) {
                         mPartie.setJoueurEnAction((ProfModele)p);
+                        p.getMaCase().getCompElemCase().add(p);
+                        p.getMaCase().getCompElemCase().remove(p);
+                        this.actualisationTuile();
+                        p.getMaCase().getMaTuile().rangementEtudiants();
                         this.gameFen.repaintInfo(mPartie.getJoueurEnAction());
                         while (p.getPa() > 0) {
                             switch (actionJoueur) {
@@ -83,27 +88,42 @@ public class PartieControlleur implements KeyListener, MouseListener, ActionList
                                     break;
                                 case 5:
                                     ((ProfModele) p).choixModifInventaire();
-                                    this.actionJoueur = 0;
+                                    this.actualisationTuile();
                                     this.gameFen.repaintInfo(mPartie.getJoueurEnAction());
                                     break;
                                 case 6:
-                                    ((ProfModele) p).activerObjectif();
+                                    ObjectifModele obj=null;
+                                    if(((ProfModele) p).activerObjectif()){
+                                        for(ElemCaseModele e:p.getMaCase().getCompElemCase())
+                                        {
+                                            if(e instanceof ObjectifModele){
+                                                obj=((ObjectifModele)e);
+                                            }
+                                        }
+                                        this.mPartie.getListeObjectif().remove(obj);
+                                        p.getMaCase().getCompElemCase().remove(obj);
+                                        this.actualisationTuile();
+                                        this.gameFen.repaintInfo(mPartie.getJoueurEnAction());
+                                    }
                                     this.actionJoueur = 0;
-                                    this.gameFen.repaintInfo(mPartie.getJoueurEnAction());
                                     break;
                                 case 7:
                                     ((ProfModele) p).capaciteActive();
                                     this.actionJoueur = 0;
+                                    this.actualisationTuile();
                                     this.gameFen.repaintInfo(mPartie.getJoueurEnAction());
                                     break;
                                 case 8:
                                     ((ProfModele) p).capacitePassive();
                                     this.actionJoueur = 0;
+                                    this.actualisationTuile();
                                     this.gameFen.repaintInfo(mPartie.getJoueurEnAction());
                                     break;
                                 case 9:
                                     p.passer();
                                     this.actionJoueur = 0;
+                                    this.actualisationTuile();
+                                    this.gameFen.repaintInfo(mPartie.getJoueurEnAction());
                                     break;
                                 default:
                                     //System.out.println(p.getPa());
@@ -127,6 +147,11 @@ public class PartieControlleur implements KeyListener, MouseListener, ActionList
                     }
                 }
             }
+            for(MachineCafeModele m: this.mPartie.getMachineCafeModele()){
+                m.spawnDebutManche(this.mPartie.getPileCarte(),exptot);
+                this.actualisationTuile();
+                m.getMaCase().getMaTuile().rangementEtudiants();
+            }
         }
         if(defaite){   JOptionPane d= new JOptionPane();
             d.showMessageDialog(d,"Vous avez perdu","Défaite",0);
@@ -143,10 +168,10 @@ public class PartieControlleur implements KeyListener, MouseListener, ActionList
             t.setTuileAccessible();
         }
         ArrayList<PersonnageModele> p=new ArrayList<PersonnageModele>();
-        for(TuileModele t:mPartie.getPlateau().getCompTuile()){
-            for(PersonnageModele pers:t.getPersOnTuile()){
-                if(pers instanceof ProfModele && pers.getPv()>0){
-                    p.add(pers);
+        for(int i=0;i<4;i++){
+            if(i<mPartie.getListePerso().size()){
+                if(mPartie.getListePerso().get(i) instanceof ProfModele && mPartie.getListePerso().get(i).getPv()>0){
+                    p.add(mPartie.getListePerso().get(i));
                 }
             }
         }

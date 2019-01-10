@@ -59,15 +59,16 @@ public class EtudiantModele extends PersonnageModele {
                       }
                   }
                   if (containProf.size() > 0) {
-                      int destination = (int) (Math.random() * (containProf.size()));
+                      int destination = (int) (Math.random()*(containProf.size()));
                       this.setMaCase(containProf.get(destination).getCompCase()[this.getMaCase().getCoordX()][this.getMaCase().getCoordY()]);
                       this.getMaCase().getCompElemCase().add(this);
                       anciennePosition.getCompElemCase().remove(this);
                       anciennePosition.getMaTuile().setPersOnTuile();
                       this.getMaCase().getMaTuile().setPersOnTuile();
                   } else {
-                      int destination = (int) (Math.random() * (containProf.size()));
+                       int destination = (int) (Math.random() * (this.getMaCase().getMaTuile().getTuileAccessible().size()));
                       this.setMaCase(this.getMaCase().getMaTuile().getTuileAccessible().get(destination).getCompCase()[this.getMaCase().getCoordX()][this.getMaCase().getCoordY()]);
+                      this.getMaCase().getCompElemCase().add(this);
                       anciennePosition.getCompElemCase().remove(this);
                       anciennePosition.getMaTuile().setPersOnTuile();
                       this.getMaCase().getMaTuile().setPersOnTuile();
@@ -75,6 +76,7 @@ public class EtudiantModele extends PersonnageModele {
                   this.setPa(this.getPa() - 1);
               }
               else{
+
                   this.setPa(0);
               }
         }
@@ -83,15 +85,22 @@ public class EtudiantModele extends PersonnageModele {
         }
     }
     public void tourDeJeu(){
+        boolean attaque=true;
         while(this.getPa()>0)
         {
             if (this.getMaCase().getMaTuile().tuileContainProf())
             {
-                this.valider(this.getMaCase().getMaTuile().getPersOnTuile());
+                if(attaque) {
+                    this.valider(this.getMaCase().getMaTuile().getPersOnTuile());
+                }
+                else{
+                    this.setPa(0);
+                }
             }
             else
             {
                 this.deplacement();
+                attaque=false;
             }
         }
         this.setJouable(false);

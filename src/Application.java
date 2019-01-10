@@ -15,7 +15,6 @@ public class Application {
         PartieModele mPartie=new PartieModele();
         GameFen g= new GameFen(mPartie);
         PartieControlleur control=new PartieControlleur(mPartie,g);
-        mPartie.creationPersoObjM();
         control.jeu();
     }
 }
