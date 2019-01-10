@@ -25,9 +25,4 @@ public class GameButton extends JButton {
         this.actionJoueur = actionJoueur;
     }
 
-
-    /*@Override
-    public void actionPerformed(ActionEvent e) {
-        control.setActionJoueur(actionJoueur);
-    }*/
 }
