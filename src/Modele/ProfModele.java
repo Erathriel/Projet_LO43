@@ -450,25 +450,4 @@ public class ProfModele extends PersonnageModele implements SpecialiteModele{
                 ", inventaire=" + inventaire +
                 '}';
     }
-
-    public static void main(String args[]){
-        CaseModele tab[][]=new CaseModele[1][1];
-        TuileModele t=new TuileModele(1, null);
-        tab[0][0]=new CaseModele(t,1,1,true);
-        String tabS[]={"HUMA",null,"CS"};
-        ProfModele p=new ProfModele(null,tab[0][0],15,3,"Jean",true,0);
-        EtudiantModele e=new EtudiantModele(null,tab[0][0],4,4,"Etu",true,2,tabS,10);
-        tab[0][0].getCompElemCase().add(p);
-        tab[0][0].getCompElemCase().add(e);
-        String tabE[]={"CS",null,null};
-       ArrayList<PersonnageModele> pl=new ArrayList<PersonnageModele>();
-        pl.add(e);
-        PileCarteModele carte=new PileCarteModele();
-        p.fouiller(carte);
-        p.fouiller(carte);
-        p.fouiller(carte);
-        p.fouiller(carte);
-        p.fouiller(carte);
-        p.fouiller(carte);
-    }
 }

@@ -10,7 +10,7 @@ public class GameFen extends JFrame {
     private PartieModele mpartie;
     private GamePane gamePane;
 
-    GameFen(PartieModele partie){
+    public GameFen(PartieModele partie){
         super();
         this.mpartie = partie;
         mpartie.creationPersoObjM();

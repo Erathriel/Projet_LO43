@@ -10,7 +10,7 @@ import java.awt.event.MouseListener;
 
 public class MenuFen extends JFrame {
     private MenuPanel mPanel;
-    MenuFen(){
+    public MenuFen(){
         super();
         mPanel = new MenuPanel();
         this.setTitle("Menu");
@@ -18,9 +18,6 @@ public class MenuFen extends JFrame {
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setVisible(true);
         this.add(mPanel);
-    }
-    public static void main(String args[]){
-        MenuFen fen = new MenuFen();
     }
 
     public MenuPanel getmPanel() {
