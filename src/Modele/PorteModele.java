@@ -17,7 +17,7 @@ public class PorteModele extends MurModele {
     }
 
     public void setVerrouiller() {
-        this.verrouiller = true;
+        this.verrouiller = false;
         this.getMaCase().setPassable(true);
     }
 
