@@ -404,6 +404,7 @@ public class ProfModele extends PersonnageModele implements SpecialiteModele{
                this.setMaCase(this.getMaCase().getMaTuile().getTuileAccessible().get(deplacement).getCompCase()[this.getMaCase().getCoordX()][this.getMaCase().getCoordY()]);
                this.getMaCase().getCompElemCase().add(this);
                anciennePosition.getCompElemCase().remove(this);
+               anciennePosition.getMaTuile().getPersOnTuile().remove(this);
                anciennePosition.getMaTuile().setPersOnTuile();
                this.getMaCase().getMaTuile().setPersOnTuile();
                this.setPa(this.getPa()-1);

@@ -71,7 +71,6 @@ public class PartieControlleur implements KeyListener, MouseListener, ActionList
                                     break;
                                 case 3:
                                     p.deplacement();
-                                    System.out.println(p.getMaCase().getMaTuile().getId());
                                     this.actionJoueur = 0;
                                     this.actualisationTuile();
                                     this.gameFen.repaintInfo(mPartie.getJoueurEnAction());

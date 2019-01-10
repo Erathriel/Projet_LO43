@@ -17,7 +17,6 @@ public class CarteEtudianteModele extends CarteModele {
 
     // Methodes
     public void apparition(CaseModele c,int exp){
-        String tab[]=new String[2];
         try {
             String tab2[]={"CS","HUMA",null};
             String tab5[]={"CS","TM",null};

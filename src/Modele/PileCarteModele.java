@@ -14,7 +14,6 @@ public class PileCarteModele {
     // Constructeur
     public PileCarteModele() {
         try {
-            String tab[]=new String[3];
              BufferedImage carteCs= ImageIO.read(new File("img/Carte cs.png"));
              BufferedImage carteCsMultiSite= ImageIO.read(new File("img/Carte CsMultiSite.png"));
             BufferedImage carteHuma= ImageIO.read(new File("img/Carte Huma.png"));
