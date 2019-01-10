@@ -16,13 +16,15 @@ public class MenuPanel extends JPanel {
     MenuPanel(){
         super(new GridBagLayout());
         try {
-            background = ImageIO.read(new File("C:/Users/cleme/OneDrive/Images/overlay4.png"));
+            background = ImageIO.read(new File("img/MENU.png"));
         }catch (IOException e){System.out.print("FATAL ERROR");}
         //this.paintComponent();
         GridBagConstraints gbc=new GridBagConstraints();
+        this.setPreferredSize(new Dimension(600,600));
         gbc.gridx = 3;
         gbc.gridy = 1;
-        b1=new MenuJButton(new ImageIcon("C:/Users/cleme/OneDrive/Images/overlay1.png"),new ImageIcon("C:/Users/cleme/OneDrive/Images/overlay2.png"));
+        b1=new MenuJButton(new ImageIcon("img/jouer1.png"),new ImageIcon("img/jouer2.png"));
+        b1.setOpaque(false);
         this.add(b1,gbc);
         gbc.gridy = 2;
         JPanel J =new JPanel();
@@ -34,7 +36,7 @@ public class MenuPanel extends JPanel {
         J2.setOpaque(false);
         J2.setSize(100,100);
         this.add(J2,gbc);
-        b2=new MenuJButton(new ImageIcon("C:/Users/cleme/OneDrive/Images/overlay2.png"),new ImageIcon("C:/Users/cleme/OneDrive/Images/overlay1.png"));
+        b2=new MenuJButton(new ImageIcon("img/instructions.png"),new ImageIcon("img/instructions2.png"));
         gbc.gridy = 4;
         this.add(b2,gbc);
         gbc.gridy = 5;
@@ -48,7 +50,7 @@ public class MenuPanel extends JPanel {
         J4.setOpaque(false);
         J4.setSize(100,100);
         this.add(J4,gbc);
-        b3=new MenuJButton(new ImageIcon("C:/Users/cleme/OneDrive/Images/overlay1.png"),new ImageIcon("C:/Users/cleme/OneDrive/Images/overlay2.png"));
+        b3=new MenuJButton(new ImageIcon("img/QUITTER.png"),new ImageIcon("img/QUITTER2.png"));
         gbc.gridy = 7;
         this.add(b3,gbc);
          }
