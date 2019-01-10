@@ -11,6 +11,7 @@ public class MenuControlleur implements KeyListener, MouseListener, ActionListen
     private MenuFen mMenu;
     public MenuControlleur(MenuFen mMenu) {
         this.mMenu=mMenu;
+        this.mMenu.getmPanel().addListeners(this);
     }
 
     @Override
@@ -23,9 +24,9 @@ public class MenuControlleur implements KeyListener, MouseListener, ActionListen
             mPartie.creationPersoObjM();
             control.jeu();
         }
-        if (e.getSource() == mMenu.getmPanel().getB2()) {
+        /*if (e.getSource() == mMenu.getmPanel().getB2()) {
 
-        }
+        }*/
         if (e.getSource() == mMenu.getmPanel().getB3()) {
             this.mMenu.dispatchEvent(new WindowEvent(this.mMenu, WindowEvent.WINDOW_CLOSING));
         }

@@ -44,7 +44,6 @@ public class MenuPanel extends JPanel {
         J3.setOpaque(false);
         J3.setSize(100,100);
         this.add(J3,gbc);gbc.gridx = 3;
-
         gbc.gridy = 6;
         JPanel J4 =new JPanel();
         J4.setOpaque(false);
