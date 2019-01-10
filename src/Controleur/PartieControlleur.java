@@ -128,9 +128,9 @@ public class PartieControlleur implements KeyListener, MouseListener, ActionList
                     }
                 }
             }
-            for(MachineCafeModele m:this.mPartie.getMachineCafeModele()){
+          /*  for(MachineCafeModele m:this.mPartie.getMachineCafeModele()){
                 m.spawnDebutManche(this.mPartie.getPileCarte(),exptot);
-            }
+            }*/
         }
         if(defaite){   JOptionPane d= new JOptionPane();
             d.showMessageDialog(d,"Vous avez perdu","Défaite",0);

@@ -66,11 +66,15 @@ public class PileCarteModele {
             ImageIcon tMUVI=new ImageIcon("img/TamponMultiUVVieux.png");
             ImageIcon tMUTVI=new ImageIcon("img/TamponMultiUVTresVieux.png");
             ImageIcon cleI=new ImageIcon("img/Cle.png");
+            String tab1[]={"CS",null,null};
+            String tab3[]={"CS","HUMA","TM"};
+            String tab4[]={"TM",null,null};
+            String tab6[]={"HUMA",null,null};
         this.listeCarte=new ArrayList<CarteModele>();
-        for (int i = 0; i <10; i++) {
+        for (int i = 0; i <15; i++) {
             this.listeCarte.add(new CleModele(cleI,cle,"L'Objet Utile qui vous sauvera","Cle",0));
         }
-        for (int i = 0; i <10; i++) {
+        for (int i = 0; i <20; i++) {
             this.listeCarte.add(new CarteEtudianteModele(cE1,carteEtu1,"Manque de Chance ",1));
         }
         for (int i = 0; i <8; i++) {
@@ -82,110 +86,81 @@ public class PileCarteModele {
         for (int i = 0; i <4; i++) {
             this.listeCarte.add(new CarteEtudianteModele(cE4,carteEtu4,"Ne comptez plus sur la chance",4));
         }
-        for (int i = 0; i <3; i++) {
+        for (int i = 0; i <1; i++) {
             this.listeCarte.add(new CarteEtudianteModele(cE5,carteEtu5,"COURER",5));
         }
-        for (int i = 0; i <2; i++) {
+        for (int i = 0; i <1; i++) {
             this.listeCarte.add(new CarteEtudianteModele(cE6,carteEtu6,"AU SECOURS VITE ",6));
         }
         //Fiche UV
-        tab[0]="HUMA";
-        tab[1]=null;
-        tab[2]=null;
-        for (int i = 0; i <3; i++) {
-            this.listeCarte.add(new OutilValidationModele(cH,carteHuma,"Simple à trouver difficile à valider","Fiche Humanité",0,0,2,5,4,tab,3));
+        for (int i = 0; i <8; i++) {
+            this.listeCarte.add(new OutilValidationModele(cH,carteHuma,"Simple à trouver difficile à valider","Fiche Humanité",0,0,2,5,4,tab4,3));
         }
-        tab[0]="CS";
-        tab[1]=null;
-        tab[2]=null;
-        for (int i = 0; i <3; i++) {
-            this.listeCarte.add(new OutilValidationModele(cC,carteCs,"x*x+13600","Fiche Cs",0,0,2,5,4,tab,3));
+
+        for (int i = 0; i <8; i++) {
+            this.listeCarte.add(new OutilValidationModele(cC,carteCs,"x*x+13600","Fiche Cs",0,0,2,5,4,tab1,3));
         }
-        tab[0]="TM";
-        tab[1]=null;
-        tab[2]=null;
-        for (int i = 0; i <3; i++) {
-            this.listeCarte.add(new OutilValidationModele(cT,carteTM,"Beaucoup de choix","Fiche Tm",0,0,2,5,4,tab,3));
+
+        for (int i = 0; i <8; i++) {
+            this.listeCarte.add(new OutilValidationModele(cT,carteTM,"Beaucoup de choix","Fiche Tm",0,0,2,5,4,tab6,3));
         }
-        tab[0]="HUMA";
-        tab[1]=null;
-        tab[2]=null;
-        for (int i = 0; i <2; i++) {
-            this.listeCarte.add(new OutilValidationModele(cHMS,carteHumaMultiSite,"Basique mais fantastique","Fiche Huma multi-sites",0,0,4,4,4,tab,4));
+
+        for (int i = 0; i <4; i++) {
+            this.listeCarte.add(new OutilValidationModele(cHMS,carteHumaMultiSite,"Basique mais fantastique","Fiche Huma multi-sites",0,0,4,4,4,tab4,4));
         }
-        tab[0]="CS";
-        tab[1]=null;
-        tab[2]=null;
-        for (int i = 0; i <2; i++) {
-            this.listeCarte.add(new OutilValidationModele(cCMS,carteCsMultiSite,"Mathématique tu feras","Fiche Cs multi-sites",0,0,4,4,4,tab,4));
+
+        for (int i = 0; i <4; i++) {
+            this.listeCarte.add(new OutilValidationModele(cCMS,carteCsMultiSite,"Mathématique tu feras","Fiche Cs multi-sites",0,0,4,4,4,tab1,4));
         }
-        tab[0]="TM";
-        tab[1]=null;
-        tab[2]=null;
-        for (int i = 0; i <2; i++) {
-            this.listeCarte.add(new OutilValidationModele(cTMS,carteTmMultiSite,"Coder ta mission sera","Fiche Tm multi-sites",0,0,4,4,4,tab,4));
+
+        for (int i = 0; i <4; i++) {
+            this.listeCarte.add(new OutilValidationModele(cTMS,carteTmMultiSite,"Coder ta mission sera","Fiche Tm multi-sites",0,0,4,4,4,tab6,4));
         }
-        tab[0]="CS";
-        tab[1]="HUMA";
-        tab[2]="TM";
-        for (int i = 0; i <2; i++) {
-            this.listeCarte.add(new OutilValidationModele(cMUTA,carteMultiUVTa,"Ephémère...ment destructeur ","Fiche multi Uv abimée ",0,0,6,1,5,tab,5));
+
+        for (int i = 0; i <4; i++) {
+            this.listeCarte.add(new OutilValidationModele(cMUTA,carteMultiUVTa,"Ephémère...ment destructeur ","Fiche multi Uv abimée ",0,0,6,1,5,tab3,5));
         }
         for (int i = 0; i <1; i++) {
-            this.listeCarte.add(new OutilValidationModele(cMUA,carteMultiUVA,"La chance comme dirait Larry","Fiche multi Uv déjà utilisé",0,0,6,2,5,tab,5));
+            this.listeCarte.add(new OutilValidationModele(cMUA,carteMultiUVA,"La chance comme dirait Larry","Fiche multi Uv déjà utilisé",0,0,6,2,5,tab3,5));
         }
         for (int i = 0; i <1; i++) {
-            this.listeCarte.add(new OutilValidationModele(cMUN,carteMultiUVN,"Le saint graal : <c'est pas faux >","Fiche multi Uv fraichement imprimé",0,0,5,3,5,tab,5));
+            this.listeCarte.add(new OutilValidationModele(cMUN,carteMultiUVN,"Le saint graal : <c'est pas faux >","Fiche multi Uv fraichement imprimé",0,0,5,3,5,tab3,5));
         }
         //Tampon Encreur
-        tab[0]="HUMA";
-        tab[1]=null;
-        tab[2]=null;
-        for (int i = 0; i <2; i++) {
-            this.listeCarte.add(new OutilValidationModele(tHI,tH,"Classique mais pas fantastique","Tampon Huma",0,1,2,5,3,tab,4));
+
+        for (int i = 0; i <5; i++) {
+            this.listeCarte.add(new OutilValidationModele(tHI,tH,"Classique mais pas fantastique","Tampon Huma",0,1,2,5,3,tab4,4));
         }
-        tab[0]="CS";
-        tab[1]=null;
-        tab[2]=null;
-        for (int i = 0; i <2; i++) {
-            this.listeCarte.add(new OutilValidationModele(tCI,tC,"2*12+3455/3446","Tampon CS",0,1,2,5,3,tab,4));
+
+        for (int i = 0; i <5; i++) {
+            this.listeCarte.add(new OutilValidationModele(tCI,tC,"2*12+3455/3446","Tampon CS",0,1,2,5,3,tab1,4));
         }
-        tab[0]="TM";
-        tab[1]=null;
-        tab[2]=null;
-        for (int i = 0; i <2; i++) {
-            this.listeCarte.add(new OutilValidationModele(tTI,tT,"Beaucoup de choix","Tampon TM",0,1,2,5,3,tab,4));
+
+        for (int i = 0; i <5; i++) {
+            this.listeCarte.add(new OutilValidationModele(tTI,tT,"Beaucoup de choix","Tampon TM",0,1,2,5,3,tab6,4));
         }
-        tab[0]="CS";
-        tab[1]=null;
-        tab[2]=null;
-        for (int i = 0; i <2; i++) {
-            this.listeCarte.add(new OutilValidationModele(tCMsI,tCMs,"Math Physique Super","Tampon Cs multi-site",0,1,4,4,3,tab,4));
+
+        for (int i = 0; i <4; i++) {
+            this.listeCarte.add(new OutilValidationModele(tCMsI,tCMs,"Math Physique Super","Tampon Cs multi-site",0,1,4,4,3,tab1,4));
         }
-        tab[0]="HUMA";
-        tab[1]=null;
-        tab[2]=null;
-        for (int i = 0; i <2; i++) {
-            this.listeCarte.add(new OutilValidationModele(tHMsI,tHMs,"Fantastique","Tampon Huma multi-site",0,1,4,4,3,tab,4));
+
+        for (int i = 0; i <4; i++) {
+            this.listeCarte.add(new OutilValidationModele(tHMsI,tHMs,"Fantastique","Tampon Huma multi-site",0,1,4,4,3,tab4,4));
         }
-        tab[0]="TM";
-        tab[1]=null;
-        tab[2]=null;
-        for (int i = 0; i <2; i++) {
-            this.listeCarte.add(new OutilValidationModele(tTMsI,tTMs,"Beaucoup de choix grace à ca","Tampon Tm multi-site",0,1,4,4,3,tab,4));
+
+        for (int i = 0; i <4; i++) {
+            this.listeCarte.add(new OutilValidationModele(tTMsI,tTMs,"Beaucoup de choix grace à ca","Tampon Tm multi-site",0,1,4,4,3,tab6,4));
         }
-        tab[0]="TM";
-        tab[1]="CS";
-        tab[2]="HUMA";
+
         for (int i = 0; i <1; i++) {
-            this.listeCarte.add(new OutilValidationModele(tMUNI,tMUN,"Vraiment chanceux ","Tampon Multi Uv ",0,1,5,3,5,tab,5));
+            this.listeCarte.add(new OutilValidationModele(tMUNI,tMUN,"Vraiment chanceux ","Tampon Multi Uv ",0,1,5,3,5,tab3,5));
         }
         for (int i = 0; i <1; i++) {
-            this.listeCarte.add(new OutilValidationModele(tMUVI,tMUV,"Plutot chanceux ","Tampon Multi Uv ",0,1,5,2,5,tab,5));
+            this.listeCarte.add(new OutilValidationModele(tMUVI,tMUV,"Plutot chanceux ","Tampon Multi Uv ",0,1,5,2,5,tab3,5));
         }
         for (int i = 0; i <1; i++) {
 
-            this.listeCarte.add(new OutilValidationModele(tMUTVI,tMUTV,"Un peu de chance mais pas trop non plus ","Tampon Multi Uv ",0,1,5,1,5,tab,5));
+            this.listeCarte.add(new OutilValidationModele(tMUTVI,tMUTV,"Un peu de chance mais pas trop non plus ","Tampon Multi Uv ",0,1,5,1,5,tab3,5));
         }
         }catch (IOException e){System.out.print("FATAL ERROR");}
     }

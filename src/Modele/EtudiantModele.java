@@ -22,8 +22,7 @@ public class EtudiantModele extends PersonnageModele {
            while (parcours < per.size()) {
                    if (per.get(parcours) instanceof PersonnageModele) {
                        if (per.get(parcours) instanceof ProfModele) {
-                           System.out.println("dégat Prof"+ per.get(parcours).getNom()+"   "+per.get(parcours).getNom());
-                           (per.get(parcours)).setPv((per.get(parcours)).getPv() - this.getNbDemandeValidation());
+                            (per.get(parcours)).setPv((per.get(parcours)).getPv() - this.getNbDemandeValidation());
                            parcours++;
 
 
@@ -34,6 +33,7 @@ public class EtudiantModele extends PersonnageModele {
                        for (int i = 0; i < per.size(); i++) {
                            if (per.get(i) instanceof ProfModele) {
                                if ((per.get(i)).isValider()) {
+                                   per.get(i).getMaCase().getCompElemCase().remove(per.get(i));
                                    per.remove(i);
                                }
                            }
