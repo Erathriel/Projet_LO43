@@ -99,6 +99,7 @@ public class ProfModele extends PersonnageModele implements SpecialiteModele{
                     ) {
                        if(type!=null && typeE !=null) {
                            if (typeE.compareTo(type) == 0) {
+                               System.out.println(type+"   "+typeE);
                                validationPossible = true;
                            }
                        }

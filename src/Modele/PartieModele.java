@@ -61,7 +61,7 @@ public class PartieModele {
             this.plateau.getCompTuile().get(13).getCompCase()[2][1].getCompElemCase().add(this.machineCafeModele.get(2));
         }
         catch(Exception e ){
-            System.out.println("Error Reading File");
+            System.out.println("Error Reading File partie file");
         }
     }
     public int getTourActuel() {

@@ -13,7 +13,7 @@ import java.io.IOException;
 public class MenuPanel extends JPanel {
     private BufferedImage background;
     //résolution image entière menu 1260/700
-    MenuPanel(PartieControlleur control){
+    MenuPanel(){
         super(new GridBagLayout());
         try {
             background = ImageIO.read(new File("C:/Users/cleme/OneDrive/Images/overlay4.png"));

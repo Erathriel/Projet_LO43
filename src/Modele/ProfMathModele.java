@@ -6,7 +6,7 @@ import java.awt.*;
 import java.io.File;
 
 public class ProfMathModele extends ProfModele {
-    ProfMathModele(Image image, CaseModele maCase, int pv, int pa, String nom, boolean jouable, int  exp){
+    public ProfMathModele(Image image, CaseModele maCase, int pv, int pa, String nom, boolean jouable, int exp){
         super(image, maCase,pv,pa,nom,jouable,exp);
         try{
             File nomImage = new File("img/mathinfo.png");

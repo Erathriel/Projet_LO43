@@ -15,11 +15,15 @@ import java.util.ArrayList;
 public class PlateauPanel extends JPanel {
     private PlateauModele plateau;
     private char[][] map;
+    private CaseModele[][] cases;
 
     public PlateauPanel(PlateauModele pm) {
         super();
         this.plateau = pm;
         this.map = new char[25][25];
+        this.cases=map();
+        this.updateListeTuile();
+
     }
 
     // affichage de la map en console
@@ -166,7 +170,7 @@ public class PlateauPanel extends JPanel {
     }
 
     public void updateListeTuile(){
-        this.plateau.setCompTuile(listeTuile(map()));
+        this.plateau.setCompTuile(listeTuile(this.cases));
     }
 
     // verifie si le tableau est vide
@@ -388,14 +392,31 @@ public class PlateauPanel extends JPanel {
     // Affichage graphique de la map
     public void afficheMapGraphique(Graphics g) throws IOException {
         System.out.println("Repaint");
-            CaseModele[][] cases = map();
+        try {
+            /*File nomImage = new File("img/profhuma.png");
+            Image profHuma = ImageIO.read(nomImage.getAbsoluteFile());
+            nomImage = new File("img/profinfo.png");
+            Image profInfo = ImageIO.read(nomImage.getAbsoluteFile());
+            nomImage = new File("img/profmath.png");
+            Image profMath = ImageIO.read(nomImage.getAbsoluteFile());
+            nomImage = new File("img/profpysique.png");
+            Image profPhysique = ImageIO.read(nomImage.getAbsoluteFile());
+            cases[1][1].getCompElemCase().add(new ProfHumaModele(profHuma, this.plateau.getCompTuile().get(0).getCompCase()[2][2], 25, 3, "Prof Huma", true, 0));
+            cases[1][1].getCompElemCase().add(new ProfMathModele(profMath, this.plateau.getCompTuile().get(0).getCompCase()[2][2], 25, 3, "Prof Math", true, 0));
+            cases[1][1].getCompElemCase().add(new ProfInfoModele(profInfo, this.plateau.getCompTuile().get(0).getCompCase()[2][2], 25, 3, "Prof Info", true, 0));
+            cases[1][1].getCompElemCase().add(new ProfPhysiqueModele(profPhysique, this.plateau.getCompTuile().get(0).getCompCase()[2][2], 25, 3, "Prof Physique", true, 0));*/
+        }catch(Exception e){
+
+            }
             for (int i=0; i<25; i++){
                 for (int j=0; j<25; j++){
-                    for(ElemCaseModele e:cases[i][j].getCompElemCase()){
-                        if(e instanceof ProfModele) {
+                    if(this.cases[i][j].getCompElemCase().size()>1){
+                        System.out.println("Reggarde");
+                    }
+                    for(ElemCaseModele e:this.cases[i][j].getCompElemCase()){
+
                             g.drawImage(e.getImage(), j * 35, i * 35, null);
-                            System.out.println("Professeur");
-                        }
+
                     }
                 }
             }
