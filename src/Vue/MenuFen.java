@@ -21,6 +21,15 @@ public class MenuFen extends JFrame {
         this.add(mPanel);
     }
 
+    public void launch(){
+        PartieModele mPartie=new PartieModele();
+        //PartieVue vPartie=new PartieVue(mPartie);
+        GameFen g= new GameFen(mPartie);
+        PartieControlleur control=new PartieControlleur(mPartie,g);
+        mPartie.creationPersoObjM();
+        control.jeu();
+    }
+
     public MenuPanel getmPanel() {
         return mPanel;
     }

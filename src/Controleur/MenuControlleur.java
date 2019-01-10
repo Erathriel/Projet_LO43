@@ -17,12 +17,7 @@ public class MenuControlleur implements KeyListener, MouseListener, ActionListen
     @Override
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == mMenu.getmPanel().getB1()) {
-            PartieModele mPartie=new PartieModele();
-            //PartieVue vPartie=new PartieVue(mPartie);
-            GameFen g= new GameFen(mPartie);
-            PartieControlleur control=new PartieControlleur(mPartie,g);
-            mPartie.creationPersoObjM();
-            control.jeu();
+            mMenu.launch();
         }
         /*if (e.getSource() == mMenu.getmPanel().getB2()) {
 

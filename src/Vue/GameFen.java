@@ -38,14 +38,14 @@ public class GameFen extends JFrame {
         this.gamePane.getGamePanelInfo().repaint();
         this.gamePane.repaint();
     }
-    public static void main(String Args[]){
+    /*public static void main(String Args[]){
         PartieModele mPartie=new PartieModele();
         //PartieVue vPartie=new PartieVue(mPartie);
         GameFen g= new GameFen(mPartie);
         PartieControlleur control=new PartieControlleur(mPartie,g);
         mPartie.creationPersoObjM();
         control.jeu();
-    }
+    }*/
 
     public GamePane getGamePane() {
         return gamePane;
