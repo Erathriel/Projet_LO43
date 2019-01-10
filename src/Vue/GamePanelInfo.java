@@ -14,7 +14,7 @@ public class GamePanelInfo extends JPanel {
     private ProfModele p;
     GamePanelInfo(ProfModele p){
         super();
-        this.setPreferredSize(new Dimension(150,500));
+        this.setPreferredSize(new Dimension(450,500));
     }
     public void setJoueur(ProfModele p){
         this.p=p;

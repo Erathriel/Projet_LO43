@@ -273,7 +273,6 @@ public class PartieControlleur implements KeyListener, MouseListener, ActionList
         if (e.getSource() == gameFen.getGamePane().getGbp().getPasser()){
             this.actionJoueur=gameFen.getGamePane().getGbp().getPasser().getActionJoueur();
         }
+
     }
-
-
 }
