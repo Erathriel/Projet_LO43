@@ -54,20 +54,20 @@ public class PartieModele {
         this.listePerso.add(new ProfMathModele(profMath, this.plateau.getCompTuile().get(1).getCompCase()[2][2], 25, 3, "Prof Math", true, 0));
         this.listePerso.add(new ProfInfoModele(profInfo, this.plateau.getCompTuile().get(1).getCompCase()[2][2], 25, 3, "Prof Info", true, 0));
         this.listePerso.add(new ProfPhysiqueModele(profPhysique, this.plateau.getCompTuile().get(1).getCompCase()[2][2], 25, 3, "Prof Physique", true, 0));
-        this.listeObjectif.add(new ObjectifModele(objectif, this.plateau.getCompTuile().get(4).getCompCase()[2][2], false, 5));
+        this.listeObjectif.add(new ObjectifModele(objectif, this.plateau.getCompTuile().get(3).getCompCase()[2][2], false, 5));
         this.listeObjectif.add(new ObjectifModele(objectif, this.plateau.getCompTuile().get(10).getCompCase()[2][2], false, 5));
         this.listeObjectif.add(new ObjectifModele(objectif, this.plateau.getCompTuile().get(15).getCompCase()[2][2], false, 5));
-        this.machineCafeModele.add(new MachineCafeModele(cafe, this.plateau.getCompTuile().get(3).getCompCase()[2][1]));
+        this.machineCafeModele.add(new MachineCafeModele(cafe, this.plateau.getCompTuile().get(22).getCompCase()[2][1]));
         this.machineCafeModele.add(new MachineCafeModele(cafe, this.plateau.getCompTuile().get(8).getCompCase()[2][1]));
         this.plateau.getCompTuile().get(2).getCompCase()[2][2].getCompElemCase().add(new SortieModele(sortie, this.plateau.getCompTuile().get(24).getCompCase()[2][2]));
         this.plateau.getCompTuile().get(1).getCompCase()[2][2].getCompElemCase().add(this.listePerso.get(0));
         this.plateau.getCompTuile().get(1).getCompCase()[2][2].getCompElemCase().add(this.listePerso.get(1));
         this.plateau.getCompTuile().get(1).getCompCase()[2][2].getCompElemCase().add(this.listePerso.get(2));
         this.plateau.getCompTuile().get(1).getCompCase()[2][2].getCompElemCase().add(this.listePerso.get(3));
-        this.plateau.getCompTuile().get(4).getCompCase()[2][2].getCompElemCase().add(this.listeObjectif.get(0));
+        this.plateau.getCompTuile().get(3).getCompCase()[2][2].getCompElemCase().add(this.listeObjectif.get(0));
         this.plateau.getCompTuile().get(10).getCompCase()[2][2].getCompElemCase().add(this.listeObjectif.get(1));
         this.plateau.getCompTuile().get(15).getCompCase()[2][2].getCompElemCase().add(this.listeObjectif.get(2));
-        this.plateau.getCompTuile().get(3).getCompCase()[2][1].getCompElemCase().add(this.machineCafeModele.get(0));
+        this.plateau.getCompTuile().get(22).getCompCase()[2][1].getCompElemCase().add(this.machineCafeModele.get(0));
         this.plateau.getCompTuile().get(8).getCompCase()[2][1].getCompElemCase().add(this.machineCafeModele.get(1));
     }catch(Exception e ){
             System.out.println("Error Reading File partie file");

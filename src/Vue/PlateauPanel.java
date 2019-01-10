@@ -142,7 +142,7 @@ public class PlateauPanel extends JPanel {
             else if (compteur >= 20){
                 for (int i=0; i < 5; i++){
                     for (int j=0; j < 5; j++){
-                        casesTuile[i][j]=cases[i+((compteur%5)*5)][j+20];
+                        casesTuile[i][j]=cases[i+20][j+((compteur%5)*5)];
                         casesTuile[i][j].setMaTuile(tuilePlateau.get(compteur));
                         casesTuile[i][j].setCoordX(i);
                         casesTuile[i][j].setCoordY(j);
