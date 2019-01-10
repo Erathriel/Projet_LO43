@@ -14,7 +14,7 @@ public class MenuFen extends JFrame {
         super();
         mPanel = new MenuPanel();
         this.setTitle("Menu");
-        this.setExtendedState(JFrame.MAXIMIZED_BOTH);
+        this.setPreferredSize(new Dimension(450,500));
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setVisible(true);
         this.add(mPanel);
