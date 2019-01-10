@@ -1,0 +1,14 @@
+@startuml
+
+Package "Controleur" <<Frame>> #6E6E6E {
+    class Partie {
+    - tourActuel : int
+    + getTourActuel() : int
+    + setTourActuel() : void
+    }
+    class MenuCon {
+
+    }
+}
+
+@enduml

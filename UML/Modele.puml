@@ -1,0 +1,168 @@
+@startuml
+
+Package  "Modele" <<Frame>> #A4A4A4 {
+    class Plateau {
+    - nbTuile : int
+    + getPlateau() : Plateau
+    + setPlateau() : void
+    }
+    class Tuile {
+    - nbCase : int
+    - id : int
+    - tuileAccessible : Tuile []
+    + tuileContainProf() : boolean
+    + tuileContainEtu() : boolean
+    + setPersonnageSurTuile() : void
+    + getTuile() : Tuile
+    + setTuile() : void
+    + getId() : int
+    + setId() : int
+    + getTuileAccessible() : Tuile []
+    + setTuileAccessible() : void
+    }
+    class Case{
+    - maTuile : Tuile
+    - passable : boolean
+    - coordX : int
+    - coordY : int
+    + isPassable() : boolean
+    + getCoordX() : int
+    + getCoordY() : int
+    + getMaTuile() : Tuile
+    + setMaTuile() : void
+    }
+    abstract class ElemCase {
+    - image : Image
+    - MaCase : Case
+    + getImage() : Image
+    + setImage() : void
+    + getMaCase() : Case
+    +setMaCase() : void
+    }
+    class Mur
+    class Porte {
+    - verrouiller : boolean
+    + getVerrouiller() : boolean
+    + setVerrouiller() : void
+    }
+    class Objectif {
+    - activer : boolean
+    - expRapporte : int
+    + setActiver() : void
+    + getActiver() : boolean
+    + getExpRapporte() : int
+    }
+    class MachineCafe
+    abstract class Personnage {
+    - pv : int
+    - pa :int
+    - nom : String
+    - jouable : boolean
+    + getPv() : int
+    + setPv() : void
+    + getPa() : int
+    + setPa() : void
+    + getName() : String
+    + getJouable() : boolean
+    + setJouable() : void
+    'Attaque'
+    + valider() : void
+    + deplacement() : void
+    + reinitPa () : void
+    + passer() : void
+    + isValider() : boolean
+    }
+    class Prof {
+     - exp : int
+     + fouiller() : void
+     + ouvrirPorte() : void
+     + modifInventaire() : void
+     + activerObjectif() : void
+    }
+    class Etudiant {
+    - nbDemandeValidation : int
+    - typeUV : String []
+    - expRapporte : int
+    }
+    interface Specialite {
+        + capaciteActive() : void
+        + capacitePassive() : void
+    }
+    class Inventaire {
+    - capacite : int
+    - nbObjetActuel : int
+    + getnbObjetActuel() : int
+    + setObjetActuel() : void
+    + suppressionInventaire() : void
+    }
+    class Objet {
+    - nom : String
+    - emplacement : int
+    + getNom() : String
+    + setEmplacement() : void
+    + getEmplacement() : int
+    }
+    class Cle
+    class OutilValidation {
+    - portee : int
+    - nbUVVal : int
+    - nbActivation : int
+    - nbTentative : int
+    - tauxDeReussite : int
+    - typeUV : String []
+    + setNbActivation() : void
+    + getNbActivation() : int
+    + getTauxDeReussite() : int
+    }
+    abstract class Carte {
+    - Intitule : String
+    + getIntitule() : String
+    }
+    class CarteEtudiante {
+    - malchance : int
+    + apparition() : void
+    }
+    class PileCarte {
+    + remplir() : void
+    + pioche() : Carte
+    }
+    class ProfPhysique{
+    }
+    class ProfHuma{
+    }
+    class ProfMath {
+    }
+    class ProfInfo{
+    }
+    class Sol{
+    }
+    class Sortie{
+    }
+}
+'Relation
+Plateau "1" *-- "1-*" Tuile
+Tuile "1" *-- "1-*" Case
+Case "1" o-- "0-*" ElemCase
+ElemCase <|-- Mur
+ElemCase <|-- Objectif
+ElemCase <|-- MachineCafe
+ElemCase <|-- Personnage
+Tuile "1" o-- "0-*" Personnage
+Mur <|-- Porte
+Personnage <|-- Etudiant
+Personnage <|-- Prof
+Prof "1" -- "1" Inventaire
+ProfPhysique --|> Prof
+ProfHuma --|> Prof
+ProfInfo --|> Prof
+ProfMath --|> Prof
+Prof ..|> Specialite
+Inventaire o-- Objet
+Objet <|-- Cle
+Objet <|-- OutilValidation
+Carte <|-- Objet
+Carte <|-- CarteEtudiante
+PileCarte "1" *-- "0-*" Carte
+Sol --|> ElemCase
+Sortie --|> ElemCase
+@enduml
