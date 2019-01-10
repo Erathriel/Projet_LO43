@@ -88,6 +88,7 @@ public class ProfModele extends PersonnageModele implements SpecialiteModele{
 
     }
     public void valider(ArrayList<PersonnageModele> per,int indexObjet){
+        boolean validationImpossible=true;
         System.out.println("Nbr tentatives : "+((OutilValidationModele)this.inventaire.getContenuInventaire().get(indexObjet)).getNbTentative());
         int nbValidation=1,parcours=0,lancerDé;
         boolean validationPossible=false;
@@ -101,6 +102,7 @@ public class ProfModele extends PersonnageModele implements SpecialiteModele{
                            if (typeE.compareTo(type) == 0) {
                                System.out.println(type+"   "+typeE);
                                validationPossible = true;
+                               validationImpossible=false;
                            }
                        }
 
@@ -143,10 +145,18 @@ public class ProfModele extends PersonnageModele implements SpecialiteModele{
                 }
             }
         }
-        this.setPa(this.getPa()-1);
-        ((OutilValidationModele)this.inventaire.getContenuInventaire().get(indexObjet)).setNbActivation(((OutilValidationModele)this.inventaire.getContenuInventaire().get(indexObjet)).getNbActivation()-1);
-        if(((OutilValidationModele)this.inventaire.getContenuInventaire().get(indexObjet)).getNbActivation()<=0){
-            this.inventaire.getContenuInventaire().remove(indexObjet);
+        if(!validationImpossible) {
+            this.setPa(this.getPa() - 1);
+
+            ((OutilValidationModele) this.inventaire.getContenuInventaire().get(indexObjet)).setNbActivation(((OutilValidationModele) this.inventaire.getContenuInventaire().get(indexObjet)).getNbActivation() - 1);
+            if (((OutilValidationModele) this.inventaire.getContenuInventaire().get(indexObjet)).getNbActivation() <= 0) {
+                this.inventaire.getContenuInventaire().remove(indexObjet);
+            }
+        }
+        else{
+            JOptionPane d= new JOptionPane();
+            d.showMessageDialog(d,"Aucun étudiants n'a besoin de ce type d'UVs","Action Impossible",0);
+
         }
     }
 
