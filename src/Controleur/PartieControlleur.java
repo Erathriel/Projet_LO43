@@ -26,7 +26,7 @@ public class PartieControlleur implements KeyListener, MouseListener, ActionList
     }
 
     public void jeu() {
-        int exptot=0;
+        int exptot=0,exp=0;
         mPartie.creationPersoObjM();
         for (TuileModele t:mPartie.getPlateau().getCompTuile()){
             System.out.print(t.getId()+"\n");
@@ -122,7 +122,10 @@ public class PartieControlleur implements KeyListener, MouseListener, ActionList
                 p.setJouable(true);
                 p.setPa(p.getNbPa());
                 if(p instanceof ProfModele){
-                    exptot+=((ProfModele) p).getExp();
+                    exp=((ProfModele) p).getExp();
+                    if(exp>exptot){
+                        exptot=exp;
+                    }
                 }
             }
             for(MachineCafeModele m:this.mPartie.getMachineCafeModele()){
