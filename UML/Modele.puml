@@ -207,29 +207,35 @@ Package  "Modele" <<Frame>> #A4A4A4 {
     }
 }
 'Relation
-Plateau "1" *-- "1-*" Tuile
-Tuile "1" *-- "1-*" Case
-Case "1" o-- "0-*" ElemCase
-ElemCase <|-- Mur
-ElemCase <|-- Objectif
-ElemCase <|-- MachineCafe
-ElemCase <|-- Personnage
-Tuile "1" o-- "0-*" Personnage
-Mur <|-- Porte
-Personnage <|-- Etudiant
-Personnage <|-- Prof
-Prof "1" -- "1" Inventaire
-ProfPhysique --|> Prof
-ProfHuma --|> Prof
-ProfInfo --|> Prof
-ProfMath --|> Prof
-Prof ..|> Specialite
-Inventaire o-- Objet
-Objet <|-- Cle
-Objet <|-- OutilValidation
-Carte <|-- Objet
-Carte <|-- CarteEtudiante
-PileCarte "1" *-- "0-*" Carte
-Sol --|> ElemCase
-Sortie --|> ElemCase
+PartieModele "1" *-- "1-*" PersonnageModele
+PartieModele "1" *-- "1-*" ObjectifModele
+PartieModele "1" *-- "1-*" MachineCafeModele
+PartieModele "1" -- "1" PileCarteModele
+PartieModele "1" -- "1" PlateauModele
+PartieModele "1" -- "1" ProfModele
+PlateauModele "1" *-- "1-*" TuileModele
+TuileModele "1" *-- "1-*" CaseModele
+CaseModele "1" o-- "0-*" ElemCaseModele
+ElemCaseModele <|-- MurModele
+ElemCaseModele <|-- ObjectifModele
+ElemCaseModele <|-- MachineCafeModele
+ElemCaseModele <|-- PersonnageModele
+TuileModele "1" o-- "0-*" PersonnageModele
+MurModele <|-- PorteModele
+PersonnageModele <|-- EtudiantModele
+PersonnageModele <|-- ProfModele
+ProfModele "1" -- "1" InventaireModele
+ProfPhysiqueModele --|> ProfModele
+ProfHumaModele --|> ProfModele
+ProfInfoModele --|> ProfModele
+ProfMathModele --|> ProfModele
+ProfModele ..|> SpecialiteModele
+InventaireModele o-- ObjetModele
+ObjetModele <|-- CleModele
+ObjetModele <|-- OutilValidationModele
+CarteModele <|-- ObjetModele
+CarteModele <|-- CarteEtudianteModele
+PileCarteModele "1" *-- "0-*" CarteModele
+SolModele --|> ElemCaseModele
+SortieModele --|> ElemCaseModele
 @enduml
