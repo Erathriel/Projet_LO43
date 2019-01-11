@@ -1,142 +1,209 @@
 @startuml
 
 Package  "Modele" <<Frame>> #A4A4A4 {
-    class Plateau {
-    - nbTuile : int
-    + getPlateau() : Plateau
-    + setPlateau() : void
+    class PartieModele {
+    - tourActuel : int
+    - pileCarte : PileCarteModele
+    - plateau : PlateauModele
+    - joueurEnAction : ProfModele
+    + creationPersoObjM() : void
+    + getPileCarte() : PileCarteModele
+    + getPlateau() : PlateauModele
+    + getJoueurEnAction() : ProfModele
+    + setJoueurEnAction(ProfModele joueurEnAction) : void
     }
-    class Tuile {
+    class PlateauModele {
+    - nbTuile : int
+    }
+    class TuileModele {
     - nbCase : int
     - id : int
     - tuileAccessible : Tuile []
     + tuileContainProf() : boolean
     + tuileContainEtu() : boolean
-    + setPersonnageSurTuile() : void
-    + getTuile() : Tuile
-    + setTuile() : void
+    + rangementEtudiants() : void
+    + porteSurTuile() : void
+    + setPersOnTuile() : void
     + getId() : int
     + setId() : int
-    + getTuileAccessible() : Tuile []
+    + getTuileAccessible() : TuileModele []
     + setTuileAccessible() : void
+    + getPorteFermer() : ArrayList<CaseModele>
     }
-    class Case{
-    - maTuile : Tuile
+    class CaseModele {
+    - maTuileModele : Tuile
     - passable : boolean
     - coordX : int
     - coordY : int
-    + isPassable() : boolean
+    + containDoorLocked() : boolean
+    + nombreEtu() : int
+    + getPassable() : boolean
+    + setPassable(boolean passable)
     + getCoordX() : int
     + getCoordY() : int
-    + getMaTuile() : Tuile
-    + setMaTuile() : void
+    + setCoordX(int coordX)
+    + setCoordY(int coordY)
+    + getMaTuile() : TuileModele
+    + setMaTuile(TuileModele maTuile) : void
     }
-    abstract class ElemCase {
+    abstract class ElemCaseModele {
     - image : Image
-    - MaCase : Case
+    - MaCase : CaseModele
     + getImage() : Image
-    + setImage() : void
-    + getMaCase() : Case
-    +setMaCase() : void
+    + setImage(Image image) : void
+    + getMaCase() : CaseModele
+    + setMaCase(CaseModele maCase) : void
     }
-    class Mur
-    class Porte {
+    class MurModele{}
+    class PorteModele {
     - verrouiller : boolean
-    + getVerrouiller() : boolean
+    + isVerrouiller() : boolean
     + setVerrouiller() : void
     }
-    class Objectif {
+    class ObjectifModele {
     - activer : boolean
     - expRapporte : int
     + setActiver() : void
-    + getActiver() : boolean
+    + isActiver() : boolean
     + getExpRapporte() : int
     }
-    class MachineCafe
-    abstract class Personnage {
+    class MachineCafeModele {
+    + spawnDebutManche(PileCarteModele pile,int exptot)
+    }
+    abstract class PersonnageModele {
+    - nbPa : int
     - pv : int
     - pa :int
     - nom : String
     - jouable : boolean
     + getPv() : int
-    + setPv() : void
+    + setPv(int pv) : void
     + getPa() : int
-    + setPa() : void
-    + getName() : String
+    + setPa(int pa) : void
+    + getNom() : String
+    + setNom(String nom) : void
     + getJouable() : boolean
-    + setJouable() : void
+    + setJouable(boolean jouable) : void
+    + getNbPa()
+    + tourDeJeu()
     'Attaque'
-    + valider() : void
     + deplacement() : void
     + reinitPa () : void
     + passer() : void
     + isValider() : boolean
+    + setJouable(boolean jouable) : void
     }
-    class Prof {
+    class ProfModele {
      - exp : int
-     + fouiller() : void
-     + ouvrirPorte() : void
-     + modifInventaire() : void
+     - inventaire : InventaireModele
+     - info : BufferedImage
+     + choixOutilEtZone() : void
+     + valider(ArrayList<PersonnageModele> per,int indexObjet) : void
+     + fouiller(PileCarteModele p) : void
+     + choixPorte() : void
+     + ouvriPorte(PorteModele porte) : boolean
+     + choixModifInventaire() : void
+     + modifInventaire(int indexDépart,int indexArriv) : void
      + activerObjectif() : void
+     + deplacement() : void
+     + capaciteActive() : void
+     + capacitePassive() : void
+     + getExp() : int
+     + setExp(int exp) : void
+     + getInventaire() : InventaireModele
+     + setImage(BufferedImage img) : void
+     + getInfo() : BufferedImage
     }
-    class Etudiant {
+    class EtudiantModele {
     - nbDemandeValidation : int
     - typeUV : String []
     - expRapporte : int
+    + valider(ArrayList<PersonnageModele> per) : void
+    + deplacement() : void
+    + tourDeJeu() : void
+    + getNbDemandeValidation() : int
+    + setNbDemandeValidation(int nbDemandeValidation) : void
+    + getTypeUV() : String[]
+    + getExpRapporte() : int
     }
-    interface Specialite {
+    interface SpecialiteModele {
         + capaciteActive() : void
         + capacitePassive() : void
     }
-    class Inventaire {
+    class InventaireModele {
     - capacite : int
     - nbObjetActuel : int
-    + getnbObjetActuel() : int
-    + setObjetActuel() : void
-    + suppressionInventaire() : void
+    + getContenuInventaire() : ArrayList<ObjetModele>
+    + suppressionObjet(int index) : void
     }
-    class Objet {
+    class ObjetModele {
     - nom : String
     - emplacement : int
     + getNom() : String
-    + setEmplacement() : void
-    + getEmplacement() : int
     }
-    class Cle
-    class OutilValidation {
+    class CleModele{}
+    class OutilValidationModele {
     - portee : int
     - nbUVVal : int
     - nbActivation : int
     - nbTentative : int
     - tauxDeReussite : int
     - typeUV : String []
-    + setNbActivation() : void
+    + getModifier() : boolean
+    + setModifier() : void
     + getNbActivation() : int
+    + setNbActivation(int nbActivation) : void
+    + getNbTentative() : int
+    + setNbActivation(int nbTentative) : void
+    + getPortee() : int
+    + setPortee(int portee) : void
+    + getNbUVVal() : int
+    + getTypeUV() : String[]
     + getTauxDeReussite() : int
+    + setTauxDeReussite(int taux) : void
     }
-    abstract class Carte {
+    abstract class CarteModele {
     - Intitule : String
+    - img : BufferedImage
+    - imgI : ImageIcon
     + getIntitule() : String
+    + getImg() : BufferedImage
+    + getImgIcon() : ImageIcon
     }
-    class CarteEtudiante {
+    class CarteEtudianteModele {
     - malchance : int
-    + apparition() : void
+    + apparition(CaseModele c,int exp) : void
     }
-    class PileCarte {
-    + remplir() : void
-    + pioche() : Carte
+    class PileCarteModele {
+    - nbCarte : int
+    - listeCarte : ArrayList<CarteModele>
+    + remplissage() : void
+    + getNbCarte() : int
+    + setNbCarte(int nbCarte)
+    + getListeCarte() : ArrayList<CarteModele>
+    + setListeCarte() : void
     }
-    class ProfPhysique{
+    class ProfPhysiqueModele{
+    + capaciteActive() : void
+    + capacitePassive() : void
     }
-    class ProfHuma{
+    class ProfHumaModele{
+    + capaciteActive() : void
+    + capacitePassive() : void
     }
-    class ProfMath {
+    class ProfMathModele {
+    + capaciteActive() : void
+    + capacitePassive() : void
     }
-    class ProfInfo{
+    class ProfInfoModele{
+    + capaciteActive() : void
+    + capacitePassive() : void
     }
-    class Sol{
+    class SolModele{
+
     }
-    class Sortie{
+    class SortieModele{
+
     }
 }
 'Relation
