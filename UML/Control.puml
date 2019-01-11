@@ -11,9 +11,11 @@ Package "Controleur" <<Frame>> #6E6E6E {
         + acualisationTuile() : void
         + defaite() : boolean
         + victoire() : boolean
+        + actionPerformed(ActionEvent e) : void
     }
     class MenuControlleur {
         - mMenu : MenuFen
+        + actionPerformed(ActionEvent e) : void
     }
 }
 
