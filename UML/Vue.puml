@@ -10,7 +10,12 @@ Package "Vue" <<Frame>> #D8D8D8 {
     class InstructionFen
     class InstructionPane
     class InstructionJRadioButton
-    class GameFen
+    class GameFen{
+      - mPartie : PartieModele
+      - gamePane : GamePane
+      + repaintInfo() : void
+      +
+    }
     class GamePaneJoueur
     class GamePaneAction
     class GamePaneInfo
