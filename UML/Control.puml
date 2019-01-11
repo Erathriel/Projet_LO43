@@ -1,13 +1,19 @@
 @startuml
 
 Package "Controleur" <<Frame>> #6E6E6E {
-    class Partie {
-    - tourActuel : int
-    + getTourActuel() : int
-    + setTourActuel() : void
+    class PartieControlleur {
+        - mPartie : PartieModele
+        - gameFen : GameFen
+        - victoire : boolean
+        - defaite : boolean
+        - actionJoueur : int
+        + jeu() : void
+        + acualisationTuile() : void
+        + defaite() : boolean
+        + victoire() : boolean
     }
-    class MenuCon {
-
+    class MenuControlleur {
+        - mMenu : MenuFen
     }
 }
 
