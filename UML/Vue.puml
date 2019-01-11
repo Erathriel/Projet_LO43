@@ -1,106 +1,125 @@
 @startuml
 
-Package "Vue" <<Frame>> #D8D8D8 {
-    class MenuFen {
-      - mPanel : MenuPanel
-      + launch() : void
-      + getmPanel() : MenuPanel
-      + setmPanel(MenuPanel mPanel)
+    Package "Vue" <<Frame>> #D8D8D8 {
+        class MenuFen {
+          - mPanel : MenuPanel
+          + launch() : void
+          + getmPanel() : MenuPanel
+          + setmPanel(MenuPanel mPanel)
+        }
+        class MenuPanel{
+          - background : BufferedImage
+          - b1 : MenuJButton
+          - b2 : MenuJButton
+          - b3 : MenuJButton
+          + addListener() : void
+          + paintComponent() : void
+        }
+        class MenuJButton{
+          - imageNonSelect : Image
+          - imageSelect  : Image
+          + mouseEntered(MouseEvent e) : void
+          + mouseExited(MouseEvent e) : void
+        }
+        class GameFen{
+          - mPartie : PartieModele
+          - gamePane : GamePane
+          + repaintInfo(ProfModele p) : void
+          + getPartie() : PartieModele
+          + getGamePane() : GamePane
+          + setPartie(PartieModele partie) : void
+          + setGamePane(GamePane gamePane)
+        }
+        class GamePane {
+          - gamePanelInfo : GamePanelInfo
+          - plateau : PlateauPanel
+          - mpartie : PartieModele
+          - gbp : GameButtonpane
+          + initAttribut() : void
+          + getPlateau() : PlateauPanel
+          + getGamePanelInfo() : GamePanelInfo
+          + getGbp() : GameButtonpane
+          + setGbp(GameButtonpane gbp) : void
+          + setPlateau(PlateauPanel plateau) : void
+        }
+        class GamePanelInfo{
+          - p : ProfModele
+          + setJoueur() : void
+          + paintComponent(Graphics g) : void
+        }
+        class GameButtonPane{
+          - validation : GameButton
+          - fouiller : GameButton
+          - deplacer : GameButton
+          - ouvPorte : GameButton
+          - modifInv : GameButton
+          - actObj : GameButton
+          - capAct : GameButton
+          - capPas : GameButton
+          - passer : GameButton
+          + getValidation() : GameButton
+          + setValidation(GameButton validation) : void
+          + getFouiller() : GameButton
+          + setFouiller(GameButton fouiller) : void
+          + getDeplacer() : GameButton
+          + setDeplacer(GameButton deplacer) : void
+          + getOuvPorte() : GameButton
+          + setOuvPorte(GameButton ouvPorte) : void
+          + getModifInv() : GameButton
+          + setModifInv(GameButton modifInv) : void
+          + getActObj() : GameButton
+          + setActObj(GameButton actObj) : void
+          + getCapAct() : GameButton
+          + setCapAct(GameButton capAct) : void
+          + getCapPas() : GameButton
+          + setCapPas(GameButton capPas) : void
+          + getPasser() : GameButton
+          + setPasser(GameButton passer) : void
+          + addListeners() : void
+        }
+        class GameButton{
+          - actionJoueur : int
+          + getActionJoueur() : int
+        }
+
+        class PlateauPanel{
+          - plateau : PlateauModele
+          - map : char[][]
+          - cases : CaseModele[][]
+          + affichageMapConsole(String name) : void
+          + parcoursMap(String name) : char[][]
+          + listeTuile(CaseModele[][] cases) : ArrayList<TuileModele>
+          + updateListeTuile() : void
+          + map() : CaseModele[][]
+          + afficheMapGraphique(Graphics g) : void
+          + paintComponent() : void
+        }
     }
-    class MenuPanel{
-      - background : BufferedImage
-      - b1 : MenuJButton
-      - b2 : MenuJButton
-      - b3 : MenuJButton
-      + addListener() : void
-      + paintComponent() : void
-    }
-    class MenuJButton{
-      - imageNonSelect : Image
-      - imageSelect  : Image
-      + mouseEntered(MouseEvent e) : void
-      + mouseExited(MouseEvent e) : void
-    }
-    class GameFen{
-      - mPartie : PartieModele
-      - gamePane : GamePane
-      + repaintInfo(ProfModele p) : void
-      + getPartie() : PartieModele
-      + getGamePane() : GamePane
-      + setPartie(PartieModele partie) : void
-      + setGamePane(GamePane gamePane)
-    }
-    class GamePane {
-      - gamePanelInfo : GamePanelInfo
-      - plateau : PlateauPanel
-      - mpartie : PartieModele
-      - gbp : GameButtonpane
-      + initAttribut() : void
-      + getPlateau() : PlateauPanel
-      + getGamePanelInfo() : GamePanelInfo
-      + getGbp() : GameButtonpane
-      + setGbp(GameButtonpane gbp) : void
-      + setPlateau(PlateauPanel plateau) : void
-    }
-    class GamePanelInfo{
-      - p : ProfModele
-      + setJoueur() : void
-      + paintComponent(Graphics g) : void
-    }
-    class GameButtonPane{
-      - validation : GameButton
-      - fouiller : GameButton
-      - deplacer : GameButton
-      - ouvPorte : GameButton
-      - modifInv : GameButton
-      - actObj : GameButton
-      - capAct : GameButton
-      - capPas : GameButton
-      - passer : GameButton
-      + getValidation() : GameButton
-      + setValidation(GameButton validation) : void
-      + getFouiller() : GameButton
-      + setFouiller(GameButton fouiller) : void
-      + getDeplacer() : GameButton
-      + setDeplacer(GameButton deplacer) : void
-      + getOuvPorte() : GameButton
-      + setOuvPorte(GameButton ouvPorte) : void
-      + getModifInv() : GameButton
-      + setModifInv(GameButton modifInv) : void
-      + getActObj() : GameButton
-      + setActObj(GameButton actObj) : void
-      + getCapAct() : GameButton
-      + setCapAct(GameButton capAct) : void
-      + getCapPas() : GameButton
-      + setCapPas(GameButton capPas) : void
-      + getPasser() : GameButton
-      + setPasser(GameButton passer) : void
-      + addListeners() : void
-    }
-    class GameButton{
-      - actionJoueur : int
-      + getActionJoueur() : int
+    Package "Controleur" <<Frame>> #6E6E6E {
+        class PartieControlleur {
+            - mPartie : PartieModele
+            - gameFen : GameFen
+            - victoire : boolean
+            - defaite : boolean
+            - actionJoueur : int
+            + jeu() : void
+            + acualisationTuile() : void
+            + defaite() : boolean
+            + victoire() : boolean
+            + actionPerformed(ActionEvent e) : void
+        }
+        class MenuControlleur {
+            - mMenu : MenuFen
+            + actionPerformed(ActionEvent e) : void
+        }
     }
 
-    class PlateauPanel{
-      - plateau : PlateauModele
-      - map : char[][]
-      - cases : CaseModele[][]
-      + affichageMapConsole(String name) : void
-      + parcoursMap(String name) : char[][]
-      + listeTuile(CaseModele[][] cases) : ArrayList<TuileModele>
-      + updateListeTuile() : void
-      + map() : CaseModele[][]
-      + afficheMapGraphique(Graphics g) : void
-      + paintComponent() : void
-    }
-}
-MenuFen "1" -- "1" MenuPanel
-MenuPanel "1" -- "3" MenuJButton
-GameFen "1" -- "1" GamePane
-GamePane "1" -- "1" PlateauPanel
-GamePane "1" -- "1" GamePanelInfo
-GamePane "1" -- "1" GameButtonPane
-GameButtonPane "1" -- "9" GameButton
+    MenuFen "1" -- "1" MenuPanel
+    MenuPanel "1" -- "3" MenuJButton
+    GameFen "1" -- "1" GamePane
+    GamePane "1" -- "1" PlateauPanel
+    GamePane "1" -- "1" GamePanelInfo
+    GamePane "1" -- "1" GameButtonPane
+    GameButtonPane "1" -- "9" GameButton
 
 @enduml
