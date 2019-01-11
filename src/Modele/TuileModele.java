@@ -24,7 +24,8 @@ public class TuileModele {
         this.plateau=plateau;
     }
     // Methode
-    public void rangementEtudiants(){
+    public void rangementEtudiants(){//Permet de dispatcher les étudiants qui sont sur les cases de la
+        // tuile pour qu'ils soient le moins possible sur la même case
         this.setPersOnTuile();
         ArrayList<EtudiantModele> etuAPlacer=new ArrayList<EtudiantModele>();
         if(this.tuileContainEtu())
@@ -93,6 +94,7 @@ public class TuileModele {
         }
     }
     public void porteSurTuile(){
+        // Creer un liste qui regroupe toute les cases avec une porte fermer
         this.porteFermer=new ArrayList<CaseModele>();
         for (CaseModele[] c:this.compCase) {
             for (CaseModele cp : c) {
@@ -103,6 +105,7 @@ public class TuileModele {
         }
     }
     public void setPersOnTuile(){
+        //récupère tout les PersonnageModele sur les différentes cases de la tuile
         this.persOnTuile=new ArrayList<PersonnageModele>();
         for (CaseModele[] c:this.compCase) {
             for (CaseModele cp : c){
@@ -119,6 +122,7 @@ public class TuileModele {
         }
     }
     public boolean tuileContainProf(){
+        // return true si il y a un ProfModele sur la tuile
         for (PersonnageModele p: this.persOnTuile) {
             if(p instanceof ProfModele)
             {
@@ -128,6 +132,7 @@ public class TuileModele {
         return false;
     }
     public boolean tuileContainEtu(){
+        // return false si il y a un EtudiantModele sur la tuile
         for (PersonnageModele p: this.persOnTuile) {
             if(p instanceof EtudiantModele)
             {
@@ -167,6 +172,7 @@ public class TuileModele {
         return compCase;
     }
     public void setTuileAccessible(){
+        // Récupère toutes les tuiles ou il sera possible de ce deplacer
         this.tuileAccessible=new ArrayList<TuileModele>();
         if(compCase[0][2].getPassable())
         {

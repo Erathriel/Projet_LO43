@@ -19,6 +19,7 @@ public class ProfModele extends PersonnageModele implements SpecialiteModele{
 
     // Methodes
     public void choixOutilEtZone() {
+        //Choix de l'outil de validation si plus que 2 et si il possede une portee choix de la tuile cible
         int rangOutil;
       if(this.inventaire.getContenuInventaire().size()!=0){
           if (inventaire.getContenuInventaire().size() >= 2) {
@@ -94,6 +95,7 @@ public class ProfModele extends PersonnageModele implements SpecialiteModele{
 
     }
     public void valider(ArrayList<PersonnageModele> per,int indexObjet){
+        //fait les lancer de dés et applique la validation d'uv et d'étudiants si il y en a eu
         boolean validationImpossible=true;
         System.out.println("Nbr tentatives : "+((OutilValidationModele)this.inventaire.getContenuInventaire().get(indexObjet)).getNbTentative());
         int nbValidation=1,parcours=0,lancerDé;
@@ -165,6 +167,7 @@ public class ProfModele extends PersonnageModele implements SpecialiteModele{
     }
 
     public void fouiller(PileCarteModele p){
+        //Pioche une carte et l'ajoute si objet ou fait apparaitre etudiants si carte etudiant
         int card = (int) (Math.random()*(p.getListeCarte().size()));
        CarteModele c =p.getListeCarte().get(card);
        p.getListeCarte().remove(card);
@@ -211,6 +214,7 @@ public class ProfModele extends PersonnageModele implements SpecialiteModele{
         this.setPa(this.getPa()-1);
     }
     public void choixPorte(){
+        // choix d'une porte et lance la procedure d'ouverture et aussi celle de l'autre côté de la porte
         int x=0,y=0;
         if(this.getMaCase().getMaTuile().getPorteFermer().size()>0){
             String tab[]= new String[this.getMaCase().getMaTuile().getPorteFermer().size()];
@@ -330,6 +334,7 @@ public class ProfModele extends PersonnageModele implements SpecialiteModele{
          }
     }
     public void choixModifInventaire(){
+        //Choix d'un objet dans l'inventaire au place 3 à 5 et changement ave cun dans le splaces 1 à 2
         if(this.getInventaire().getContenuInventaire().size()>2)
         {
             String tab1[]={this.getInventaire().getContenuInventaire().get(0).getNom(),this.getInventaire().getContenuInventaire().get(1).getNom()};
@@ -348,6 +353,7 @@ public class ProfModele extends PersonnageModele implements SpecialiteModele{
         }
     }
     public void modifInventaire(int indexDépart,int indexArriv){
+        //switch les place des deux objets dans l'inventaire
         ObjetModele switchO;
         switchO=this.inventaire.getContenuInventaire().get(indexDépart);
         this.inventaire.getContenuInventaire().set(indexDépart,this.inventaire.getContenuInventaire().get(indexArriv));
@@ -355,6 +361,7 @@ public class ProfModele extends PersonnageModele implements SpecialiteModele{
     }
 
     public boolean activerObjectif(){
+        //regarde si la case contient un objectif si oui l'active
         boolean activation=false;
         int exp=0;
         for (ElemCaseModele e:this.getMaCase().getCompElemCase()) {
@@ -381,8 +388,9 @@ public class ProfModele extends PersonnageModele implements SpecialiteModele{
 
     @Override
     public void deplacement() {
+        // choix de la tuile sur laquelle il va aller
         JOptionPane d = new JOptionPane();
-        if(!this.getMaCase().getMaTuile().tuileContainEtu())
+        if(!this.getMaCase().getMaTuile().tuileContainEtu())//Regarde si il n'y a aucun etudiants sur la tuile actuelle
         {
            if(this.getMaCase().getMaTuile().getTuileAccessible().size()>0) {
                CaseModele anciennePosition = this.getMaCase();
