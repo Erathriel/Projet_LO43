@@ -19,6 +19,7 @@
 
         class PlateauPanel{
         }
+
     }
     Package  "Modele" <<Frame>> #A4A4A4 {
         class PartieModele {
@@ -31,7 +32,8 @@
         }
         abstract class ElemCaseModele {
         }
-        class MurModele{}
+        class MurModele{
+        }
         class PorteModele {
         }
         class ObjectifModele {
@@ -48,7 +50,8 @@
         }
         class ObjetModele {
         }
-        class CleModele{}
+        class CleModele{
+        }
         class OutilValidationModele {
         }
         abstract class CarteModele {
@@ -71,7 +74,15 @@
         class SortieModele{
 
         }
+        class EtudiantModele
     }
+     Package "Controleur" <<Frame>> #6E6E6E {
+            class PartieControlleur {
+                 }
+            class MenuControlleur {
+                }
+        }
+
     'Relation
     MenuControlleur "1" -- "1" MenuFen
     PartieControleur "1" -- "1" PartieModele

@@ -37,6 +37,8 @@ public class ProfInfoModele extends ProfModele {
             }
         }
         if(action) {
+            JOptionPane d= new JOptionPane();
+            d.showMessageDialog(d,"Vous avez réduit de 2 le stress que les étudiants présent vont vous faire","Capacité Active activé",0);
             this.setPa(this.getPa() - 1);
         }
         else{

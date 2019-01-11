@@ -95,24 +95,6 @@
           + paintComponent() : void
         }
     }
-    Package "Controleur" <<Frame>> #6E6E6E {
-        class PartieControlleur {
-            - mPartie : PartieModele
-            - gameFen : GameFen
-            - victoire : boolean
-            - defaite : boolean
-            - actionJoueur : int
-            + jeu() : void
-            + acualisationTuile() : void
-            + defaite() : boolean
-            + victoire() : boolean
-            + actionPerformed(ActionEvent e) : void
-        }
-        class MenuControlleur {
-            - mMenu : MenuFen
-            + actionPerformed(ActionEvent e) : void
-        }
-    }
 
     MenuFen "1" -- "1" MenuPanel
     MenuPanel "1" -- "3" MenuJButton

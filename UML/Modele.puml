@@ -54,7 +54,8 @@ Package  "Modele" <<Frame>> #A4A4A4 {
     + getMaCase() : CaseModele
     + setMaCase(CaseModele maCase) : void
     }
-    class MurModele{}
+    class MurModele{
+    }
     class PorteModele {
     - verrouiller : boolean
     + isVerrouiller() : boolean
@@ -141,7 +142,8 @@ Package  "Modele" <<Frame>> #A4A4A4 {
     - emplacement : int
     + getNom() : String
     }
-    class CleModele{}
+    class CleModele{
+    }
     class OutilValidationModele {
     - portee : int
     - nbUVVal : int

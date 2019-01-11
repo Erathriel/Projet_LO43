@@ -33,6 +33,8 @@ public class ProfHumaModele extends ProfModele {
             }
         }
         if(action) {
+            JOptionPane d= new JOptionPane();
+            d.showMessageDialog(d,"Vous avez augmenté la resistance au stress des profs présent","Capacité Active activé",0);
             this.setPa(this.getPa() - 1);
         }
         else{

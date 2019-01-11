@@ -33,6 +33,8 @@ public class ProfMathModele extends ProfModele {
             }
         }
        if(action) {
+           JOptionPane d= new JOptionPane();
+           d.showMessageDialog(d,"Vous avez divisé par deux les UVs nécéssaires à la validation des étudiants présent ","Capacité Active activé",0);
            this.setPa(this.getPa() - 1);
        }
        else{
