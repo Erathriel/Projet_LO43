@@ -3,6 +3,7 @@ package Modele;
 import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
+import java.awt.image.BufferedImage;
 import java.io.File;
 
 public class ProfHumaModele extends ProfModele {
@@ -11,6 +12,10 @@ public class ProfHumaModele extends ProfModele {
         try{
             File nomImage = new File("img/humainfo.png");
             this.setImage(ImageIO.read(nomImage.getAbsoluteFile()));
+            String tab1[]={"CS",null,null};
+            BufferedImage carteCs= ImageIO.read(new File("img/Carte cs.png"));
+            ImageIcon cC= new ImageIcon("img/Carte cs.png");
+            this.getInventaire().getContenuInventaire().add(new OutilValidationModele(cC,carteCs,"x*x+13600","Fiche Cs",0,0,2,5,4,tab1,3));
         }
         catch(Exception e){
             System.out.println("Error Reading File prof huma");
@@ -20,6 +25,7 @@ public class ProfHumaModele extends ProfModele {
     @Override
     public void capaciteActive() {
         boolean action=false;
+        //Ajoute 10 pv a tout les profs qui se situe sur la même tuile
         for (PersonnageModele p:this.getMaCase().getMaTuile().getPersOnTuile()) {
             if(p instanceof ProfModele && p.getPv()<100){
                 action=true;
@@ -38,6 +44,7 @@ public class ProfHumaModele extends ProfModele {
 
     @Override
     public void capacitePassive() {
+        //Baisse le taux de reussite de toute ces armes non modifier
         boolean modif=false;
         for (ObjetModele o:this.getInventaire().getContenuInventaire()) {
             if(o instanceof OutilValidationModele){

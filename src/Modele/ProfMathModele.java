@@ -3,6 +3,7 @@ package Modele;
 import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
+import java.awt.image.BufferedImage;
 import java.io.File;
 
 public class ProfMathModele extends ProfModele {
@@ -11,6 +12,10 @@ public class ProfMathModele extends ProfModele {
         try{
             File nomImage = new File("img/mathinfo.png");
             this.setImage(ImageIO.read(nomImage.getAbsoluteFile()));
+            BufferedImage cle=ImageIO.read(new File("img/Cle.png"));
+            ImageIcon cleI=new ImageIcon("img/Cle.png");
+            this.getInventaire().getContenuInventaire().add(new CleModele(cleI,cle,"L'Objet Utile qui vous sauvera","Cle",0));
+
         }
         catch(Exception e){
             System.out.println("Error Reading File prof math");
@@ -20,6 +25,7 @@ public class ProfMathModele extends ProfModele {
     @Override
     public void capaciteActive() {
         boolean action=false;
+        //divise par deux la vie des étudiants
         for (PersonnageModele p:this.getMaCase().getMaTuile().getPersOnTuile()) {
             if(p instanceof EtudiantModele){
                 action=true;
@@ -39,6 +45,7 @@ public class ProfMathModele extends ProfModele {
     @Override
     public void capacitePassive() {
         boolean modif=false;
+        //Augmente de 2 le nbr d'activation des objets
         for (ObjetModele o:this.getInventaire().getContenuInventaire()) {
             if(o instanceof OutilValidationModele){
                 if(!((OutilValidationModele) o).getModifier()){

@@ -15,8 +15,7 @@ public class ProfInfoModele extends ProfModele {
             BufferedImage cle=ImageIO.read(new File("img/Cle.png"));
             ImageIcon cleI=new ImageIcon("img/Cle.png");
             this.getInventaire().getContenuInventaire().add(new CleModele(cleI,cle,"L'Objet Utile qui vous sauvera","Cle",0));
-            this.getInventaire().getContenuInventaire().add(new CleModele(cleI,cle,"L'Objet Utile qui vous sauvera","Cle",0));
-        }
+           }
         catch(Exception e){
             System.out.println("Error Reading File prof info");
         }
@@ -25,6 +24,7 @@ public class ProfInfoModele extends ProfModele {
     @Override
     public void capaciteActive() {
         boolean action=false;
+        //Baisse de 2 les degats infligés par les étudiants
         for (PersonnageModele p:this.getMaCase().getMaTuile().getPersOnTuile()) {
             if(p instanceof EtudiantModele){
                 if(((EtudiantModele)p).getNbDemandeValidation()>1) {
@@ -48,6 +48,7 @@ public class ProfInfoModele extends ProfModele {
     @Override
     public void capacitePassive() {
         boolean modif=false;
+        //augmente de 1 la portée des armes ou elle est de 0
         for (ObjetModele o:this.getInventaire().getContenuInventaire()) {
             if(o instanceof OutilValidationModele){
                 if(!((OutilValidationModele) o).getModifier()){

@@ -26,7 +26,7 @@ public class CaseModele {
         this.compElemCase=caseM.compElemCase;
     }
 
-    public boolean containDoorLocked(){
+    public boolean containDoorLocked(){//Sert à savoir si il y a une porte fermer sur cette case
         for (ElemCaseModele e:this.compElemCase) {
             if(e instanceof PorteModele){
                 if(((PorteModele) e).isVerrouiller())
@@ -38,7 +38,7 @@ public class CaseModele {
         return false;
 
     }
-    public int nombreEtu(){
+    public int nombreEtu(){//retourne le nombre d'étudiants présent sur la case
         int nbreEtu=0;
         for (ElemCaseModele e:this.getCompElemCase()) {
             if(e instanceof EtudiantModele){

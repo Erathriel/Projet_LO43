@@ -62,13 +62,19 @@ public class ProfModele extends PersonnageModele implements SpecialiteModele{
                     if (this.getMaCase().getMaTuile().tuileContainEtu()) {
                         this.valider(this.getMaCase().getMaTuile().getPersOnTuile(), rangOutil);
                     } else {
-                        System.out.println("Error aucune cible");
+
+                        JOptionPane d= new JOptionPane();
+                        d.showMessageDialog(d,"Aucune Cible","Action Impossible",0);
+
                     }
                 } else {
                     if (this.getMaCase().getMaTuile().getTuileAccessible().get(tuileViser).tuileContainEtu()) {
                         this.valider(this.getMaCase().getMaTuile().getTuileAccessible().get(tuileViser).getPersOnTuile(), rangOutil);
                     } else {
-                        System.out.println("Error Aucune cible valide");
+
+                        JOptionPane d= new JOptionPane();
+                        d.showMessageDialog(d,"Aucune cible","Action Impossible",0);
+
                     }
                 }
             }
@@ -100,7 +106,6 @@ public class ProfModele extends PersonnageModele implements SpecialiteModele{
                     ) {
                        if(type!=null && typeE !=null) {
                            if (typeE.compareTo(type) == 0) {
-                               System.out.println(type+"   "+typeE);
                                validationPossible = true;
                                validationImpossible=false;
                            }
@@ -111,7 +116,6 @@ public class ProfModele extends PersonnageModele implements SpecialiteModele{
 
                 if (validationPossible) {
                     lancerDé = (int) (Math.random() * (6)+1);
-                    System.out.print(lancerDé + " Lancer numéro : " + nbValidation + "  ");
                     if (lancerDé >= ((OutilValidationModele) this.inventaire.getContenuInventaire().get(indexObjet)).getTauxDeReussite()) {
                         (per.get(parcours)).setPv((per.get(parcours)).getPv() - ((OutilValidationModele) this.inventaire.getContenuInventaire().get(indexObjet)).getNbUVVal());
                         nbValidation++;

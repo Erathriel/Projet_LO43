@@ -25,6 +25,7 @@ public abstract class PersonnageModele extends ElemCaseModele {
 
     }
     public boolean isValider(){
+        /* Retourne si oui ou non le personnage est apte à jouer*/
         if(this.getPv()<=0)
         {
             return true;

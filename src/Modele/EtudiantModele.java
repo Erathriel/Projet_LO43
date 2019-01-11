@@ -16,7 +16,8 @@ public class EtudiantModele extends PersonnageModele {
         this.typeUV=typeUV;
         this.expRapporte=expRapporte;
     }
-    public void valider(ArrayList<PersonnageModele> per)
+    public void valider(ArrayList<PersonnageModele> per)//Recupère un liste de Personnage Modele et pour chaque prof
+            //baisse ces pv en fonction du nombre de demande de validation de l'étudiant
     {
            int parcours = 0;
            while (parcours < per.size()) {
@@ -46,7 +47,8 @@ public class EtudiantModele extends PersonnageModele {
            this.setPa(0);
     }
     public void deplacement()
-    {
+    {/*Récupère la liste des tuile accessible et les sépare entre celle ou des prof sont dessus et cell ou il n'y en a pas
+     si il existe une case avec des prof ou plusieur il ira sur une de ces cases aléatoirement*/
         if(!this.getMaCase().getMaTuile().tuileContainProf())
         {
             CaseModele anciennePosition=this.getMaCase();
@@ -86,6 +88,8 @@ public class EtudiantModele extends PersonnageModele {
     }
     public void tourDeJeu(){
         boolean attaque=true;
+        /* déroulement d'un tour de jeu pour etu si il y a des profs leurs demande une validation sinon ce déplace jusqu'a trouver un prof
+        * ou bien jusqu'a ne plus avoir de point d'action*/
         while(this.getPa()>0)
         {
             if (this.getMaCase().getMaTuile().tuileContainProf())

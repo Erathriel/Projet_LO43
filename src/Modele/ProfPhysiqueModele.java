@@ -3,6 +3,7 @@ package Modele;
 import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
+import java.awt.image.BufferedImage;
 import java.io.File;
 
 public class ProfPhysiqueModele extends ProfModele {
@@ -11,6 +12,10 @@ public class ProfPhysiqueModele extends ProfModele {
         try{
         File nomImage = new File("img/phyinfo.png");
         this.setImage(ImageIO.read(nomImage.getAbsoluteFile()));
+            String tab4[]={"TM",null,null};
+            BufferedImage carteTM= ImageIO.read(new File("img/Carte TM.png"));
+            ImageIcon cT= new ImageIcon("img/Carte TM.png");
+            this.getInventaire().getContenuInventaire().add(new OutilValidationModele(cT,carteTM,"Beaucoup de choix","Fiche Tm",0,0,2,5,4,tab4,3));
         }
         catch(Exception e){
             System.out.println("Error Reading File Prof physique");
@@ -20,6 +25,7 @@ public class ProfPhysiqueModele extends ProfModele {
     @Override
     public void capaciteActive() {
         boolean action=false;
+        //Empeche les etudiants présent sur la meme tuile de jouer leur prochain tour
         for (PersonnageModele p:this.getMaCase().getMaTuile().getPersOnTuile()) {
             if(p instanceof EtudiantModele){
                 action=true;
@@ -39,6 +45,7 @@ public class ProfPhysiqueModele extends ProfModele {
     @Override
     public void capacitePassive() {
         boolean modif=false;
+        //+3 laner de dés pour ces outils de validations
         for (ObjetModele o:this.getInventaire().getContenuInventaire()) {
             if(o instanceof OutilValidationModele){
                 if(!((OutilValidationModele) o).getModifier()){

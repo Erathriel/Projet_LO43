@@ -19,6 +19,7 @@ public class PorteModele extends MurModele {
     }
 
     public void setVerrouiller() {
+        /*Ouverture de la porte est change son image en fonction de la position de la case qui la contient */
         this.verrouiller = false;
         this.getMaCase().setPassable(true);
         try {

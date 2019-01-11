@@ -90,6 +90,7 @@ public class PartieControlleur implements KeyListener, MouseListener, ActionList
                                     ((ProfModele) p).choixModifInventaire();
                                     this.actualisationTuile();
                                     this.gameFen.repaintInfo(mPartie.getJoueurEnAction());
+                                    this.actionJoueur = 0;
                                     break;
                                 case 6:
                                     ObjectifModele obj=null;

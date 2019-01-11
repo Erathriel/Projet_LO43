@@ -16,7 +16,7 @@ public class CarteEtudianteModele extends CarteModele {
     }
 
     // Methodes
-    public void apparition(CaseModele c,int exp){
+    public void apparition(CaseModele c,int exp){// Fonction qui fait appraitre les nouveaux étudiants sur la case ou la carte est pioché
         try {
             String tab2[]={"CS","HUMA",null};
             String tab5[]={"CS","TM",null};
@@ -30,28 +30,27 @@ public class CarteEtudianteModele extends CarteModele {
             Image etuHumaTm=ImageIO.read(etuSimplef.getAbsoluteFile());
             etuSimplef= new File("img/elevenegligeant.png");
             Image etuHuma=ImageIO.read(etuSimplef.getAbsoluteFile());
+            //on va dans le if correspondant a la difficulté de la carte
+            //et on fait apparaître en fonction de l'experience
             if (this.malchance == 1) {
                 for (int i = 0; i < (exp / 25) + 1; i++) {
 
                     c.getCompElemCase().add(new EtudiantModele(etuSimple, c, 3, 2, "etudiant à l'heure", true, 2, tab2, 2));
                 }
             } else if (this.malchance == 2) {
+
                 for (int i = 0; i < (exp / 25) + 1; i++) {
 
-                    c.getCompElemCase().add(new EtudiantModele(etuSimple, c, 3, 2, "etudiant à l'heure", true, 2, tab2, 2));
-                }
-                for (int i = 0; i < (exp / 25) + 1; i++) {
-
-                    c.getCompElemCase().add(new EtudiantModele(etuCsTm, c, 10, 1, "etudiant en manque de TM CS", true, 2, tab5, 4));
+                    c.getCompElemCase().add(new EtudiantModele(etuCsTm, c, 1, 3, "etudiant en manque de TM CS", true, 4, tab5, 2));
                 }
             } else if (this.malchance == 3) {
                 for (int i = 0; i < (exp / 25) + 1; i++) {
 
-                    c.getCompElemCase().add(new EtudiantModele(etuCsTm, c, 3, 2, "etudiant en manque de TM CS", true, 2, tab5, 3));
+                    c.getCompElemCase().add(new EtudiantModele(etuCsTm, c, 1, 3, "etudiant en manque de TM CS", true, 2, tab5, 2));
                 }
                 for (int i = 0; i < (exp / 50) + 1; i++) {
 
-                    c.getCompElemCase().add(new EtudiantModele(etuHuma, c, 10, 1, "etudiant en manque d'HUMA", true, 2,  tab6, 6));
+                    c.getCompElemCase().add(new EtudiantModele(etuHuma, c, 5, 1, "etudiant en manque d'HUMA", true, 10,  tab6, 6));
                 }
             } else if (this.malchance == 4) {
                 for (int i = 0; i < (exp / 25) + 1; i++) {
@@ -60,28 +59,27 @@ public class CarteEtudianteModele extends CarteModele {
                 }
                 for (int i = 0; i < (exp / 50) + 1; i++) {
 
-                    c.getCompElemCase().add(new EtudiantModele(etuCsTm, c, 10, 1, "etudiant en manque de TM CS", true, 2,tab5, 4));
+                    c.getCompElemCase().add(new EtudiantModele(etuCsTm, c, 1, 3, "etudiant en manque de TM CS", true, 4,tab5, 2));
                 }
                 for (int i = 0; i < (exp / 75) + 1; i++) {
 
-                    c.getCompElemCase().add(new EtudiantModele(etuHumaTm, c, 1, 3, "etudiant en manque de TM HUMA", true, 2, tab7, 8));
+                    c.getCompElemCase().add(new EtudiantModele(etuHumaTm, c, 5, 1, "etudiant en manque de TM HUMA", true, 4, tab7, 8));
                 }
             } else if (this.malchance == 5) {
-
-                c.getCompElemCase().add(new EtudiantModele(etuHuma, c, 10, 1, "etudiant négligeant envers les HUMA", true, 10,  tab6, 20));
+                c.getCompElemCase().add(new EtudiantModele(etuHuma, c, 8, 1, "etudiant négligeant envers les HUMA", true, 10,  tab6, 20));
             } else if (this.malchance == 6) {
                 for (int i = 0; i < (exp / 25) + 1; i++) {
 
                     c.getCompElemCase().add(new EtudiantModele(etuSimple, c, 3, 2, "etudiant à l'heure", true, 2, tab2, 2));
                 }
                 for (int i = 0; i < (exp / 50) + 1; i++) {
-                    c.getCompElemCase().add(new EtudiantModele(etuCsTm, c, 5, 1, "etudiant en manque de TM CS", true, 2, tab5, 4));
+                    c.getCompElemCase().add(new EtudiantModele(etuCsTm, c, 1, 3, "etudiant en manque de TM CS", true, 4, tab5, 4));
                 }
                 for (int i = 0; i < (exp / 75) + 1; i++) {
-                    c.getCompElemCase().add(new EtudiantModele(etuHumaTm, c, 1, 3, "etudiant en manque de TM HUMA", true, 2, tab7, 8));
+                    c.getCompElemCase().add(new EtudiantModele(etuHumaTm, c, 5, 1, "etudiant en manque de TM HUMA", true, 4, tab7, 8));
                 }
 
-                c.getCompElemCase().add(new EtudiantModele(etuHuma, c, 10, 1, "etudiant négligeant envers les HUMA", true, 10,  tab6, 20));
+                c.getCompElemCase().add(new EtudiantModele(etuHuma, c, 8, 1, "etudiant négligeant envers les HUMA", true, 10,  tab6, 20));
 
             }
         }

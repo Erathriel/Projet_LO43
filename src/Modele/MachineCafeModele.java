@@ -10,6 +10,7 @@ public class MachineCafeModele extends ElemCaseModele{
     }
     public void spawnDebutManche(PileCarteModele pile,int exptot)
     {
+        /* Pioche une carte jusqu'a que se soit une carte étudiante*/
       boolean pioche=false;
       while(!pioche) {
           int card = (int) (Math.random() * (pile.getListeCarte().size()));

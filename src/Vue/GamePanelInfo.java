@@ -41,7 +41,7 @@ public class GamePanelInfo extends JPanel {
             y += 115;
             g.drawString(p.getNom(), 0, y);
             y += 15;
-            g.drawString("\n Point de Stress : " + p.getPv(), 0, y);
+            g.drawString("\n Résistance au stress : " + p.getPv(), 0, y);
             y += 15;
             g.drawString("\n Point d'action : " + p.getPa(), 0, y);
             y += 15;
@@ -57,7 +57,8 @@ public class GamePanelInfo extends JPanel {
                     }
             y-=20;
             g.drawString("Il y a "+etudiant+" étudiants sur la case",x,y);
-            g.drawString("Il y a "+etudiant+" étudiants sur la case ou vous êtes !",x,y);
+            y+=15;
+            g.drawString("ou vous êtes !",x,y);
         }
     }
 }

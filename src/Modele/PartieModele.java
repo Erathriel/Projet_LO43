@@ -28,6 +28,7 @@ public class PartieModele {
 
     // Getters et Setters
     public void creationPersoObjM() {
+        /*Initialisation des différent prof ainsi que des objectifs , de la sortie et des machines à café */
         Image profHuma;
         Image profInfo;
         Image profMath;
@@ -70,7 +71,7 @@ public class PartieModele {
         this.plateau.getCompTuile().get(22).getCompCase()[2][1].getCompElemCase().add(this.machineCafeModele.get(0));
         this.plateau.getCompTuile().get(8).getCompCase()[2][1].getCompElemCase().add(this.machineCafeModele.get(1));
     }catch(Exception e ){
-            System.out.println("Error Reading File partie file");
+            System.out.println("Error Reading File Partie modele");
         }
     }
     public int getTourActuel() {

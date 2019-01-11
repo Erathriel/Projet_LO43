@@ -16,7 +16,7 @@ public class InventaireModele {
     // Methodes
     public void suppressionObjet(int index){
         this.contenuInventaire.remove(index);
-    }
+    }//supprime l'objet à l'index voulu
     public ObjetModele objetInventaire(int i){
         return this.contenuInventaire.get(i);
     }
